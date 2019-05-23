@@ -18,5 +18,5 @@ The game’s success will be measured by two major criteria: Player’s satisfac
 - [Our features list](https://code.cs.umanitoba.ca/comp3350-summer2019/cards-9/issues?label_name%5B%5D=Feature)
 
 # Iterations
-- Iteration 1
+- [Iteration 1](https://code.cs.umanitoba.ca/comp3350-summer2019/cards-9/milestones/1)
   * [List of user stories for I1](https://code.cs.umanitoba.ca/comp3350-summer2019/cards-9/issues?label_name%5B%5D=User+Story)
