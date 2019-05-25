@@ -2,34 +2,21 @@ package com.example.memecards;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class CardLibraryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_card_library);
     }
 
     @Override
     protected void onResume () {
         super.onResume();
         hideActionBar();
-    }
-
-    /** Called when the user taps the StartGame button */
-    public void openStartGameActivity(View view) {
-        Intent intent = new Intent(this, StartGameActivity.class);
-        startActivity(intent);
-    }
-
-    /** Called when the user taps the CardLibrary button */
-    public void openCardLibraryActivity(View view) {
-        Intent intent = new Intent(this, CardLibraryActivity.class);
-        startActivity(intent);
     }
 
     /** Hides the status bar and action bar for an activity**/
