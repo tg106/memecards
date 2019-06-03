@@ -1,0 +1,34 @@
+{
+  "cards" : [
+    {
+      "name": "mockingSpongebob",
+      "description" : "TESt-DrIven DevELoPMEnT",
+      "upvotes" : 5900,
+      "path" : "\\res\\drawable\\mockingSpongebob.jpg"
+    },
+    {
+      "name": "surprisedPikachu",
+      "description" : "Segmentation fault",
+      "upvotes" : 2300,
+      "path" : "\\res\\drawable\\surprisedPikachu.jpg"
+    },
+    {
+      "name": "unsettledTom",
+      "description": "Me: *clears off table after dinner*\nDatabase team:",
+      "upvotes": 920,
+      "path": "\\res\\drawable\\unsettledTom.jpg"
+    },
+    {
+      "name": "pointingSpiderman",
+      "description" : "C++ vs. C=C+1",
+      "upvotes" : 3700,
+      "path" : "\\res\\drawable\\pointingSpiderman.jpg"
+    },
+    {
+      "name": "meAndTheBoys",
+      "description" : "Me and the boys before Iteration 1",
+      "upvotes" : 1080,
+      "path" : "\\res\\drawable\\meAndTheBoys.png"
+    }
+  ]
+}
