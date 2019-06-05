@@ -26,99 +26,99 @@
     },
     {
       "name": "meAndTheBoys",
-      "description" : "Me and the boys before Iteration 1",
+      "description" : "Me and the group putting off drawing the architecture diagrams",
       "upvotes" : 1080,
       "path" : "\\res\\drawable\\meAndTheBoys.png"
     },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
+      "name" : "tuxedoPooh",
+      "description" : "white\n#FFFFFF",
+      "upvotes" : 2030,
+      "path" : "\\res\\drawable\\tuxedoPooh"
     },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
-    }
+      "name" : "isThis",
+      "description" : "*making these memes* Is this android development?",
+      "upvotes" : 3400,
+      "path" : "\\res\\drawable\\isThis.jpg"
+    },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
-    }
+      "name" : "ahShit",
+      "description" : "",
+      "upvotes" : 2500,
+      "path" : "\\res\\drawable\\ahShit.jpg"
+    },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
-    }
+      "name" : "drake",
+      "description" : "" ,
+      "upvotes" : 3400,
+      "path" : "\\res\\drawable\\drake.jpg"
+    },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
-    }
+      "name" : "itAintMuch",
+      "description" : "" ,
+      "upvotes" : 4200,
+      "path" : "\\res\\drawable\\itAintMuch.jpg"
+    },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
-    }
+      "name" : "firstHalf",
+      "description" : "",
+      "upvotes" : 1240,
+      "path" : "\\res\\drawable\\firstHalf.jpg"
+    },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
-    }
+      "name" : "expandingBrain",
+      "description" : "",
+      "upvotes" : 2700,
+      "path" : "\\res\\drawable\\expandingBrain.jpg"
+    },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
-    }
+      "name" : "perfectlyBalanced",
+      "description" : "",
+      "upvotes" : 5100,
+      "path" : "\\res\\drawable\\expandingBrain"
+    },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
-    }
+      "name" : "chooseWisely",
+      "description" : "",
+      "upvotes" : 500,
+      "path" : "\\res\\drawable\\chooseWisely.png"
+    },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
-    }
+      "name" : "confusedNick",
+      "description" : "",
+      "upvotes" : 800,
+      "path" : "\\res\\drawable\\confusedNick.jpg"
+    },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
-    }
+      "name" : "guyLookingBack",
+      "description" : "",
+      "upvotes" : 3000,
+      "path" : "\\res\\drawable\\guyLookingBack.jpg"
+    },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
-    }
+      "name" : "guyStopping",
+      "description" : "",
+      "upvotes" : 400,
+      "path" : "\\res\\drawable\\guyStopping.png"
+    },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
-    }
+      "name" : "smashButton",
+      "description" : "",
+      "upvotes" : 1300,
+      "path" : "\\res\\drawable\\smashButton.jpg"
+    },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
-    }
+      "name" : "savagePatrick",
+      "description" : "",
+      "upvotes" : 3600,
+      "path" : "\\res\\drawable\\savagePatrick.png"
+    },
     {
-      "name" : ,
-      "description" : ,
-      "upvotes" : ,
-      "path" :
+      "name" : "monkeyLookAway",
+      "description" : "",
+      "upvotes" : 4800,
+      "path" : "\\res\\drawable\\monkeyLookAway.png"
     }
   ]
 }
