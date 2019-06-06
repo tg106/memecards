@@ -1,0 +1,124 @@
+{
+  "cards" : [
+    {
+      "name": "mockingSpongebob",
+      "description" : "TESt-DrIven DevELoPMEnT",
+      "upvotes" : 5900,
+      "fileName" : "mockingSpongebob.jpg"
+    },
+    {
+      "name": "surprisedPikachu",
+      "description" : "Segmentation fault",
+      "upvotes" : 2300,
+      "fileName" : "surprisedPikachu.jpg"
+    },
+    {
+      "name": "unsettledTom",
+      "description": "Me: *clears off table after dinner*\nDatabase team:",
+      "upvotes": 920,
+      "fileName": "unsettledTom.jpg"
+    },
+    {
+      "name": "pointingSpiderman",
+      "description" : "C++ vs. C=C+1",
+      "upvotes" : 3700,
+      "fileName" : "pointingSpiderman.jpg"
+    },
+    {
+      "name": "meAndTheBoys",
+      "description" : "Me and the group putting off drawing the architecture diagrams",
+      "upvotes" : 1080,
+      "fileName" : "meAndTheBoys.png"
+    },
+    {
+      "name" : "tuxedoPooh",
+      "description" : "white\n#FFFFFF",
+      "upvotes" : 2030,
+      "fileName" : "tuxedoPooh"
+    },
+    {
+      "name" : "isThis",
+      "description" : "*making these memes* Is this android development?",
+      "upvotes" : 3400,
+      "fileName" : "isThis.jpg"
+    },
+    {
+      "name" : "ahShit",
+      "description" : "",
+      "upvotes" : 2500,
+      "fileName" : "ahShit.jpg"
+    },
+    {
+      "name" : "drake",
+      "description" : "" ,
+      "upvotes" : 3400,
+      "fileName" : "drake.jpg"
+    },
+    {
+      "name" : "itAintMuch",
+      "description" : "" ,
+      "upvotes" : 4200,
+      "fileName" : "itAintMuch.jpg"
+    },
+    {
+      "name" : "firstHalf",
+      "description" : "",
+      "upvotes" : 1240,
+      "fileName" : "firstHalf.jpg"
+    },
+    {
+      "name" : "expandingBrain",
+      "description" : "",
+      "upvotes" : 2700,
+      "fileName" : "expandingBrain.jpg"
+    },
+    {
+      "name" : "perfectlyBalanced",
+      "description" : "",
+      "upvotes" : 5100,
+      "fileName" : "expandingBrain"
+    },
+    {
+      "name" : "chooseWisely",
+      "description" : "",
+      "upvotes" : 500,
+      "fileName" : "chooseWisely.png"
+    },
+    {
+      "name" : "confusedNick",
+      "description" : "",
+      "upvotes" : 800,
+      "fileName" : "confusedNick.jpg"
+    },
+    {
+      "name" : "guyLookingBack",
+      "description" : "",
+      "upvotes" : 3000,
+      "fileName" : "guyLookingBack.jpg"
+    },
+    {
+      "name" : "guyStopping",
+      "description" : "",
+      "upvotes" : 400,
+      "fileName" : "guyStopping.png"
+    },
+    {
+      "name" : "smashButton",
+      "description" : "",
+      "upvotes" : 1300,
+      "fileName" : "smashButton.jpg"
+    },
+    {
+      "name" : "savagePatrick",
+      "description" : "",
+      "upvotes" : 3600,
+      "fileName" : "savagePatrick.png"
+    },
+    {
+      "name" : "monkeyLookAway",
+      "description" : "",
+      "upvotes" : 4800,
+      "fileName" : "monkeyLookAway.png"
+    }
+  ]
+}
