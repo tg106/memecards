@@ -1,52 +1,52 @@
 {
   "cards" : [
     {
-      "name": "mockingSpongebob",
+      "name": "mocking_spongebob",
       "description" : "TESt-DrIven DevELoPMEnT",
       "upvotes" : 5900,
-      "fileName" : "mockingSpongebob.jpg"
+      "fileName" : "mocking_spongebob.jpg"
     },
     {
-      "name": "surprisedPikachu",
+      "name": "surprised_pikachu",
       "description" : "Segmentation fault",
       "upvotes" : 2300,
-      "fileName" : "surprisedPikachu.jpg"
+      "fileName" : "surprised_pikachu.jpg"
     },
     {
-      "name": "unsettledTom",
+      "name": "unsettled_tom",
       "description": "Me: *clears off table after dinner*\nDatabase team:",
       "upvotes": 920,
-      "fileName": "unsettledTom.jpg"
+      "fileName": "unsettled_tom.jpg"
     },
     {
-      "name": "pointingSpiderman",
+      "name": "pointing_spiderman",
       "description" : "C++ vs. C=C+1",
       "upvotes" : 3700,
-      "fileName" : "pointingSpiderman.jpg"
+      "fileName" : "pointing_spiderman.jpg"
     },
     {
-      "name": "meAndTheBoys",
+      "name": "me_and_the_boys",
       "description" : "Me and the group putting off drawing the architecture diagrams",
       "upvotes" : 1080,
-      "fileName" : "meAndTheBoys.png"
+      "fileName" : "me_and_the_boys.png"
     },
     {
-      "name" : "tuxedoPooh",
+      "name" : "tuxedo_pooh",
       "description" : "white\n#FFFFFF",
       "upvotes" : 2030,
-      "fileName" : "tuxedoPooh"
+      "fileName" : "tuxedo_pooh.jpg"
     },
     {
-      "name" : "isThis",
+      "name" : "is_this",
       "description" : "*making these memes* Is this android development?",
       "upvotes" : 3400,
-      "fileName" : "isThis.jpg"
+      "fileName" : "is_this.jpg"
     },
     {
-      "name" : "ahShit",
+      "name" : "ah_shit",
       "description" : "",
       "upvotes" : 2500,
-      "fileName" : "ahShit.jpg"
+      "fileName" : "ah_shit.jpg"
     },
     {
       "name" : "drake",
@@ -55,70 +55,70 @@
       "fileName" : "drake.jpg"
     },
     {
-      "name" : "itAintMuch",
+      "name" : "it_aint_much",
       "description" : "" ,
       "upvotes" : 4200,
-      "fileName" : "itAintMuch.jpg"
+      "fileName" : "it_aint_much.jpg"
     },
     {
-      "name" : "firstHalf",
+      "name" : "first_half",
       "description" : "",
       "upvotes" : 1240,
-      "fileName" : "firstHalf.jpg"
+      "fileName" : "first_half.jpg"
     },
     {
-      "name" : "expandingBrain",
+      "name" : "expanding_brain",
       "description" : "",
       "upvotes" : 2700,
-      "fileName" : "expandingBrain.jpg"
+      "fileName" : "expanding_brain.jpg"
     },
     {
-      "name" : "perfectlyBalanced",
+      "name" : "perfectly_balanced",
       "description" : "",
       "upvotes" : 5100,
-      "fileName" : "expandingBrain"
+      "fileName" : "perfectly_balanced.jpg"
     },
     {
-      "name" : "chooseWisely",
+      "name" : "choose_wisely",
       "description" : "",
       "upvotes" : 500,
-      "fileName" : "chooseWisely.png"
+      "fileName" : "choose_wisely.png"
     },
     {
-      "name" : "confusedNick",
+      "name" : "confused_nick",
       "description" : "",
       "upvotes" : 800,
-      "fileName" : "confusedNick.jpg"
+      "fileName" : "confused_nick.jpg"
     },
     {
-      "name" : "guyLookingBack",
+      "name" : "guy_looking_back",
       "description" : "",
       "upvotes" : 3000,
-      "fileName" : "guyLookingBack.jpg"
+      "fileName" : "guy_looking_back.jpg"
     },
     {
-      "name" : "guyStopping",
+      "name" : "guy_stopping",
       "description" : "",
       "upvotes" : 400,
-      "fileName" : "guyStopping.png"
+      "fileName" : "guy_stopping.png"
     },
     {
-      "name" : "smashButton",
+      "name" : "smash_button",
       "description" : "",
       "upvotes" : 1300,
-      "fileName" : "smashButton.jpg"
+      "fileName" : "smash_button.jpg"
     },
     {
-      "name" : "savagePatrick",
+      "name" : "savage_patrick",
       "description" : "",
       "upvotes" : 3600,
-      "fileName" : "savagePatrick.png"
+      "fileName" : "savage_patrick.png"
     },
     {
-      "name" : "monkeyLookAway",
+      "name" : "monkey_look_away",
       "description" : "",
       "upvotes" : 4800,
-      "fileName" : "monkeyLookAway.png"
+      "fileName" : "monkey_look_away.png"
     }
   ]
 }
