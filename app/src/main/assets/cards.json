@@ -4,121 +4,121 @@
       "name": "mockingSpongebob",
       "description" : "TESt-DrIven DevELoPMEnT",
       "upvotes" : 5900,
-      "path" : "\\res\\drawable\\mockingSpongebob.jpg"
+      "fileName" : "mockingSpongebob.jpg"
     },
     {
       "name": "surprisedPikachu",
       "description" : "Segmentation fault",
       "upvotes" : 2300,
-      "path" : "\\res\\drawable\\surprisedPikachu.jpg"
+      "fileName" : "surprisedPikachu.jpg"
     },
     {
       "name": "unsettledTom",
       "description": "Me: *clears off table after dinner*\nDatabase team:",
       "upvotes": 920,
-      "path": "\\res\\drawable\\unsettledTom.jpg"
+      "fileName": "unsettledTom.jpg"
     },
     {
       "name": "pointingSpiderman",
       "description" : "C++ vs. C=C+1",
       "upvotes" : 3700,
-      "path" : "\\res\\drawable\\pointingSpiderman.jpg"
+      "fileName" : "pointingSpiderman.jpg"
     },
     {
       "name": "meAndTheBoys",
       "description" : "Me and the group putting off drawing the architecture diagrams",
       "upvotes" : 1080,
-      "path" : "\\res\\drawable\\meAndTheBoys.png"
+      "fileName" : "meAndTheBoys.png"
     },
     {
       "name" : "tuxedoPooh",
       "description" : "white\n#FFFFFF",
       "upvotes" : 2030,
-      "path" : "\\res\\drawable\\tuxedoPooh"
+      "fileName" : "tuxedoPooh"
     },
     {
       "name" : "isThis",
       "description" : "*making these memes* Is this android development?",
       "upvotes" : 3400,
-      "path" : "\\res\\drawable\\isThis.jpg"
+      "fileName" : "isThis.jpg"
     },
     {
       "name" : "ahShit",
       "description" : "",
       "upvotes" : 2500,
-      "path" : "\\res\\drawable\\ahShit.jpg"
+      "fileName" : "ahShit.jpg"
     },
     {
       "name" : "drake",
       "description" : "" ,
       "upvotes" : 3400,
-      "path" : "\\res\\drawable\\drake.jpg"
+      "fileName" : "drake.jpg"
     },
     {
       "name" : "itAintMuch",
       "description" : "" ,
       "upvotes" : 4200,
-      "path" : "\\res\\drawable\\itAintMuch.jpg"
+      "fileName" : "itAintMuch.jpg"
     },
     {
       "name" : "firstHalf",
       "description" : "",
       "upvotes" : 1240,
-      "path" : "\\res\\drawable\\firstHalf.jpg"
+      "fileName" : "firstHalf.jpg"
     },
     {
       "name" : "expandingBrain",
       "description" : "",
       "upvotes" : 2700,
-      "path" : "\\res\\drawable\\expandingBrain.jpg"
+      "fileName" : "expandingBrain.jpg"
     },
     {
       "name" : "perfectlyBalanced",
       "description" : "",
       "upvotes" : 5100,
-      "path" : "\\res\\drawable\\expandingBrain"
+      "fileName" : "expandingBrain"
     },
     {
       "name" : "chooseWisely",
       "description" : "",
       "upvotes" : 500,
-      "path" : "\\res\\drawable\\chooseWisely.png"
+      "fileName" : "chooseWisely.png"
     },
     {
       "name" : "confusedNick",
       "description" : "",
       "upvotes" : 800,
-      "path" : "\\res\\drawable\\confusedNick.jpg"
+      "fileName" : "confusedNick.jpg"
     },
     {
       "name" : "guyLookingBack",
       "description" : "",
       "upvotes" : 3000,
-      "path" : "\\res\\drawable\\guyLookingBack.jpg"
+      "fileName" : "guyLookingBack.jpg"
     },
     {
       "name" : "guyStopping",
       "description" : "",
       "upvotes" : 400,
-      "path" : "\\res\\drawable\\guyStopping.png"
+      "fileName" : "guyStopping.png"
     },
     {
       "name" : "smashButton",
       "description" : "",
       "upvotes" : 1300,
-      "path" : "\\res\\drawable\\smashButton.jpg"
+      "fileName" : "smashButton.jpg"
     },
     {
       "name" : "savagePatrick",
       "description" : "",
       "upvotes" : 3600,
-      "path" : "\\res\\drawable\\savagePatrick.png"
+      "fileName" : "savagePatrick.png"
     },
     {
       "name" : "monkeyLookAway",
       "description" : "",
       "upvotes" : 4800,
-      "path" : "\\res\\drawable\\monkeyLookAway.png"
+      "fileName" : "monkeyLookAway.png"
     }
   ]
 }
