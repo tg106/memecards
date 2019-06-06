@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -18,14 +18,14 @@
         android:textColor="#000000" />
 
     <Button
-        android:id="@+id/battle"
+        android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
         android:background="@drawable/circle_button"
-        android:text="Battle" />
+        android:text="Start" />
 
     <Button
         android:id="@+id/library"
@@ -39,6 +39,17 @@
         android:background="@drawable/circle_button"
         android:text="Library" />
 
+    <Button
+        android:id="@+id/deck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="570dp"
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/circle_button"
+        android:text="deck" />
 
     <Button
         android:id="@+id/quit"
@@ -47,14 +58,14 @@
         android:layout_marginStart="900dp"
         android:layout_marginLeft="100dp"
         android:background="@drawable/circle_button"
-        android:text="X" />
+        android:text="Quit" />
 
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/battle"
-        android:layout_below="@+id/textView1"
+        android:layout_above="@+id/start"
+        android:layout_below="@+id/textView"
         android:layout_centerInParent="true"
         android:src="@drawable/yaoming" />
 
