@@ -1,6 +1,8 @@
 ## Description
 
+Loren Ipsum...
 ## Architecture diagram
+
 |             Presentation             |                        Logic                        |                         Data                        |
 |:------------------------------------:|:---------------------------------------------------:|:---------------------------------------------------:|
 |     res/layout/activity_main.xml     |     java/com/example/memecards/MainActivity.java    |                  assets/cards.json                  |
