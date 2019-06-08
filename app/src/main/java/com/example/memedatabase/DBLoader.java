@@ -32,7 +32,7 @@ public class DBLoader {
             // load json encoded string
             JSONObject json_obj = new JSONObject(jsonString);
             JSONArray json_cards = json_obj.getJSONArray("cards");
-            String name, desc, fileName;
+            String name, desc, fileName, tag;
             int upvotes;
             JSONObject json_card;
 
@@ -43,9 +43,10 @@ public class DBLoader {
                 desc = json_card.getString("description");
                 upvotes = json_card.getInt("upvotes");
                 fileName = json_card.getString("fileName");
+                tag = json_card.getString("tag");
 
                 // insert into db
-                db.insertCard(name, desc, fileName, upvotes, true);
+                db.insertCard(name, desc, fileName, upvotes, tag, true);
             }
         } catch (JSONException e) {
             e.printStackTrace();
