@@ -10,13 +10,15 @@ public class MemeCard {
     private String filename;
     private int upvotes;
     private boolean locked;
+    private String tag;
 
-    public MemeCard(String name, String description, String filename, int upvotes, boolean locked) {
+    public MemeCard(String name, String description, String filename, int upvotes, String tag, boolean locked) {
         this.name = name;
         this.description = description;
         this.filename = filename;
         this.upvotes = upvotes;
         this.locked = locked;
+        this.tag = tag;
     }
 
     public String getName() {
@@ -25,6 +27,10 @@ public class MemeCard {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getTag(){
+        return tag;
     }
 
     public String getFilename() {

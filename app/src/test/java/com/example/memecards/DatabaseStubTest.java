@@ -40,9 +40,9 @@ public class DatabaseStubTest {
         assertEquals(testInt, 0);
 
         // test insert card
-        testBool = stub.insertCard("sampleA", "blah", "path", 99, true);
+        testBool = stub.insertCard("sampleA", "blah", "path", 99, "tag", true);
         assertTrue(testBool);
-        testBool = stub.insertCard("sampleB", "blah", "path", 99, false);
+        testBool = stub.insertCard("sampleB", "blah", "path", 99, "tag", false);
         assertTrue(testBool);
 
         // test retrieve card
@@ -75,12 +75,12 @@ public class DatabaseStubTest {
         // battle deck requires a master deck, so instantiate a master deck first
         MasterDeckStub master = new MasterDeckStub();
         master.resetStub();
-        master.insertCard("sampleA", "blah", "path", 99, true);
-        master.insertCard("sampleB", "blah", "path", 99, false);
-        master.insertCard("sampleC", "blah", "path", 99, false);
-        master.insertCard("sampleD", "blah", "path", 99, false);
-        master.insertCard("sampleE", "blah", "path", 99, false);
-        master.insertCard("sampleF", "blah", "path", 99, false);
+        master.insertCard("sampleA", "blah", "path", 99, "tag", true);
+        master.insertCard("sampleB", "blah", "path", 99, "tag", false);
+        master.insertCard("sampleC", "blah", "path", 99, "tag", false);
+        master.insertCard("sampleD", "blah", "path", 99, "tag", false);
+        master.insertCard("sampleE", "blah", "path", 99, "tag", false);
+        master.insertCard("sampleF", "blah", "path", 99, "tag", false);
 
         // instantiate battle deck stub db
         BattleDeckStub stub = new BattleDeckStub(master);
