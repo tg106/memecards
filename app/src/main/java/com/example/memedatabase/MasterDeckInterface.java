@@ -36,6 +36,18 @@ public interface MasterDeckInterface {
     public ArrayList<String> retrieveAllCardNames();
 
     /**
+     * Retrieves a list of card names of all locked cards in the MasterDeck table.
+     * @return returns a list of locked card names as Strings.
+     */
+    public ArrayList<String> retrieveLockedCardNames();
+
+    /**
+     * Retrieves a list of card names of all unlocked cards in the MasterDeck table.
+     * @return returns a list of unlocked card names as Strings.
+     */
+    public ArrayList<String> retrieveUnlockedCardNames();
+
+    /**
      * Unlocks an existing card in the master deck,
      * i.e sets the 'locked' column in the card's row to 0 (false).
      * @param cardName : name of the card
