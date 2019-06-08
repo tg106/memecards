@@ -1,8 +1,11 @@
 package com.example.memecards;
 
+import com.example.domainobjects.Event;
 import com.example.domainobjects.MemeCard;
 import com.example.memedatabase.BattleDeckStub;
 import com.example.memedatabase.DBLoader;
+import com.example.memedatabase.EventListInterface;
+import com.example.memedatabase.EventListStub;
 import com.example.memedatabase.MasterDeckStub;
 import com.example.memedatabase.PlayerStatsStub;
 
@@ -174,6 +177,43 @@ public class DatabaseStubTest {
         assertFalse(testBool);
         testInt = stub.getPlayerCash();
         assertEquals(testInt, 10 + 15 - 3);
+
+    }
+
+    @Test
+    public void test_event_list() {
+        // instantiate DB
+        EventListStub stub = new EventListStub();
+        stub.resetStub();
+
+        // test vals
+        ArrayList<String> testArray;
+        Event testEvent;
+        boolean testBool;
+
+        // tests on empty DB
+        testEvent = stub.retrieveEvent("invalidEvent");
+        assertNull(testEvent);
+        testArray = stub.retrieveAllEventNames();
+        assertEquals(testArray.size(), 0);
+
+        // test insert event
+        testBool = stub.insertEvent("eventA", "descA", "tagA", true);
+        assertTrue(testBool);
+        testBool = stub.insertEvent("eventB", "descB", "tagB", false);
+        assertTrue(testBool);
+        testBool = stub.insertEvent("eventB", "descB", "tagB", false);
+        assertFalse(testBool); // should be false as event already exist
+
+        // test retrieve event
+        testEvent = stub.retrieveEvent("eventA");
+        assertNotNull(testEvent);
+        assertEquals(testEvent.getName(), "eventA");
+
+        // test retrieve all card names
+        stub.insertEvent("eventC", "descC", "tagC", false);
+        testArray = stub.retrieveAllEventNames();
+        assertEquals(testArray.size(), 3);
 
     }
 
