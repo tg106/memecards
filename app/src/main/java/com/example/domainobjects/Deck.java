@@ -21,7 +21,7 @@ public class Deck {
         this.deck = new ArrayList<MemeCard>();
     }
 
-    //Testing function, will be deleted later
+    //Testing function, scuffed deck for AI, will be changed later
     public void generatingTestDeckforAI()
     {
         deck.add(new MemeCard("AYAYA","Represents all WEEBS in twitch chat AYAYA Clap", "card_img_ayaya",3000,"Anime", false));

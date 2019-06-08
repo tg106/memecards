@@ -53,15 +53,19 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
             test.add(db.retrieveCard(cardName));
         }
 
-
+        //Deck for user player
         d = new Deck(test);
+
+        //Generating time for a turn
         time_for_a_turn = 13;
 
+        //Creating gameEngine (gamelogic)
         gameEngine = new GameEngine(d, 0);
 
 
         displayDeck();;
 
+        //Generating button for cardview
         for (int i = 0; i < 5; i++)
         {
             int tempI = getCardView(i);
@@ -69,13 +73,14 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
             hand_card_btn[i].setOnClickListener(this);
         }
 
-
+        //Generating events and display the events
         gameEngine.generatingEventList();
         evL = gameEngine.getEventList();
         displayEvents();;
 
     }
 
+    //Display the user's deck to the screen
     private void displayDeck() {
         ImageView curV;
         TextView curT;
@@ -91,6 +96,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    //Display events to the screen
     private void displayEvents() {
         TextView curT;
         int tempI;
@@ -116,6 +122,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    //display the card user played in the middle screen
     private void displayCardPlayed(int pos)
     {
         ImageView card_img;
@@ -139,6 +146,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         card_name.setText(d.getCardinDeck(pos).getTag());
     }
 
+    //Display the card that AI played in the middle screen
     private void displayAIplayedCard(MemeCard card)
     {
         ImageView card_img;
@@ -162,6 +170,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         card_name.setText(card.getTag());
     }
 
+    //Get the card image position in the screen to display it
     private int getCardImg(int pos)
     {
         String tempS = "card_img_" + pos;
@@ -169,6 +178,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         return tempI;
     }
 
+    //Get the card upvote position in the screen to display it
     private int getCardUpvote(int pos)
     {
         String tempS = "card_text_" + pos;
@@ -176,6 +186,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         return tempI;
     }
 
+    //Get the cardview position in the screen to display it
     private int getCardView(int pos)
     {
         String tempS = "cardview_" + pos;
@@ -183,6 +194,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         return tempI;
     }
 
+    //Get the event position in the screen to display it
     private int getEventDisplayPosition (int pos)
     {
         String tempS = "event_display_" + pos;
@@ -190,6 +202,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         return tempI;
     }
 
+    //Get the event priority position in the screen to display it
     private int getEventPriorityPosition (int pos)
     {
         String tempS = "event_priority_display_" + pos;
@@ -197,6 +210,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         return tempI;
     }
 
+    //Get the card's tag position in the screen to display it
     private int getCardfieldTagPosition(int pos)
     {
         String tempS = "cardfield_tag_" + pos;
@@ -204,6 +218,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         return tempI;
     }
 
+    //Make the card clickable or unclickable
     private void makeCardClickable(boolean b)
     {
         for (int i = 0; i < 5; i++)
@@ -212,6 +227,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    //Update the new card upvotes to the display
     private void updateUpvotes()
     {
         int upvForHuman = gameEngine.calculateNewUpv(card_played_by_human.getUpvotes(), card_played_by_human.getTag());
@@ -225,6 +241,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         temp.setText(card_played_by_human.getUpvotesStr());
     }
 
+    //Decise which player win the turn and increase point for that player
     private void deciseWinnerForATurn()
     {
         int humanUpv = card_played_by_human.getUpvotes();
@@ -250,6 +267,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         updateScore();;
     }
 
+    //Update the new score to the scoreboard
     private void updateScore(){
         TextView temp  = (TextView) findViewById(R.id.score_for_AI);
         temp.setText( "" + gameEngine.getScoreForAI());
@@ -264,6 +282,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         hideActionBar();
     }
 
+    //The game flow, this is each phase of a turn, each phase will do something
     private void gamePlayFlow()
     {
         new CountDownTimer(13000, 1000)
@@ -299,6 +318,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }.start();
     }
 
+    //Get a move from AI player
     public void getMoveFromAI()
     {
         if (gameEngine.checkAImovable())
@@ -306,6 +326,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
     }
 
+    //Display the animation after user pick a card
     private void delayDisplayForAnimation(int pos)
     {
         final int position = pos;
@@ -336,6 +357,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
 
 
+    //Open a popup card when player choose a card (it will contains all of the card's information)
     @Override
     public void onClick(View v) {
 
@@ -369,6 +391,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
     }
 
+    //After player click "play card", play that card and create the game flow
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -386,16 +409,6 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 temp2.setVisibility(View.VISIBLE);
                 makeCardClickable(false);
                 hand_card_btn[card_played_pos].setVisibility(View.GONE);
-
-                /*new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        temp.setVisibility(View.GONE);
-                        temp2.setVisibility(View.GONE);
-                        displayCardPlayed(card_played_pos);
-                        Toast.makeText(StartGameActivity.this, "Done",Toast.LENGTH_SHORT).show();
-                    }
-                }, 5000);*/
                 getMoveFromAI();
                 delayDisplayForAnimation(card_played_pos);
                 gamePlayFlow();
