@@ -1,124 +1,144 @@
 {
   "cards" : [
     {
-      "name": "mocking_spongebob",
+      "name": "Mocking Spongebob",
       "description" : "TESt-DrIven DevELoPMEnT",
       "upvotes" : 5900,
-      "fileName" : "mocking_spongebob.jpg"
+      "fileName" : "mocking_spongebob.jpg",
+      "tag" : "IRL"
     },
     {
       "name": "surprised_pikachu",
       "description" : "Segmentation fault",
       "upvotes" : 2300,
-      "fileName" : "surprised_pikachu.jpg"
+      "fileName" : "surprised_pikachu.jpg",
+      "tag" : "Anime"
     },
     {
       "name": "unsettled_tom",
       "description": "Me: *clears off table after dinner*\nDatabase team:",
       "upvotes": 920,
-      "fileName": "unsettled_tom.jpg"
+      "fileName": "unsettled_tom.jpg",
+      "tag" : "IRL"
     },
     {
       "name": "pointing_spiderman",
       "description" : "C++ vs. C=C+1",
       "upvotes" : 3700,
-      "fileName" : "pointing_spiderman.jpg"
+      "fileName" : "pointing_spiderman.jpg",
+      "tag" : "Movie"
     },
     {
       "name": "me_and_the_boys",
       "description" : "Me and the group putting off drawing the architecture diagrams",
       "upvotes" : 1080,
-      "fileName" : "me_and_the_boys.png"
+      "fileName" : "me_and_the_boys.png",
+      "tag" : "IRL"
     },
     {
       "name" : "tuxedo_pooh",
       "description" : "white\n#FFFFFF",
       "upvotes" : 2030,
-      "fileName" : "tuxedo_pooh.jpg"
+      "fileName" : "tuxedo_pooh.jpg",
+      "tag" : "IRL"
     },
     {
       "name" : "is_this",
       "description" : "*making these memes* Is this android development?",
       "upvotes" : 3400,
-      "fileName" : "is_this.jpg"
+      "fileName" : "is_this.jpg",
+      "tag" : "Anime"
     },
     {
       "name" : "ah_shit",
       "description" : "",
       "upvotes" : 2500,
-      "fileName" : "ah_shit.jpg"
+      "fileName" : "ah_shit.jpg",
+      "tag" : "Gaming"
     },
     {
       "name" : "drake",
       "description" : "" ,
       "upvotes" : 3400,
-      "fileName" : "drake.jpg"
+      "fileName" : "drake.jpg",
+      "tag" : "Music"
     },
     {
       "name" : "it_aint_much",
       "description" : "" ,
       "upvotes" : 4200,
-      "fileName" : "it_aint_much.jpg"
+      "fileName" : "it_aint_much.jpg",
+      "tag" : "IRL"
     },
     {
       "name" : "first_half",
       "description" : "",
       "upvotes" : 1240,
-      "fileName" : "first_half.jpg"
+      "fileName" : "first_half.jpg",
+      "tag" : "Sports"
     },
     {
       "name" : "expanding_brain",
       "description" : "",
       "upvotes" : 2700,
-      "fileName" : "expanding_brain.jpg"
+      "fileName" : "expanding_brain.jpg",
+      "tag" : "IRL"
     },
     {
       "name" : "perfectly_balanced",
       "description" : "",
       "upvotes" : 5100,
-      "fileName" : "perfectly_balanced.jpg"
+      "fileName" : "perfectly_balanced.jpg",
+      "tag" : "Movie"
     },
     {
       "name" : "choose_wisely",
       "description" : "",
       "upvotes" : 500,
-      "fileName" : "choose_wisely.png"
+      "fileName" : "choose_wisely.png",
+      "tag" : "Technology"
     },
     {
       "name" : "confused_nick",
       "description" : "",
       "upvotes" : 800,
-      "fileName" : "confused_nick.jpg"
+      "fileName" : "confused_nick.jpg",
+      "tag" : "Sports"
     },
     {
       "name" : "guy_looking_back",
       "description" : "",
       "upvotes" : 3000,
-      "fileName" : "guy_looking_back.jpg"
+      "fileName" : "guy_looking_back.jpg",
+      "tag" : "IRL"
     },
     {
       "name" : "guy_stopping",
       "description" : "",
       "upvotes" : 400,
-      "fileName" : "guy_stopping.png"
+      "fileName" : "guy_stopping.png",
+      "tag" : "IRL"
     },
     {
       "name" : "smash_button",
       "description" : "",
       "upvotes" : 1300,
-      "fileName" : "smash_button.jpg"
+      "fileName" : "smash_button.jpg",
+      "tag" : "IRL"
     },
     {
       "name" : "savage_patrick",
       "description" : "",
       "upvotes" : 3600,
-      "fileName" : "savage_patrick.png"
+      "fileName" : "savage_patrick.png",
+      "tag" : "IRL"
     },
     {
       "name" : "monkey_look_away",
       "description" : "",
       "upvotes" : 4800,
-      "fileName" : "monkey_look_away.png"
+      "fileName" : "monkey_look_away.png",
+      "tag" : "IRL"
     }
   ]
 }
