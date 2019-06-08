@@ -34,6 +34,24 @@ public class MasterDeckStub implements MasterDeckInterface {
     }
 
     @Override
+    public ArrayList<String> retrieveLockedCardNames() {
+        ArrayList<String> result = new ArrayList<>();
+        for (MemeCard card : mock)
+            if (card.isLocked())
+                result.add(card.getName());
+        return result;
+    }
+
+    @Override
+    public ArrayList<String> retrieveUnlockedCardNames() {
+        ArrayList<String> result = new ArrayList<>();
+        for (MemeCard card : mock)
+            if (!card.isLocked())
+                result.add(card.getName());
+        return result;
+    }
+
+    @Override
     public boolean unlockCard(String cardName) {
         MemeCard card = null;
         boolean result = true;
