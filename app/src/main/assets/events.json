@@ -1,0 +1,59 @@
+{
+  "events" : [
+    {
+      "description" : "3 new blockbusters are now showing in theatres.",
+      "tag" : "Movies",
+      "positive" : true
+    },
+    {
+      "description" : "You have just been dumped.",
+      "tag" : "IRL",
+      "positive" : true
+    },
+    {
+      "description" : "The new season for sporting leagues has started.",
+      "tag" : "Sports",
+      "positive" : true
+    },
+    {
+      "description" : "New study finds that many animes encourage violence.",
+      "tag" : "Anime",
+      "positive" : false
+    },
+    {
+      "description" : "Streamable: Lebron James' grotesque leg injury.",
+      "tag" : "Sports",
+      "positive" : false
+    },
+    {
+      "description" : "You are not feeling funny.",
+      "tag" : "IRL",
+      "positive" : false
+    },
+    {
+      "description" : "Sony cracks down on copyrighted materials on Reddit.",
+      "tag" : "Movies",
+      "positive" : false
+    },
+    {
+      "description" : "The Olympics is nearing.",
+      "tag" : "Sports",
+      "positive" : true
+    },
+    {
+      "description" : "You feel compelled to make an offensive IRL post.",
+      "tag" : "IRL",
+      "positive" : false
+    },
+    {
+      "description" : "Posting to r/me_irl",
+      "tag" : "IRL",
+      "positive" : true
+    },
+    {
+      "description" : "Posting to r/movies",
+      "tag" : "Movies",
+      "positive" : true
+    }
+  ]
+}
