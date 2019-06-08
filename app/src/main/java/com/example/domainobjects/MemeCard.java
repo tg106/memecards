@@ -65,4 +65,9 @@ public class MemeCard {
         }
     }
 
+    public void setUpvotes(int upvotes)
+    {
+        this.upvotes = upvotes;
+    }
+
 }
