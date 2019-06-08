@@ -6,6 +6,8 @@ import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
 import com.example.memedatabase.DBLoader;
+import com.example.memedatabase.EventListInterface;
+import com.example.memedatabase.EventListStub;
 import com.example.memedatabase.MasterDeckInterface;
 import com.example.memedatabase.MasterDeckStub;
 
@@ -23,14 +25,16 @@ public class DBLoaderTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        // instantiate DB
-        MasterDeckInterface db = new MasterDeckStub();
-
-        //load json content
-        DBLoader.loadMasterDeck(db, appContext);
-        ArrayList<String> cardNames = db.retrieveAllCardNames();
-
-        // db should be filled
+        // load master deck test
+        MasterDeckInterface masterDB = new MasterDeckStub();
+        DBLoader.loadMasterDeck(masterDB, appContext);
+        ArrayList<String> cardNames = masterDB.retrieveAllCardNames();
         assertTrue(cardNames.size() > 0);
+
+        // load events list test
+        EventListInterface eventDB = new EventListStub();
+        DBLoader.loadEventsList(eventDB, appContext);
+        ArrayList<String> eventNames = eventDB.retrieveAllEventNames();
+        assertTrue(eventNames.size() > 0);
     }
 }

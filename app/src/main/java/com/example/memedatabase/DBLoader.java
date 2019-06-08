@@ -82,7 +82,7 @@ public class DBLoader {
                 // extract json data
                 json_event = json_events.getJSONObject(i);
                 name = json_event.getString("name");
-                // only continue if events doesn't evist
+                // only continue if events doesn't exist
                 if (!events.contains(name)) {
                     desc = json_event.getString("description");
                     positive = json_event.getBoolean("positive");
@@ -95,5 +95,11 @@ public class DBLoader {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    // convenience method
+    public static void loadEventsList(EventListInterface db, Context context) {
+        String json = DBLoader.loadJSONFromAsset(context, "events.json");
+        DBLoader.loadEventsList(db, json);
     }
 }
