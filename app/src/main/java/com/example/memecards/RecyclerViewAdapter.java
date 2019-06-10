@@ -10,53 +10,47 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+import java.util.List;
 
-import java.util.ArrayList;
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+    private Context myContext;
+    private List<Card> myCard;
 
-    private ArrayList<String> Names = new ArrayList<>();
-    private ArrayList<String> ImageURLs = new ArrayList<>();
-    private Context Contexts;
-
-    public RecyclerViewAdapter(Context contexts, ArrayList<String> names, ArrayList<String> imageURLs) {
-        Names = names;
-        ImageURLs = imageURLs;
-        Contexts = contexts;
+    public RecyclerViewAdapter(){
+        this.myContext = myContext;
+        this.myCard =myCard;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_card_view, parent, false);
-        return new ViewHolder(view);
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View myView;
+        LayoutInflater myInflater = LayoutInflater.from(myContext);
+        myView = myInflater.inflate(R.layout.cardview_layout, parent, false);
+        return new MyViewHolder(myView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Glide.with(Contexts)
-                .asBitmap()
-                .load(ImageURLs.get(position))
-                .into(holder.image);
-
-        holder.title.setText(Names.get(position));
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.myName.setText(myCard.get(position).getCardName());
+        holder.myImage.setImageResource(myCard.get(position).getCardImage());
     }
 
     @Override
     public int getItemCount() {
-        return Names.size();
+        return myCard.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView image;
-        TextView title;
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
+        TextView myName;
+        ImageView myImage;
 
-            image = (ImageView) itemView.findViewById(R.id.CardImage);
-            title = (TextView) itemView.findViewById(R.id.CardName);
+        public MyViewHolder(View view){
+            super(view);
+            myName = (TextView)itemView.findViewById(R.id.CardName);
+            myImage = (ImageView)itemView.findViewById(R.id.CardImage);
         }
     }
 }

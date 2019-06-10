@@ -13,17 +13,21 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.example.memedatabase.BattleDeckStub;
-import com.example.memedatabase.MasterDeckStub; // temporary
+import com.example.memedatabase.DBLoader;
+import com.example.memedatabase.MasterDeckInterface;
+import com.example.memedatabase.MasterDeckStub;
 
 public class CardLibraryActivity extends AppCompatActivity {
     private Button Back;
 //    private ImageView myCardImage;
 //    private TextView myCardName;
 //    private ListView myListView;
-    private ArrayList<String> Names = new ArrayList<>();
-    private ArrayList<String> ImageURLs = new ArrayList<>();
+//    private ArrayList<String> Names = new ArrayList<>();
+//    private ArrayList<String> ImageURLs = new ArrayList<>();
+    private List<Card> myCardList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class CardLibraryActivity extends AppCompatActivity {
 //        int imageResource = getResources().getIdentifier("@drawable/no1", null, this.getPackageName());
 //        myCardImage.setImageResource(imageResource);
 //        myCardName.setText("Card name");
+        MakeCardsList();
     }
 
     /** Back to the home page when the user taps the BACK button */
@@ -64,16 +69,16 @@ public class CardLibraryActivity extends AppCompatActivity {
         LockedNum.setText(number2);
     }
 
-    private void InitImages(){
-        ImageURLs.add("@drawable/no1");
-        Names.add("No1 name");
-        ImageURLs.add("@drawable/no2");
-        Names.add("No2 name");
-        ImageURLs.add("@drawable/no3");
-        Names.add("No3 name");
-
-        MakeCardsList();
-    }
+//    private void InitImages(){
+//        ImageURLs.add("@drawable/no1");
+//        Names.add("No1 name");
+//        ImageURLs.add("@drawable/no2");
+//        Names.add("No2 name");
+//        ImageURLs.add("@drawable/no3");
+//        Names.add("No3 name");
+//
+//        MakeCardsList();
+//    }
 
     private void MakeCardsList(){
 //        myListView = (ListView)findViewById(R.id.ListView);
@@ -82,14 +87,22 @@ public class CardLibraryActivity extends AppCompatActivity {
 //        list.add(new Card("@drawable/no1", "No1 name"));
 //        list.add(new Card("@drawable/no2", "No2 name"));
 //        list.add(new Card("@drawable/no3", "No3 name"));
-//
-//
+//        CustomListAdapter adapter = new CustomListAdapter(this, myCardName, myCardImage);
 //        myListView.setAdapter(adapter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        RecyclerView recyclerView = findViewById(R.id.RecyclerView);
-        recyclerView.setLayoutManager(layoutManager);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, Names, ImageURLs);
-        recyclerView.setAdapter(adapter);
+
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+//        RecyclerView recyclerView = findViewById(R.id.RecyclerView);
+//        recyclerView.setLayoutManager(layoutManager);
+//        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, Names, ImageURLs);
+//        recyclerView.setAdapter(adapter);
+        myCardList = new ArrayList<>();
+        MasterDeckInterface masterDB = new MasterDeckStub();
+        DBLoader.loadMasterDeck(masterDB, appContext);
+        ArrayList<String> allCardsName = masterDB.retrieveAllCardNames();
+        for(int i = 0; i < 20; i++) {
+            myCardList.add(new Card());
+
+        }
     }
 
     @Override
