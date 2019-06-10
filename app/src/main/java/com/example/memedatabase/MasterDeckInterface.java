@@ -16,10 +16,11 @@ public interface MasterDeckInterface {
      * @param description : description of the card
      * @param filename : resource path to the card's image
      * @param upvotes : number of upvotes this card has
+     * @param tag : an attribute or category associated with the card
      * @param locked : indicator if the card should be locked or unlocked
      * @return returns true if insertion is successful, false otherwise.
      */
-    public boolean insertCard(String name, String description, String filename, int upvotes, boolean locked);
+    public boolean insertCard(String name, String description, String filename, int upvotes, String tag, boolean locked);
 
     /**
      * Retrieves a card from the MasterDeck table given the name of the card.
@@ -33,6 +34,18 @@ public interface MasterDeckInterface {
      * @return returns a list of card names as Strings.
      */
     public ArrayList<String> retrieveAllCardNames();
+
+    /**
+     * Retrieves a list of card names of all locked cards in the MasterDeck table.
+     * @return returns a list of locked card names as Strings.
+     */
+    public ArrayList<String> retrieveLockedCardNames();
+
+    /**
+     * Retrieves a list of card names of all unlocked cards in the MasterDeck table.
+     * @return returns a list of unlocked card names as Strings.
+     */
+    public ArrayList<String> retrieveUnlockedCardNames();
 
     /**
      * Unlocks an existing card in the master deck,

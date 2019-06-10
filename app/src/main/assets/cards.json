@@ -1,124 +1,164 @@
 {
   "cards" : [
     {
-      "name": "mocking_spongebob",
+      "name": "Mocking Spongebob",
       "description" : "TESt-DrIven DevELoPMEnT",
       "upvotes" : 5900,
-      "fileName" : "mocking_spongebob.jpg"
+      "fileName" : "mocking_spongebob.jpg",
+      "tag" : "IRL",
+      "locked" : false
     },
     {
-      "name": "surprised_pikachu",
+      "name": "Surprised Pikachu",
       "description" : "Segmentation fault",
       "upvotes" : 2300,
-      "fileName" : "surprised_pikachu.jpg"
+      "fileName" : "surprised_pikachu.jpg",
+      "tag" : "Anime",
+      "locked" : false
     },
     {
-      "name": "unsettled_tom",
+      "name": "Unsettled Tom",
       "description": "Me: *clears off table after dinner*\nDatabase team:",
       "upvotes": 920,
-      "fileName": "unsettled_tom.jpg"
+      "fileName": "unsettled_tom.jpg",
+      "tag" : "IRL",
+      "locked" : false
     },
     {
-      "name": "pointing_spiderman",
+      "name": "Pointing Spiderman",
       "description" : "C++ vs. C=C+1",
       "upvotes" : 3700,
-      "fileName" : "pointing_spiderman.jpg"
+      "fileName" : "pointing_spiderman.jpg",
+      "tag" : "Movie",
+      "locked" : false
     },
     {
-      "name": "me_and_the_boys",
+      "name": "Me And The Boys",
       "description" : "Me and the group putting off drawing the architecture diagrams",
       "upvotes" : 1080,
-      "fileName" : "me_and_the_boys.png"
+      "fileName" : "me_and_the_boys.png",
+      "tag" : "IRL",
+      "locked" : false
     },
     {
-      "name" : "tuxedo_pooh",
+      "name" : "Tuxedo Pooh",
       "description" : "white\n#FFFFFF",
       "upvotes" : 2030,
-      "fileName" : "tuxedo_pooh.jpg"
+      "fileName" : "tuxedo_pooh.jpg",
+      "tag" : "IRL",
+      "locked" : true
     },
     {
-      "name" : "is_this",
+      "name" : "Is This?",
       "description" : "*making these memes* Is this android development?",
       "upvotes" : 3400,
-      "fileName" : "is_this.jpg"
+      "fileName" : "is_this.jpg",
+      "tag" : "Anime",
+      "locked" : true
     },
     {
-      "name" : "ah_shit",
+      "name" : "Ah Shit",
       "description" : "",
       "upvotes" : 2500,
-      "fileName" : "ah_shit.jpg"
+      "fileName" : "ah_shit.jpg",
+      "tag" : "Gaming",
+      "locked" : true
     },
     {
-      "name" : "drake",
+      "name" : "Drake",
       "description" : "" ,
       "upvotes" : 3400,
-      "fileName" : "drake.jpg"
+      "fileName" : "drake.jpg",
+      "tag" : "Music",
+      "locked" : true
     },
     {
-      "name" : "it_aint_much",
+      "name" : "It Ain't Much",
       "description" : "" ,
       "upvotes" : 4200,
-      "fileName" : "it_aint_much.jpg"
+      "fileName" : "it_aint_much.jpg",
+      "tag" : "IRL",
+      "locked" : true
     },
     {
-      "name" : "first_half",
+      "name" : "First Half",
       "description" : "",
       "upvotes" : 1240,
-      "fileName" : "first_half.jpg"
+      "fileName" : "first_half.jpg",
+      "tag" : "Sports",
+      "locked" : true
     },
     {
-      "name" : "expanding_brain",
+      "name" : "Expanding Brain",
       "description" : "",
       "upvotes" : 2700,
-      "fileName" : "expanding_brain.jpg"
+      "fileName" : "expanding_brain.jpg",
+      "tag" : "IRL",
+      "locked" : true
     },
     {
-      "name" : "perfectly_balanced",
+      "name" : "Perfectly Balanced",
       "description" : "",
       "upvotes" : 5100,
-      "fileName" : "perfectly_balanced.jpg"
+      "fileName" : "perfectly_balanced.jpg",
+      "tag" : "Movie",
+      "locked" : true
     },
     {
-      "name" : "choose_wisely",
+      "name" : "Choose Wisely",
       "description" : "",
       "upvotes" : 500,
-      "fileName" : "choose_wisely.png"
+      "fileName" : "choose_wisely.png",
+      "tag" : "Technology",
+      "locked" : true
     },
     {
-      "name" : "confused_nick",
+      "name" : "Confused Nick",
       "description" : "",
       "upvotes" : 800,
-      "fileName" : "confused_nick.jpg"
+      "fileName" : "confused_nick.jpg",
+      "tag" : "Sports",
+      "locked" : true
     },
     {
-      "name" : "guy_looking_back",
+      "name" : "Guy Looking Back",
       "description" : "",
       "upvotes" : 3000,
-      "fileName" : "guy_looking_back.jpg"
+      "fileName" : "guy_looking_back.jpg",
+      "tag" : "IRL",
+      "locked" : true
     },
     {
-      "name" : "guy_stopping",
+      "name" : "Guy Stopping Another Guy",
       "description" : "",
       "upvotes" : 400,
-      "fileName" : "guy_stopping.png"
+      "fileName" : "guy_stopping.png",
+      "tag" : "IRL",
+      "locked" : true
     },
     {
-      "name" : "smash_button",
+      "name" : "Smash Button",
       "description" : "",
       "upvotes" : 1300,
-      "fileName" : "smash_button.jpg"
+      "fileName" : "smash_button.jpg",
+      "tag" : "IRL",
+      "locked" : true
     },
     {
-      "name" : "savage_patrick",
+      "name" : "Savage Patrick",
       "description" : "",
       "upvotes" : 3600,
-      "fileName" : "savage_patrick.png"
+      "fileName" : "savage_patrick.png",
+      "tag" : "IRL",
+      "locked" : true
     },
     {
-      "name" : "monkey_look_away",
+      "name" : "Monkey Look Away",
       "description" : "",
       "upvotes" : 4800,
-      "fileName" : "monkey_look_away.png"
+      "fileName" : "monkey_look_away.png",
+      "tag" : "IRL",
+      "locked" : true
     }
   ]
 }
