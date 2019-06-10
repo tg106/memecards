@@ -9,11 +9,28 @@ import java.util.ArrayList;
 
 
 public class DBLoader {
-    // loads the "cards.json" file into a java string.
+    // loads a file via asset manager
     private static String loadJSONFromAsset(Context context, String filename) {
         String json = null;
         try {
             InputStream is = context.getAssets().open(filename);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }
+
+    // loads a file via path (used for local tests)
+    // root dir is "src/"
+    private static String loadJSONFromSrc(InputStream is) {
+        String json = null;
+        try {
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -60,9 +77,16 @@ public class DBLoader {
         }
     }
 
-    // convenience method
+    // loads deck vis asset manager
     public static void loadMasterDeck(MasterDeckInterface db, Context context) {
         String json = DBLoader.loadJSONFromAsset(context, "cards.json");
+        DBLoader.loadMasterDeck(db, json);
+    }
+
+    // loads deck via local path
+    // local tests has no asset manager
+    public static void loadMasterDeck(MasterDeckInterface db, InputStream is) {
+        String json = DBLoader.loadJSONFromSrc(is);
         DBLoader.loadMasterDeck(db, json);
     }
 
@@ -97,9 +121,16 @@ public class DBLoader {
         }
     }
 
-    // convenience method
+    // loads db via asset manager
     public static void loadEventsList(EventListInterface db, Context context) {
         String json = DBLoader.loadJSONFromAsset(context, "events.json");
+        DBLoader.loadEventsList(db, json);
+    }
+
+    // loads db via path (for local tests)
+    // local tests has no asset manager
+    public static void loadEventsList(EventListInterface db,  InputStream is) {
+        String json = DBLoader.loadJSONFromSrc(is);
         DBLoader.loadEventsList(db, json);
     }
 }

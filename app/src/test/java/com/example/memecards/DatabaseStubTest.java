@@ -6,15 +6,13 @@ import com.example.memedatabase.BattleDeckStub;
 import com.example.memedatabase.DBLoader;
 import com.example.memedatabase.EventListInterface;
 import com.example.memedatabase.EventListStub;
+import com.example.memedatabase.MasterDeckInterface;
 import com.example.memedatabase.MasterDeckStub;
 import com.example.memedatabase.PlayerStatsStub;
 
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -215,6 +213,23 @@ public class DatabaseStubTest {
         testArray = stub.retrieveAllEventNames();
         assertEquals(testArray.size(), 3);
 
+    }
+
+    @Test
+    public void testDBLoad() {
+        // load master deck test
+        MasterDeckInterface masterDB = new MasterDeckStub();
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream("main/assets/cards.json");
+        DBLoader.loadMasterDeck(masterDB, is);
+        ArrayList<String> cardNames = masterDB.retrieveAllCardNames();
+        assertTrue(cardNames.size() > 0);
+
+        // load events list test
+        EventListInterface eventDB = new EventListStub();
+        is = this.getClass().getClassLoader().getResourceAsStream("main/assets/events.json");
+        DBLoader.loadEventsList(eventDB, is);
+        ArrayList<String> eventNames = eventDB.retrieveAllEventNames();
+        assertTrue(eventNames.size() > 0);
     }
 
 }
