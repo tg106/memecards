@@ -9,8 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PopupCardActivity"
-            android:theme="@style/AppTheme.PopMe"></activity>
+        <activity
+            android:name=".CardInformationActivity"
+            android:label="@string/title_activity_card_information"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".PopupCardActivity"
+            android:theme="@style/AppTheme.PopMe" />
         <activity
             android:name=".StartGameActivity"
             android:screenOrientation="landscape" />

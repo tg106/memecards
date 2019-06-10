@@ -1,6 +1,7 @@
 package com.example.memecards;
 
 import androidx.appcompat.app.AppCompatActivity;
+//import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,14 +9,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.memedatabase.BattleDeckStub;
+import com.example.domainobjects.MemeCard;
 import com.example.memedatabase.DBLoader;
 import com.example.memedatabase.MasterDeckInterface;
 import com.example.memedatabase.MasterDeckStub;
@@ -56,10 +54,13 @@ public class CardLibraryActivity extends AppCompatActivity {
         TextView CardsNum = (TextView) findViewById(R.id.CardsNum);
         TextView LockedNum = (TextView) findViewById(R.id.LockedNum);
 
-        MasterDeckStub masterDeck = null;
-        BattleDeckStub temp = new BattleDeckStub(masterDeck);
-
-        int numCards = temp.numCards();
+//        MasterDeckStub masterDeck = null;
+//        BattleDeckStub temp = new BattleDeckStub(masterDeck);
+//        int numCards = temp.numCards();
+        MasterDeckInterface masterDB = new MasterDeckStub();
+        DBLoader.loadMasterDeck(masterDB, this);
+        int numCards = masterDB.deckSize();
+        //=========================================================
         int numLocked = 0; // temporary
         String number1 = "Total Cards: ";
         String number2 = "Locked Cards: ";
@@ -96,13 +97,23 @@ public class CardLibraryActivity extends AppCompatActivity {
 //        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, Names, ImageURLs);
 //        recyclerView.setAdapter(adapter);
         myCardList = new ArrayList<>();
+
         MasterDeckInterface masterDB = new MasterDeckStub();
-        DBLoader.loadMasterDeck(masterDB, appContext);
+        DBLoader.loadMasterDeck(masterDB, this);
         ArrayList<String> allCardsName = masterDB.retrieveAllCardNames();
         for(int i = 0; i < 20; i++) {
-            myCardList.add(new Card());
-
+            MemeCard newMemeCard = new MemeCard(allCardsName.get(i), "", "", 0, "", false);
+            Card newCard = new Card(newMemeCard);
+            myCardList.add(newCard);
         }
+        RecyclerView myRecyView = (RecyclerView)findViewById(R.id.RecyclerView);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, myCardList);
+        //GridLayoutManager layoutManager = new GridLayoutManager(this, 5);// how many cards per row
+        //layoutManager.setOrientation(GridLayoutManager.HORIZONTAL);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        myRecyView.setLayoutManager(layoutManager);
+        myRecyView.setAdapter(adapter);
     }
 
     @Override
