@@ -12,16 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import com.example.domainobjects.MemeCard;
+
+import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
     private Context myContext;
-    private List<Card> myCard;
+    private ArrayList<MemeCard> cards;
 
-    public RecyclerViewAdapter(Context myContext, List<Card> myCard){
+    public RecyclerViewAdapter(Context myContext, ArrayList<MemeCard> cards){
         this.myContext = myContext;
-        this.myCard =myCard;
+        this.cards = cards;
     }
 
     @NonNull
@@ -35,17 +37,28 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
-        holder.myName.setText(myCard.get(position).getCardName());
-        //holder.myImage.setImageResource(myCard.get(position).getCardImage());
-        //=========================================================
+        final int resID;
+        MemeCard card = this.cards.get(position);
+        final String cardDesc;
+        if (card.isLocked()) {
+            resID = R.drawable.mystery;
+            cardDesc = "Unlock The Card To Find Out!";
+        }
+        else {
+            resID = card.getResId();
+            cardDesc = card.getDescription();
+        }
+
+        holder.myName.setText(card.getName());
+        holder.myImage.setImageResource(resID);
 
         holder.myCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(myContext, CardInformationActivity.class);
                 //=========================================================
-                intent.putExtra("Description", myCard.get(position).getCardName()); //temporary
-                //intent.putExtra("ImageID", myCard.get(position).getCardImage());
+                intent.putExtra("Description", cardDesc);
+                intent.putExtra("ImageID", resID);
                 myContext.startActivity(intent);
             }
         });
@@ -53,7 +66,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-        return myCard.size();
+        return this.cards.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

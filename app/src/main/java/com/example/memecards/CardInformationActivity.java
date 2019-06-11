@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CardInformationActivity extends AppCompatActivity {
     private TextView InfoDesc;
     private ImageView InfoImage;
-    private Button Back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,21 +23,20 @@ public class CardInformationActivity extends AppCompatActivity {
         decorView.setSystemUiVisibility(uiOptions);
 
         ShowCardInformation();
-        Back = (Button)findViewById(R.id.BackLib); // back to card libray
     }
 
     public void ShowCardInformation(){
         InfoDesc = (TextView)findViewById(R.id.CardInfoDesc);
-        //InfoImage = (ImageView)findViewById(R.id.CardInfoImage);
+        InfoImage = (ImageView)findViewById(R.id.CardInfoImage);
         //=========================================================
 
         Intent intent = getIntent();
         String desc = intent.getExtras().getString("Description");
-        //int image = intent.getExtras().getInt("ImageID");
+        int image = intent.getExtras().getInt("ImageID");
         //=========================================================
 
         InfoDesc.setText(desc);
-        //InfoImage.setImageResource(image);
+        InfoImage.setImageResource(image);
     }
 
     /** Back to the home page when the user taps the BACK button */
