@@ -56,7 +56,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(myContext, CardInformationActivity.class);
-                //=========================================================
                 intent.putExtra("Description", cardDesc);
                 intent.putExtra("ImageID", resID);
                 myContext.startActivity(intent);

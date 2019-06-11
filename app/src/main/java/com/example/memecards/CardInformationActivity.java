@@ -3,7 +3,6 @@ package com.example.memecards;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,12 +27,10 @@ public class CardInformationActivity extends AppCompatActivity {
     public void ShowCardInformation(){
         InfoDesc = (TextView)findViewById(R.id.CardInfoDesc);
         InfoImage = (ImageView)findViewById(R.id.CardInfoImage);
-        //=========================================================
 
         Intent intent = getIntent();
         String desc = intent.getExtras().getString("Description");
         int image = intent.getExtras().getInt("ImageID");
-        //=========================================================
 
         InfoDesc.setText(desc);
         InfoImage.setImageResource(image);

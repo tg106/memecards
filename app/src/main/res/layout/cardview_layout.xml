@@ -18,8 +18,7 @@
             android:id="@+id/CardImage"
             android:layout_width="match_parent"
             android:layout_height="280dp"
-            android:background="@color/colorOrange"
-            android:scaleType="centerCrop"
+            android:scaleType="centerInside"
             cardview:layout_constraintTop_toTopOf="parent" />
 
         <TextView
