@@ -12,4 +12,5 @@
     <string name="see_what_you_got">See what you got.</string>
     <string name="r_library">r/library</string>
     <string name="posted_by_team_9_just_now">    posted by team #9, just now</string>
+    <string name="title_activity_card_information">CardInformationActivity</string>
 </resources>
