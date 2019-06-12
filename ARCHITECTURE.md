@@ -31,6 +31,6 @@ This is where all the databases and interface to the databases sits. A single da
     - This table store information and progress about the player such as in-game currency
 
 ## Architecture Diagram
-[[https://code.cs.umanitoba.ca/comp3350-summer2019/cards-9/blob/architectureDiagram/architectureDia.png]]
+![Architecture diagram](architectureDia.png)
 
 
