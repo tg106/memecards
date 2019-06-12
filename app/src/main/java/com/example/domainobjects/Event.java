@@ -1,5 +1,4 @@
 package com.example.domainobjects;
-import java.util.List;
 
 public class Event {
 
@@ -9,7 +8,7 @@ public class Event {
     private int prio;
     private boolean positiveEvent;
 
-    public Event(String name, String desc, String tag, int prio, boolean b){
+    public Event(String name, String desc, String tag, int prio, boolean b) {
         this.name = name;
         this.desc = desc;
         this.tag = tag;
@@ -17,8 +16,7 @@ public class Event {
         positiveEvent = b;
     }
 
-    public Event(String name, String desc, String tag, boolean b)
-    {
+    public Event(String name, String desc, String tag, boolean b) {
         this.name = name;
         this.desc = desc;
         this.tag = tag;
@@ -31,8 +29,7 @@ public class Event {
         return name;
     }
 
-    public boolean checkEventPositive()
-    {
+    public boolean checkEventPositive() {
         return positiveEvent;
     }
 

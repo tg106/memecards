@@ -29,7 +29,7 @@ public class MemeCard {
         return description;
     }
 
-    public String getTag(){
+    public String getTag() {
         return tag;
     }
 
@@ -49,12 +49,12 @@ public class MemeCard {
         return locked;
     }
 
-    public String getUpvotesStr(){
+    public String getUpvotesStr() {
         return this.upvotes/1000 + "." + (this.upvotes%1000)/100 + " k";
     }
 
     // gets the resource id of a card image given its name.
-    public int getResId(){
+    public int getResId() {
         try {
             String filename = this.filename.split("\\.")[0];
             Field idField = R.drawable.class.getDeclaredField(filename);
@@ -65,8 +65,7 @@ public class MemeCard {
         }
     }
 
-    public void setUpvotes(int upvotes)
-    {
+    public void setUpvotes(int upvotes) {
         this.upvotes = upvotes;
     }
 

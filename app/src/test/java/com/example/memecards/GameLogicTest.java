@@ -12,8 +12,7 @@ import static org.junit.Assert.assertTrue;
 public class GameLogicTest {
 
     @Test
-    public void GameEngineTest()
-    {
+    public void GameEngineTest() {
         //Generating test deck
         Deck testDeck = new Deck();
         testDeck.generatingTestDeckforAI();
@@ -47,8 +46,7 @@ public class GameLogicTest {
     }
 
     @Test
-    public void AI_PlayerTest()
-    {
+    public void AI_PlayerTest() {
         //Generating AI player
         AI_Player aiTest = new AI_Player(0);
 

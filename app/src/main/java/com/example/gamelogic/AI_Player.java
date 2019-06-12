@@ -9,7 +9,7 @@ public class AI_Player {
     private int difficulty;
     private int cardPosition;
 
-    public AI_Player(int difficulty){
+    public AI_Player(int difficulty) {
         this.difficulty = difficulty;
         ai_deck = new Deck();
         cardPosition = 0;
@@ -23,8 +23,7 @@ public class AI_Player {
         return difficulty;
     }
 
-    public void generatingAIDeck()
-    {
+    public void generatingAIDeck() {
         if (difficulty == 0)
         {
             ai_deck.generatingTestDeckforAI();
@@ -32,8 +31,7 @@ public class AI_Player {
         }
     }
 
-    public MemeCard makeMoveForAI()
-    {
+    public MemeCard makeMoveForAI() {
         MemeCard card_played = ai_deck.getCardinDeck(cardPosition);
         cardPosition++;
 
