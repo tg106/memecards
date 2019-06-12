@@ -38,7 +38,8 @@ public class CardInformationActivity extends AppCompatActivity {
 
     /** Back to the home page when the user taps the BACK button */
     public void BackCardLib(View v) {
-        Intent intent = new Intent(this, CardLibraryActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, CardLibraryActivity.class);
+//        startActivity(intent);
+        onBackPressed();
     }
 }
