@@ -267,7 +267,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
     //The game flow, this is each phase of a turn, each phase will do something
     private void gamePlayFlow() {
-        new CountDownTimer(13000, 1000) {
+        new CountDownTimer(7000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
 
@@ -293,7 +293,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 if (!gameEngine.checkIfGameisOver()) {
                     Toast.makeText(StartGameActivity.this, "Next Turn", Toast.LENGTH_SHORT).show();
                     makeCardClickable(true);
-                    time_for_a_turn = 13;
+                    time_for_a_turn = 7;
                 } else {
                     if (gameEngine.getScoreForHuman() >= 3) {
                         Toast.makeText(StartGameActivity.this, "Congrats, you won", Toast.LENGTH_SHORT).show();
