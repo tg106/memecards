@@ -38,8 +38,9 @@ public class CardLibraryActivity extends AppCompatActivity {
 
     /** Back to the home page when the user taps the BACK button */
     public void BackHomePage(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, MainActivity.class);
+//        startActivity(intent);
+        onBackPressed();
     }
 
     // Show the number of total cards and locked cards
