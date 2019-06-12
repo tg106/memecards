@@ -18,6 +18,7 @@ public class PopupCardActivity extends AppCompatActivity {
     String name;
     String desc;
     String upvotes;
+    String tag;
     int imgpath;
     int position;
 
@@ -33,6 +34,7 @@ public class PopupCardActivity extends AppCompatActivity {
         upvotes = getIntent().getExtras().getString("Upvote");
         imgpath = getIntent().getExtras().getInt("Img");
         position = getIntent().getExtras().getInt("Pos");
+        tag = getIntent().getExtras().getString("Tag");
 
 
         DisplayMetrics dm = new DisplayMetrics();
@@ -69,11 +71,13 @@ public class PopupCardActivity extends AppCompatActivity {
         TextView cardDesc = findViewById(R.id.popupcard_description_0);
         TextView cardName = findViewById(R.id.popupcard_name_0);
         TextView cardUpvote = findViewById(R.id.popupcard_atk_0);
+        TextView cardTag = findViewById(R.id.popupcard_tag_0);
 
         img.setImageResource(imgpath);
         cardName.setText(name);
         cardDesc.setText(desc);
         cardUpvote.setText(upvotes);
+        cardTag.setText(tag);
     }
 
     /** Hides the status bar and action bar for an activity**/

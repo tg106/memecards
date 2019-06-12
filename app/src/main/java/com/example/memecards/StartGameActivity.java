@@ -15,10 +15,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.example.domainobjects.Deck;
+import com.example.domainobjects.Event;
 import com.example.domainobjects.EventList;
 import com.example.domainobjects.MemeCard;
 import com.example.gamelogic.GameEngine;
 import com.example.memedatabase.DBLoader;
+import com.example.memedatabase.EventListInterface;
+import com.example.memedatabase.EventListStub;
 import com.example.memedatabase.MasterDeckInterface;
 import com.example.memedatabase.MasterDeckStub;
 
@@ -43,9 +46,11 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
         //get DB
         MasterDeckInterface db = new MasterDeckStub();
+        EventListInterface eDB = new EventListStub();
 
         // load DB
         DBLoader.loadMasterDeck(db, this.getApplicationContext());
+        DBLoader.loadEventsList(eDB, this.getApplicationContext());
 
         //get cards
         test = new ArrayList<MemeCard>();
@@ -53,11 +58,17 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
             test.add(db.retrieveCard(cardName));
         }
 
+        //get events
+        ArrayList<Event> evList = new ArrayList<Event>();
+        for (String eventName : eDB.retrieveAllEventNames()) {
+            evList.add(eDB.retrieveEvent(eventName));
+        }
+
         //Deck for user player
         d = new Deck(test);
 
         //Generating time for a turn
-        time_for_a_turn = 13;
+        time_for_a_turn = 7;
 
         //Creating gameEngine (gamelogic)
         gameEngine = new GameEngine(d, 0);
@@ -73,8 +84,8 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }
 
         //Generating events and display the events
-        gameEngine.generatingEventList();
-        evL = gameEngine.getEventList();
+        gameEngine.generatingAllEventList(evList);
+        evL = gameEngine.generatingNewEvents();
         displayEvents();;
 
     }
@@ -267,20 +278,20 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
     //The game flow, this is each phase of a turn, each phase will do something
     private void gamePlayFlow() {
-        new CountDownTimer(13000, 1000) {
+        new CountDownTimer(7000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
 
-                if (time_for_a_turn == 9) {
+                if (time_for_a_turn == 5) {
                     Toast.makeText(StartGameActivity.this, "Calculating Upvotes...",Toast.LENGTH_SHORT).show();
                 }
 
-                if (time_for_a_turn == 6) {
+                if (time_for_a_turn == 4) {
                     Toast.makeText(StartGameActivity.this, "Updated Upvotes for both cards",Toast.LENGTH_SHORT).show();
                     updateUpvotes();;
                 }
 
-                if (time_for_a_turn == 3) {
+                if (time_for_a_turn == 2) {
                     deciseWinnerForATurn();;
                 }
 
@@ -293,7 +304,9 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 if (!gameEngine.checkIfGameisOver()) {
                     Toast.makeText(StartGameActivity.this, "Next Turn", Toast.LENGTH_SHORT).show();
                     makeCardClickable(true);
-                    time_for_a_turn = 13;
+                    time_for_a_turn = 7;
+                    evL = gameEngine.generatingNewEvents();
+                    displayEvents();;
                 } else {
                     if (gameEngine.getScoreForHuman() >= 3) {
                         Toast.makeText(StartGameActivity.this, "Congrats, you won", Toast.LENGTH_SHORT).show();
@@ -328,7 +341,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 displayCardPlayed(position);
                 displayAIplayedCard(card_played_by_AI);
             }
-        }, 3000);
+        }, 1500);
     }
 
 
@@ -372,6 +385,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         i.putExtra("Desc", d.getCardinDeck(tempI).getDescription());
         i.putExtra("Img",d.getCardinDeck(tempI).getResId());
         i.putExtra("Pos", tempI);
+        i.putExtra("Tag", d.getCardinDeck(tempI).getTag());
 
         startActivityForResult(i,1);
 

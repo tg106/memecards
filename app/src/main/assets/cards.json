@@ -5,7 +5,7 @@
       "description" : "TESt-DrIven DevELoPMEnT",
       "upvotes" : 5900,
       "fileName" : "mocking_spongebob.jpg",
-      "tag" : "IRL",
+      "tag" : "Cartoon",
       "locked" : false
     },
     {
@@ -21,7 +21,7 @@
       "description": "Me: *clears off table after dinner*\nDatabase team:",
       "upvotes": 920,
       "fileName": "unsettled_tom.jpg",
-      "tag" : "IRL",
+      "tag" : "Cartoon",
       "locked" : false
     },
     {
@@ -29,7 +29,7 @@
       "description" : "C++ vs. C=C+1",
       "upvotes" : 3700,
       "fileName" : "pointing_spiderman.jpg",
-      "tag" : "Movie",
+      "tag" : "Cartoon",
       "locked" : false
     },
     {
@@ -37,7 +37,7 @@
       "description" : "Me and the group putting off drawing the architecture diagrams",
       "upvotes" : 1080,
       "fileName" : "me_and_the_boys.png",
-      "tag" : "IRL",
+      "tag" : "Cartoon",
       "locked" : false
     },
     {
@@ -45,7 +45,7 @@
       "description" : "white\n#FFFFFF",
       "upvotes" : 2030,
       "fileName" : "tuxedo_pooh.jpg",
-      "tag" : "IRL",
+      "tag" : "Cartoon",
       "locked" : true
     },
     {

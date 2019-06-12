@@ -22,7 +22,7 @@ public class Event {
         this.tag = tag;
         positiveEvent = b;
 
-        this.prio = (int) (Math.random()*2);
+        this.prio = (int) (Math.random()*3);
     }
 
     public String getName() {

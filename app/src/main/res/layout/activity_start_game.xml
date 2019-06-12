@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.216"
         android:background="@drawable/border_test">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:orientation="horizontal">
@@ -35,11 +35,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:gravity="center"
+                android:layout_alignParentRight="true"
                 android:background="@drawable/border_test"
                 android:textStyle="bold"
                 android:padding="2sp"
-                android:textSize="13sp"/>
-        </LinearLayout>
+                android:textSize="13sp" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -81,8 +82,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="150dp"
-        android:layout_height="165dp"
+        android:layout_width="170dp"
+        android:layout_height="225dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/border_test"
         android:orientation="vertical"
@@ -102,7 +103,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="60dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/event_priority_display_0"
@@ -116,7 +117,7 @@
             <TextView
                 android:id="@+id/event_display_0"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="60dp"
                 android:text="Breaking new: all weebs are pedo"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -124,7 +125,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="60dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/event_priority_display_1"
@@ -138,13 +139,13 @@
             <TextView
                 android:id="@+id/event_display_1"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="60dp"
                 android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="60dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/event_priority_display_2"
@@ -158,7 +159,7 @@
             <TextView
                 android:id="@+id/event_display_2"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="60dp"
                 android:textSize="12sp" />
         </LinearLayout>
         />
@@ -181,7 +182,7 @@
         app:layout_constraintVertical_bias="0.142"
         android:background="@drawable/border_test">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:orientation="horizontal">
@@ -196,11 +197,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:gravity="center"
+                android:layout_alignParentRight="true"
                 android:background="@drawable/border_test"
                 android:textStyle="bold"
                 android:padding="2sp"
                 android:textSize="13sp"/>
-        </LinearLayout>
+        </RelativeLayout>
 
 
         <RelativeLayout

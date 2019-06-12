@@ -21,6 +21,9 @@ public class EventList {
         eventList.add(new Event("cartoons123","CartoonNetwork joined Disney", "Cartoon", 0, true));
     }
 
+    public void setEventList(ArrayList<Event> db) {
+        eventList = db;
+    }
 
     public List<Event> getEventList() {
         return eventList;
