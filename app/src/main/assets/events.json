@@ -1,6 +1,24 @@
 {
   "events" : [
     {
+      "name" : "pedoWeebs",
+      "description" : "Breaking new: All weebs are pedo",
+      "tag" : "Anime",
+      "positive" : false
+    },
+    {
+      "name" : "oscar",
+      "description" : "Oscar Award is coming soon",
+      "tag" : "Movies",
+      "positive" : true
+    },
+    {
+      "name" : "cartoons",
+      "description" : "CartoonNetwork joined Disney",
+      "tag" : "Cartoon",
+      "positive" : true
+    },
+    {
       "name" : "newBlockbusters",
       "description" : "3 new blockbusters are now showing in theatres.",
       "tag" : "Movies",

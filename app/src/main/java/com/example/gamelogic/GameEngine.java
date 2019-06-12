@@ -5,6 +5,8 @@ import com.example.domainobjects.Event;
 import com.example.domainobjects.EventList;
 import com.example.domainobjects.MemeCard;
 
+import java.util.ArrayList;
+
 public class GameEngine {
 
     private Deck deckForHuman;
@@ -13,6 +15,7 @@ public class GameEngine {
     private int scoreForHuman;
     private int scoreForAI;
     private int turn;
+    private int eventCount;
 
 
     public GameEngine(Deck deck, int difficulty) {
@@ -31,6 +34,30 @@ public class GameEngine {
 
     public void generatingEventList() {
         eventList.generatingTestEventList();
+    }
+
+    public void generatingAllEventList(ArrayList<Event> db) {
+        eventList.setEventList(db);
+    }
+
+    public EventList generatingNewEvents() {
+
+        ArrayList<Event> list = new ArrayList<Event>();
+
+        for (int i = 0; i < 3; i++) {
+            if (eventCount < 10) {
+                list.add(eventList.getEventByPos(eventCount));
+                eventCount++;
+            } else {
+                eventCount = 0;
+                list.add(eventList.getEventByPos(eventCount));
+                eventCount++;
+            }
+        }
+
+        EventList newEvl = new EventList(list);
+
+        return newEvl;
     }
 
     public int calculateNewUpv(int upv, String tag) {
