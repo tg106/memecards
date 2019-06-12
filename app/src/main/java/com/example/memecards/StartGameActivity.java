@@ -57,7 +57,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         d = new Deck(test);
 
         //Generating time for a turn
-        time_for_a_turn = 13;
+        time_for_a_turn = 7;
 
         //Creating gameEngine (gamelogic)
         gameEngine = new GameEngine(d, 0);
@@ -271,16 +271,16 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onTick(long millisUntilFinished) {
 
-                if (time_for_a_turn == 9) {
+                if (time_for_a_turn == 5) {
                     Toast.makeText(StartGameActivity.this, "Calculating Upvotes...",Toast.LENGTH_SHORT).show();
                 }
 
-                if (time_for_a_turn == 6) {
+                if (time_for_a_turn == 4) {
                     Toast.makeText(StartGameActivity.this, "Updated Upvotes for both cards",Toast.LENGTH_SHORT).show();
                     updateUpvotes();;
                 }
 
-                if (time_for_a_turn == 3) {
+                if (time_for_a_turn == 2) {
                     deciseWinnerForATurn();;
                 }
 
@@ -328,7 +328,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 displayCardPlayed(position);
                 displayAIplayedCard(card_played_by_AI);
             }
-        }, 3000);
+        }, 1500);
     }
 
 
@@ -372,6 +372,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         i.putExtra("Desc", d.getCardinDeck(tempI).getDescription());
         i.putExtra("Img",d.getCardinDeck(tempI).getResId());
         i.putExtra("Pos", tempI);
+        i.putExtra("Tag", d.getCardinDeck(tempI).getTag());
 
         startActivityForResult(i,1);
 
