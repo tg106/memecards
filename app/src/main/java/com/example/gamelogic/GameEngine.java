@@ -15,8 +15,7 @@ public class GameEngine {
     private int turn;
 
 
-    public GameEngine(Deck deck, int difficulty)
-    {
+    public GameEngine(Deck deck, int difficulty) {
         deckForHuman = deck;
         ai = new AI_Player(difficulty);
         eventList = new EventList();
@@ -26,23 +25,15 @@ public class GameEngine {
         ai.generatingAIDeck();
     }
 
-    public void moveByHuman(int pos)
-    {
-
-    }
-
-    public MemeCard moveByAI()
-    {
+    public MemeCard moveByAI() {
         return ai.makeMoveForAI();
     }
 
-    public void generatingEventList()
-    {
+    public void generatingEventList() {
         eventList.generatingTestEventList();
     }
 
-    public int calculateNewUpv(int upv, String tag)
-    {
+    public int calculateNewUpv(int upv, String tag) {
         int newUpvote = upv;
 
         for (int i = 0; i < 3; i++)
@@ -63,30 +54,26 @@ public class GameEngine {
         return newUpvote;
     }
 
-    public void increaseScoreForHuman()
-    {
+    public void increaseScoreForHuman() {
         scoreForHuman++;
     }
 
-    public void increaseScoreForAI()
-    {
+    public void increaseScoreForAI() {
         scoreForAI++;
     }
 
-    public void NextTurn()
-    {
+    public void nextTurn() {
         turn++;
     }
 
-    public boolean checkIfGameisOver()
-    {
+    public boolean checkIfGameisOver() {
         Boolean check = false;
 
         if (scoreForAI > 2)
             check = true;
         if (scoreForHuman > 2)
             check = true;
-        if (turn > 4)
+        if (turn > 5)
             check = true;
 
         return check;
@@ -96,8 +83,7 @@ public class GameEngine {
         return eventList;
     }
 
-    public boolean checkAImovable()
-    {
+    public boolean checkAImovable() {
         if (ai.getCardPosition() < 5)
             return true;
         else
