@@ -11,35 +11,30 @@ public class AI_Player {
 
     public AI_Player(int difficulty) {
         this.difficulty = difficulty;
-        ai_deck = new Deck();
-        cardPosition = 0;
+        this.ai_deck = new Deck();
+        this.cardPosition = 0;
     }
 
     public Deck getAi_deck() {
-        return ai_deck;
+        return this.ai_deck;
     }
 
     public int getDifficulty() {
-        return difficulty;
+        return this.difficulty;
     }
 
     public void generatingAIDeck() {
-        if (difficulty == 0)
-        {
-            ai_deck.generatingTestDeckforAI();
-
-        }
+        if (this.difficulty == 0)
+            this.ai_deck.generatingTestDeckforAI();
     }
 
     public MemeCard makeMoveForAI() {
         MemeCard card_played = ai_deck.getCardinDeck(cardPosition);
         cardPosition++;
-
         return card_played;
     }
 
     public int getCardPosition() {
         return cardPosition;
     }
-
 }

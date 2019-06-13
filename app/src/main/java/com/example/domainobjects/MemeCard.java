@@ -12,7 +12,14 @@ public class MemeCard {
     private boolean locked;
     private String tag;
 
-    public MemeCard(String name, String description, String filename, int upvotes, String tag, boolean locked) {
+    public MemeCard(
+            String name,
+            String description,
+            String filename,
+            int upvotes,
+            String tag,
+            boolean locked
+    ) {
         this.name = name;
         this.description = description;
         this.filename = filename;

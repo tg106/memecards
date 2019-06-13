@@ -13,14 +13,14 @@ public class Event {
         this.desc = desc;
         this.tag = tag;
         this.prio = prio;
-        positiveEvent = b;
+        this.positiveEvent = b;
     }
 
     public Event(String name, String desc, String tag, boolean b) {
         this.name = name;
         this.desc = desc;
         this.tag = tag;
-        positiveEvent = b;
+        this.positiveEvent = b;
 
         this.prio = (int) (Math.random()*3);
     }

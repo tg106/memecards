@@ -20,7 +20,14 @@ public interface MasterDeckInterface {
      * @param locked : indicator if the card should be locked or unlocked
      * @return returns true if insertion is successful, false otherwise.
      */
-    public boolean insertCard(String name, String description, String filename, int upvotes, String tag, boolean locked);
+    public boolean insertCard(
+            String name,
+            String description,
+            String filename,
+            int upvotes,
+            String tag,
+            boolean locked
+    );
 
     /**
      * Retrieves a card from the MasterDeck table given the name of the card.

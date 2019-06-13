@@ -44,7 +44,7 @@ public class CardLibraryActivity extends AppCompatActivity {
     }
 
     // Show the number of total cards and locked cards
-    private void showCardStats(MasterDeckStub masterDeck){
+    private void showCardStats(MasterDeckStub masterDeck) {
         TextView unlockedText = findViewById(R.id.UnlockedText);
         TextView unlockedNum = findViewById(R.id.UnlockedNum);
 
@@ -52,7 +52,7 @@ public class CardLibraryActivity extends AppCompatActivity {
         unlockedNum.setText(":  " + masterDeck.retrieveUnlockedCardNames().size() + " / " + masterDeck.deckSize());
     }
 
-    private void MakeCardsList(){
+    private void MakeCardsList() {
         RecyclerView myRecyView = (RecyclerView)findViewById(R.id.RecyclerView);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, this.cards);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -68,7 +68,7 @@ public class CardLibraryActivity extends AppCompatActivity {
     }
 
     /** Hides the status bar and action bar for an activity**/
-    private void hideActionBar(){
+    private void hideActionBar() {
         View decorView = getWindow().getDecorView();
         // Hide the status bar.
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;

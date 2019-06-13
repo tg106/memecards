@@ -16,9 +16,26 @@ public class EventList {
 
     //For testing, will be deleted later
     public void generatingTestEventList() {
-        eventList.add(new Event("weebs","Breaking new: all weebs are pedo", "Anime", 2, true));
-        eventList.add(new Event("movies","Oscar Award is coming soon", "Movie", 1, true));
-        eventList.add(new Event("cartoons123","CartoonNetwork joined Disney", "Cartoon", 0, true));
+        eventList.add(new Event(
+                "weebs",
+                "Breaking new: all weebs are pedo",
+                "Anime",
+                2,
+                true
+        ));
+        eventList.add(new Event(
+                "movies",
+                "Oscar Award is coming soon",
+                "Movie",
+                1,
+                true));
+        eventList.add(new Event(
+                "cartoons123",
+                "CartoonNetwork joined Disney",
+                "Cartoon",
+                0,
+                true
+        ));
     }
 
     public void setEventList(ArrayList<Event> db) {
@@ -31,7 +48,6 @@ public class EventList {
 
     public Event getEventByPos(int pos) {
         Event temp = eventList.get(pos);
-
         return temp;
     }
 }

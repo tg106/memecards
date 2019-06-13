@@ -29,12 +29,12 @@ public class PopupCardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popup_card);
 
-        name = getIntent().getExtras().getString("Name");
-        desc = getIntent().getExtras().getString("Desc");
-        upvotes = getIntent().getExtras().getString("Upvote");
-        imgpath = getIntent().getExtras().getInt("Img");
-        position = getIntent().getExtras().getInt("Pos");
-        tag = getIntent().getExtras().getString("Tag");
+        this.name = getIntent().getExtras().getString("Name");
+        this.desc = getIntent().getExtras().getString("Desc");
+        this.upvotes = getIntent().getExtras().getString("Upvote");
+        this.imgpath = getIntent().getExtras().getInt("Img");
+        this.position = getIntent().getExtras().getInt("Pos");
+        this.tag = getIntent().getExtras().getString("Tag");
 
 
         DisplayMetrics dm = new DisplayMetrics();
@@ -50,9 +50,9 @@ public class PopupCardActivity extends AppCompatActivity {
         getWindow().setAttributes(params);
         displayCardContent();
 
-        playCard_btn = (Button) findViewById(R.id.playcard_popup_btn);
+        this.playCard_btn = (Button) findViewById(R.id.playcard_popup_btn);
 
-        playCard_btn.setOnClickListener(new View.OnClickListener() {
+        this.playCard_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent resultIntent = new Intent();
@@ -73,11 +73,11 @@ public class PopupCardActivity extends AppCompatActivity {
         TextView cardUpvote = findViewById(R.id.popupcard_atk_0);
         TextView cardTag = findViewById(R.id.popupcard_tag_0);
 
-        img.setImageResource(imgpath);
-        cardName.setText(name);
-        cardDesc.setText(desc);
-        cardUpvote.setText(upvotes);
-        cardTag.setText(tag);
+        img.setImageResource(this.imgpath);
+        cardName.setText(this.name);
+        cardDesc.setText(this.desc);
+        cardUpvote.setText(this.upvotes);
+        cardTag.setText(this.tag);
     }
 
     /** Hides the status bar and action bar for an activity**/
