@@ -58,7 +58,7 @@
     },
     {
       "name" : "Ah Shit",
-      "description" : "",
+      "description" : "Ah Shit Here We Go Again",
       "upvotes" : 2500,
       "fileName" : "ah_shit.jpg",
       "tag" : "Gaming",
@@ -66,7 +66,7 @@
     },
     {
       "name" : "Drake",
-      "description" : "" ,
+      "description" : "Hotline Bling" ,
       "upvotes" : 3400,
       "fileName" : "drake.jpg",
       "tag" : "Music",
@@ -74,7 +74,7 @@
     },
     {
       "name" : "It Ain't Much",
-      "description" : "" ,
+      "description" : "But it's honest work" ,
       "upvotes" : 4200,
       "fileName" : "it_aint_much.jpg",
       "tag" : "IRL",
@@ -82,7 +82,7 @@
     },
     {
       "name" : "First Half",
-      "description" : "",
+      "description" : "Not gonna lie",
       "upvotes" : 1240,
       "fileName" : "first_half.jpg",
       "tag" : "Sports",
@@ -90,7 +90,7 @@
     },
     {
       "name" : "Expanding Brain",
-      "description" : "",
+      "description" : "Expanding brain",
       "upvotes" : 2700,
       "fileName" : "expanding_brain.jpg",
       "tag" : "IRL",
@@ -98,7 +98,7 @@
     },
     {
       "name" : "Perfectly Balanced",
-      "description" : "",
+      "description" : "As all things should be",
       "upvotes" : 5100,
       "fileName" : "perfectly_balanced.jpg",
       "tag" : "Movie",
@@ -106,7 +106,7 @@
     },
     {
       "name" : "Choose Wisely",
-      "description" : "",
+      "description" : "Apple",
       "upvotes" : 500,
       "fileName" : "choose_wisely.png",
       "tag" : "Technology",
@@ -114,7 +114,7 @@
     },
     {
       "name" : "Confused Nick",
-      "description" : "",
+      "description" : "????",
       "upvotes" : 800,
       "fileName" : "confused_nick.jpg",
       "tag" : "Sports",
@@ -122,7 +122,7 @@
     },
     {
       "name" : "Guy Looking Back",
-      "description" : "",
+      "description" : "Damn",
       "upvotes" : 3000,
       "fileName" : "guy_looking_back.jpg",
       "tag" : "IRL",
@@ -130,7 +130,7 @@
     },
     {
       "name" : "Guy Stopping Another Guy",
-      "description" : "",
+      "description" : "Hol up",
       "upvotes" : 400,
       "fileName" : "guy_stopping.png",
       "tag" : "IRL",
@@ -138,7 +138,7 @@
     },
     {
       "name" : "Smash Button",
-      "description" : "",
+      "description" : "NUT",
       "upvotes" : 1300,
       "fileName" : "smash_button.jpg",
       "tag" : "IRL",
@@ -146,7 +146,7 @@
     },
     {
       "name" : "Savage Patrick",
-      "description" : "",
+      "description" : "hehe",
       "upvotes" : 3600,
       "fileName" : "savage_patrick.png",
       "tag" : "IRL",
@@ -154,7 +154,7 @@
     },
     {
       "name" : "Monkey Look Away",
-      "description" : "",
+      "description" : "nope",
       "upvotes" : 4800,
       "fileName" : "monkey_look_away.png",
       "tag" : "IRL",
