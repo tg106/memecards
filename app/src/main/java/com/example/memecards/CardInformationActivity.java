@@ -25,15 +25,15 @@ public class CardInformationActivity extends AppCompatActivity {
     }
 
     public void ShowCardInformation(){
-        InfoDesc = (TextView)findViewById(R.id.CardInfoDesc);
-        InfoImage = (ImageView)findViewById(R.id.CardInfoImage);
+        this.InfoDesc = (TextView)findViewById(R.id.CardInfoDesc);
+        this.InfoImage = (ImageView)findViewById(R.id.CardInfoImage);
 
         Intent intent = getIntent();
         String desc = intent.getExtras().getString("Description");
         int image = intent.getExtras().getInt("ImageID");
 
-        InfoDesc.setText(desc);
-        InfoImage.setImageResource(image);
+        this.InfoDesc.setText(desc);
+        this.InfoImage.setImageResource(image);
     }
 
     /** Back to the home page when the user taps the BACK button */

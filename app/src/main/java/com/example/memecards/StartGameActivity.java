@@ -53,25 +53,23 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         DBLoader.loadEventsList(eDB, this.getApplicationContext());
 
         //get cards
-        test = new ArrayList<MemeCard>();
-        for (String cardName : db.retrieveAllCardNames()) {
-            test.add(db.retrieveCard(cardName));
-        }
+        this.test = new ArrayList<MemeCard>();
+        for (String cardName : db.retrieveAllCardNames())
+            this.test.add(db.retrieveCard(cardName));
 
         //get events
         ArrayList<Event> evList = new ArrayList<Event>();
-        for (String eventName : eDB.retrieveAllEventNames()) {
+        for (String eventName : eDB.retrieveAllEventNames())
             evList.add(eDB.retrieveEvent(eventName));
-        }
 
         //Deck for user player
-        d = new Deck(test);
+        this.d = new Deck(test);
 
         //Generating time for a turn
-        time_for_a_turn = 7;
+        this.time_for_a_turn = 7;
 
         //Creating gameEngine (gamelogic)
-        gameEngine = new GameEngine(d, 0);
+        this.gameEngine = new GameEngine(d, 0);
 
 
         displayDeck();;
@@ -79,13 +77,13 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         //Generating button for cardview
         for (int i = 0; i < 5; i++) {
             int tempI = getCardView(i);
-            hand_card_btn[i] = (CardView) findViewById(tempI);
-            hand_card_btn[i].setOnClickListener(this);
+            this.hand_card_btn[i] = (CardView) findViewById(tempI);
+            this.hand_card_btn[i].setOnClickListener(this);
         }
 
         //Generating events and display the events
-        gameEngine.generatingAllEventList(evList);
-        evL = gameEngine.generatingNewEvents();
+        this.gameEngine.generatingAllEventList(evList);
+        this.evL = this.gameEngine.generatingNewEvents();
         displayEvents();;
 
     }
@@ -112,11 +110,11 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         for (int i = 0; i < 3; i++) {
             tempI = getEventDisplayPosition(i);
             curT = (TextView) findViewById(tempI);
-            curT.setText(evL.getEventList().get(i).getDesc());
+            curT.setText(this.evL.getEventList().get(i).getDesc());
 
             tempI = getEventPriorityPosition(i);
             curT = (TextView) findViewById(tempI);
-            switch (evL.getEventByPos(i).getPrio()) {
+            switch (this.evL.getEventByPos(i).getPrio()) {
                 case 2:
                     curT.setText("Hot");
                     break;
@@ -222,40 +220,50 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
     private void makeCardClickable(boolean b) {
         for (int i = 0; i < 5; i++)
         {
-            hand_card_btn[i].setClickable(b);
+            this.hand_card_btn[i].setClickable(b);
         }
     }
 
     //Update the new card upvotes to the display
     private void updateUpvotes() {
-        int upvForHuman = gameEngine.calculateNewUpv(card_played_by_human.getUpvotes(), card_played_by_human.getTag());
-        int upvForAI = gameEngine.calculateNewUpv(card_played_by_AI.getUpvotes(), card_played_by_AI.getTag());
-        card_played_by_AI.setUpvotes(upvForAI);
-        card_played_by_human.setUpvotes(upvForHuman);
+        int upvForHuman = this.gameEngine.calculateNewUpv(
+                this.card_played_by_human.getUpvotes(),
+                this.card_played_by_human.getTag()
+        );
+        int upvForAI = this.gameEngine.calculateNewUpv(
+                this.card_played_by_AI.getUpvotes(),
+                this.card_played_by_AI.getTag()
+        );
+        this.card_played_by_AI.setUpvotes(upvForAI);
+        this.card_played_by_human.setUpvotes(upvForHuman);
 
         TextView temp  = (TextView) findViewById(R.id.cardfield_text_0);
-        temp.setText(card_played_by_AI.getUpvotesStr());
+        temp.setText(this.card_played_by_AI.getUpvotesStr());
         temp  = (TextView) findViewById(R.id.cardfield_text_1);
-        temp.setText(card_played_by_human.getUpvotesStr());
+        temp.setText(this.card_played_by_human.getUpvotesStr());
     }
 
     //Decise which player win the turn and increase point for that player
     private void deciseWinnerForATurn() {
-        int humanUpv = card_played_by_human.getUpvotes();
-        int aiUpv = card_played_by_AI.getUpvotes();
+        int humanUpv = this.card_played_by_human.getUpvotes();
+        int aiUpv = this.card_played_by_AI.getUpvotes();
 
         if (humanUpv > aiUpv) {
-            String temp = card_played_by_human.getName() + " won, Congrats";
+            String temp = this.card_played_by_human.getName() + " won, Congrats";
             Toast.makeText(StartGameActivity.this, temp,Toast.LENGTH_SHORT).show();
-            gameEngine.increaseScoreForHuman();
+            this.gameEngine.increaseScoreForHuman();
         } else if (aiUpv > humanUpv) {
-            String temp = card_played_by_AI.getName() + " won, Too bad loser";
+            String temp = this.card_played_by_AI.getName() + " won, Too bad loser";
             Toast.makeText(StartGameActivity.this, temp,Toast.LENGTH_SHORT).show();
-            gameEngine.increaseScoreForAI();
+            this.gameEngine.increaseScoreForAI();
         } else {
-            Toast.makeText(StartGameActivity.this, "WOW, we get a draw,  both players will get a point",Toast.LENGTH_SHORT).show();
-            gameEngine.increaseScoreForHuman();
-            gameEngine.increaseScoreForAI();
+            Toast.makeText(
+                    StartGameActivity.this,
+                    "WOW, we get a draw,  both players will get a point",
+                    Toast.LENGTH_SHORT
+            ).show();
+            this.gameEngine.increaseScoreForHuman();
+            this.gameEngine.increaseScoreForAI();
         }
 
         updateScore();;
@@ -264,9 +272,9 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
     //Update the new score to the scoreboard
     private void updateScore() {
         TextView temp  = (TextView) findViewById(R.id.score_for_AI);
-        temp.setText( "" + gameEngine.getScoreForAI());
+        temp.setText( "" + this.gameEngine.getScoreForAI());
         temp  = (TextView) findViewById(R.id.score_for_Human);
-        temp.setText( "" +gameEngine.getScoreForHuman());
+        temp.setText( "" + this.gameEngine.getScoreForHuman());
     }
 
 
@@ -322,8 +330,8 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
     //Get a move from AI player
     public void getMoveFromAI() {
-        if (gameEngine.checkAImovable())
-            card_played_by_AI = gameEngine.moveByAI();
+        if (this.gameEngine.checkAImovable())
+            this.card_played_by_AI = this.gameEngine.moveByAI();
 
     }
 
@@ -399,14 +407,14 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
                 final int card_played_pos = data.getIntExtra("CardPlayed",0);
-                card_played_by_human = d.getCardinDeck(card_played_pos);
+                this.card_played_by_human = d.getCardinDeck(card_played_pos);
                 Toast.makeText(StartGameActivity.this, "Posting meme, Opponent's also posting...", Toast.LENGTH_SHORT).show();
                 ProgressBar temp = findViewById(R.id.cardfield_progressBar_1);
                 ProgressBar temp2 = findViewById(R.id.cardfield_progressBar_0);
                 temp.setVisibility(View.VISIBLE);
                 temp2.setVisibility(View.VISIBLE);
                 makeCardClickable(false);
-                hand_card_btn[card_played_pos].setVisibility(View.GONE);
+                this.hand_card_btn[card_played_pos].setVisibility(View.GONE);
                 getMoveFromAI();
                 delayDisplayForAnimation(card_played_pos);
                 gamePlayFlow();

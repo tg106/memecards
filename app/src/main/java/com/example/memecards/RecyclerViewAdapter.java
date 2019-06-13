@@ -76,9 +76,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public MyViewHolder(View view){
             super(view);
-            myName = (TextView)itemView.findViewById(R.id.CardName);
-            myImage = (ImageView)itemView.findViewById(R.id.CardImage);
-            myCardView = (CardView)itemView.findViewById(R.id.CardView);
+            this.myName = (TextView)itemView.findViewById(R.id.CardName);
+            this.myImage = (ImageView)itemView.findViewById(R.id.CardImage);
+            this.myCardView = (CardView)itemView.findViewById(R.id.CardView);
         }
     }
 }

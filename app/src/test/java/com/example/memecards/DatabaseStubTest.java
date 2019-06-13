@@ -3,18 +3,12 @@ package com.example.memecards;
 import com.example.domainobjects.Event;
 import com.example.domainobjects.MemeCard;
 import com.example.memedatabase.BattleDeckStub;
-import com.example.memedatabase.DBLoader;
-import com.example.memedatabase.EventListInterface;
 import com.example.memedatabase.EventListStub;
 import com.example.memedatabase.MasterDeckStub;
 import com.example.memedatabase.PlayerStatsStub;
 
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -43,9 +37,11 @@ public class DatabaseStubTest {
         assertEquals(testInt, 0);
 
         // test insert card
-        testBool = stub.insertCard("sampleA", "blah", "path", 99, "tag", true);
+        testBool = stub.insertCard("sampleA", "blah", "path", 99, "tag", true
+        );
         assertTrue(testBool);
-        testBool = stub.insertCard("sampleB", "blah", "path", 99, "tag", false);
+        testBool = stub.insertCard("sampleB", "blah", "path", 99, "tag", false
+        );
         assertTrue(testBool);
 
         // test retrieve card
@@ -78,12 +74,24 @@ public class DatabaseStubTest {
         // battle deck requires a master deck, so instantiate a master deck first
         MasterDeckStub master = new MasterDeckStub();
         master.resetStub();
-        master.insertCard("sampleA", "blah", "path", 99, "tag", true);
-        master.insertCard("sampleB", "blah", "path", 99, "tag", false);
-        master.insertCard("sampleC", "blah", "path", 99, "tag", false);
-        master.insertCard("sampleD", "blah", "path", 99, "tag", false);
-        master.insertCard("sampleE", "blah", "path", 99, "tag", false);
-        master.insertCard("sampleF", "blah", "path", 99, "tag", false);
+        master.insertCard(
+                "sampleA", "blah", "path", 99, "tag", true
+        );
+        master.insertCard(
+                "sampleB", "blah", "path", 99, "tag", false
+        );
+        master.insertCard(
+                "sampleC", "blah", "path", 99, "tag", false
+        );
+        master.insertCard(
+                "sampleD", "blah", "path", 99, "tag", false
+        );
+        master.insertCard(
+                "sampleE", "blah", "path", 99, "tag", false
+        );
+        master.insertCard(
+                "sampleF", "blah", "path", 99, "tag", false
+        );
 
         // instantiate battle deck stub db
         BattleDeckStub stub = new BattleDeckStub(master);

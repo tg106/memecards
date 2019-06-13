@@ -19,25 +19,25 @@ public class GameEngine {
 
 
     public GameEngine(Deck deck, int difficulty) {
-        deckForHuman = deck;
-        ai = new AI_Player(difficulty);
-        eventList = new EventList();
-        scoreForAI = 0;
-        scoreForHuman = 0;
-        turn = 0;
-        ai.generatingAIDeck();
+        this.deckForHuman = deck;
+        this.ai = new AI_Player(difficulty);
+        this.eventList = new EventList();
+        this.scoreForAI = 0;
+        this.scoreForHuman = 0;
+        this.turn = 0;
+        this.ai.generatingAIDeck();
     }
 
     public MemeCard moveByAI() {
-        return ai.makeMoveForAI();
+        return this.ai.makeMoveForAI();
     }
 
     public void generatingEventList() {
-        eventList.generatingTestEventList();
+        this.eventList.generatingTestEventList();
     }
 
     public void generatingAllEventList(ArrayList<Event> db) {
-        eventList.setEventList(db);
+        this.eventList.setEventList(db);
     }
 
     public EventList generatingNewEvents() {
@@ -45,13 +45,13 @@ public class GameEngine {
         ArrayList<Event> list = new ArrayList<Event>();
 
         for (int i = 0; i < 3; i++) {
-            if (eventCount < 10) {
-                list.add(eventList.getEventByPos(eventCount));
-                eventCount++;
+            if (this.eventCount < 10) {
+                list.add(this.eventList.getEventByPos(this.eventCount));
+                this.eventCount++;
             } else {
-                eventCount = 0;
-                list.add(eventList.getEventByPos(eventCount));
-                eventCount++;
+                this.eventCount = 0;
+                list.add(this.eventList.getEventByPos(this.eventCount));
+                this.eventCount++;
             }
         }
 
@@ -63,66 +63,60 @@ public class GameEngine {
     public int calculateNewUpv(int upv, String tag) {
         int newUpvote = upv;
 
-        for (int i = 0; i < 3; i++)
-        {
-            Event temp = eventList.getEventByPos(i);
+        for (int i = 0; i < 3; i++) {
+            Event temp = this.eventList.getEventByPos(i);
 
             if (tag.equals(temp.getTag()) && temp.checkEventPositive())
-            {
                 newUpvote += 200*(temp.getPrio()+1);
-            }
-
             if (tag.equals(temp.getTag()) && !temp.checkEventPositive())
-            {
                 newUpvote -= 200*(temp.getPrio()+1);
-            }
         }
 
         return newUpvote;
     }
 
     public void increaseScoreForHuman() {
-        scoreForHuman++;
+        this.scoreForHuman++;
     }
 
     public void increaseScoreForAI() {
-        scoreForAI++;
+        this.scoreForAI++;
     }
 
     public void nextTurn() {
-        turn++;
+        this.turn++;
     }
 
     public boolean checkIfGameisOver() {
         Boolean check = false;
 
-        if (scoreForAI > 2)
+        if (this.scoreForAI > 2)
             check = true;
-        if (scoreForHuman > 2)
+        if (this.scoreForHuman > 2)
             check = true;
-        if (turn > 5)
+        if (this.turn > 5)
             check = true;
 
         return check;
     }
 
     public EventList getEventList() {
-        return eventList;
+        return this.eventList;
     }
 
     public boolean checkAImovable() {
-        if (ai.getCardPosition() < 5)
+        if (this.ai.getCardPosition() < 5)
             return true;
         else
             return false;
     }
 
     public int getScoreForAI() {
-        return scoreForAI;
+        return this.scoreForAI;
     }
 
     public int getScoreForHuman() {
-        return scoreForHuman;
+        return this.scoreForHuman;
     }
 
 

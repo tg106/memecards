@@ -17,25 +17,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        battle = (Button) findViewById(R.id.battle);
-        library = (Button) findViewById(R.id.library);
-        quit = (Button) findViewById(R.id.quit);
+        this.battle = (Button) findViewById(R.id.battle);
+        this.library = (Button) findViewById(R.id.library);
+        this.quit = (Button) findViewById(R.id.quit);
 
-        battle.setOnClickListener(new View.OnClickListener() {
+        this.battle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openStartGameActivity();
             }
         });
 
-        library.setOnClickListener(new View.OnClickListener() {
+        this.library.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openCardLibraryActivity();
             }
         });
 
-        quit.setOnClickListener(new View.OnClickListener() {
+        this.quit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

@@ -15,7 +15,9 @@ public class BattleDeckStub implements BattleDeckInterface {
     @Override
     public boolean insertCard(String cardName) {
         boolean result = false;
-        if (!mock.contains(cardName) && masterDeck.retrieveCard(cardName) != null && !this.isFull()){
+        if (!mock.contains(cardName) && masterDeck.retrieveCard(cardName) !=
+                null && !this.isFull()
+        ) {
             mock.add(cardName);
             result = true;
         }

@@ -8,7 +8,14 @@ public class MasterDeckStub implements MasterDeckInterface {
     private static ArrayList<MemeCard> mock = new ArrayList<>();
 
     @Override
-    public boolean insertCard(String name, String description, String filename, int upvotes, String tag, boolean locked) {
+    public boolean insertCard(
+            String name,
+            String description,
+            String filename,
+            int upvotes,
+            String tag,
+            boolean locked
+    ) {
         if (this.retrieveCard(name) == null)
             return mock.add(new MemeCard(name, description, filename, upvotes, tag, locked));
         else
