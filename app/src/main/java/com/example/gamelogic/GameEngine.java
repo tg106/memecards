@@ -94,7 +94,7 @@ public class GameEngine {
             check = true;
         if (this.scoreForHuman > 2)
             check = true;
-        if (this.turn > 5)
+        if (this.turn >= 5)
             check = true;
 
         return check;

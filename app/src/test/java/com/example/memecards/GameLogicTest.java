@@ -1,11 +1,16 @@
 package com.example.memecards;
 
 import com.example.domainobjects.Deck;
+import com.example.domainobjects.Event;
+import com.example.domainobjects.EventList;
 import com.example.domainobjects.MemeCard;
 import com.example.gamelogic.AI_Player;
 import com.example.gamelogic.GameEngine;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
@@ -42,6 +47,35 @@ public class GameLogicTest {
         //Check if generating eventlist work
         gameEngine.generatingEventList();
         assertTrue(gameEngine.getEventList() != null);
+
+        //Check if gameEngine go to next turn and end the game
+        assertTrue(!gameEngine.checkIfGameisOver());
+        for (int i = 0; i < 5; i++)
+            gameEngine.nextTurn();
+        assertTrue(gameEngine.checkIfGameisOver());
+
+        //Check if gameEngine can create and cycle through events
+        ArrayList<Event> testList = new ArrayList<Event>();
+        for (int i = 0; i < 10; i++)
+            testList.add(new Event(
+                    "test",
+                    "test",
+                    "test",
+                    2,
+                    true
+            ));
+        gameEngine.generatingAllEventList(testList);
+        EventList eventListTest = gameEngine.generatingNewEvents();
+        assertTrue(eventListTest != null);
+        assertTrue(eventListTest.getEventList() != null);
+        assertTrue(eventListTest.getEventByPos(0).getPrio() == 2);
+        gameEngine.generatingAllEventList(testList);
+        eventListTest = gameEngine.generatingNewEvents();
+        assertTrue(eventListTest.getEventByPos(0).getPrio() == 2);
+
+        //Check if gameEngine calculate the correct score
+        assertTrue(gameEngine.calculateNewUpv(1000, "test") == 2800);
+
 
     }
 
