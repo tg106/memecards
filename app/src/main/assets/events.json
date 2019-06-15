@@ -1,0 +1,88 @@
+{
+  "events" : [
+    {
+      "name" : "pedoWeebs",
+      "description" : "Breaking new: All weebs are pedo",
+      "tag" : "Anime",
+      "positive" : false
+    },
+    {
+      "name" : "oscar",
+      "description" : "Oscar Award is coming soon",
+      "tag" : "Movies",
+      "positive" : true
+    },
+    {
+      "name" : "cartoons",
+      "description" : "CartoonNetwork joined Disney",
+      "tag" : "Cartoon",
+      "positive" : true
+    },
+    {
+      "name" : "newBlockbusters",
+      "description" : "3 new blockbusters are now showing in theatres.",
+      "tag" : "Movies",
+      "positive" : true
+    },
+    {
+      "name" : "dumped",
+      "description" : "You have just been dumped.",
+      "tag" : "IRL",
+      "positive" : true
+    },
+    {
+      "name" : "newSeason",
+      "description" : "The new season for sporting leagues has started.",
+      "tag" : "Sports",
+      "positive" : true
+    },
+    {
+      "name" : "newStudy",
+      "description" : "New study finds that many animes encourage violence.",
+      "tag" : "Anime",
+      "positive" : false
+    },
+    {
+      "name" : "streamable",
+      "description" : "Streamable: Lebron James' grotesque leg injury.",
+      "tag" : "Sports",
+      "positive" : false
+    },
+    {
+      "name" : "notFunny",
+      "description" : "You are not feeling funny.",
+      "tag" : "IRL",
+      "positive" : false
+    },
+    {
+      "name" : "sony",
+      "description" : "Sony cracks down on copyrighted materials on Reddit.",
+      "tag" : "Movies",
+      "positive" : false
+    },
+    {
+      "name" : "olympics",
+      "description" : "The Olympics is nearing.",
+      "tag" : "Sports",
+      "positive" : true
+    },
+    {
+      "name" : "offensive",
+      "description" : "You feel compelled to make an offensive IRL post.",
+      "tag" : "IRL",
+      "positive" : false
+    },
+    {
+      "name" : "rMeIrl",
+      "description" : "Posting to r/me_irl",
+      "tag" : "IRL",
+      "positive" : true
+    },
+    {
+      "name" : "rMovies",
+      "description" : "Posting to r/movies",
+      "tag" : "Movies",
+      "positive" : true
+    }
+  ]
+}

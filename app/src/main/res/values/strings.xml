@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">MemeCards</string>
+    <string name="wallpaper">Wallpaper</string>
+    <string name="_3_million_players_choices">   3 million players\' choices !</string>
+    <string name="library_of_your_own_cards">   Library of your own cards!</string>
+    <string name="it_was_a_fun_time_see_you">   Good fight, see you next</string>
+    <string name="next_time">next time.</string>
+    <string name="r_quit">r/quit</string>
+    <string name="fake_upvote_dpwnvote">fake_upvote_dpwnvote</string>
+    <string name="join_the_battle_now">Join the battle now.</string>
+    <string name="r_battle">r/battle</string>
+    <string name="see_what_you_got">See what you got.</string>
+    <string name="r_library">r/library</string>
+    <string name="posted_by_team_9_just_now">    posted by team #9, just now</string>
+    <string name="title_activity_card_information">CardInformationActivity</string>
 </resources>

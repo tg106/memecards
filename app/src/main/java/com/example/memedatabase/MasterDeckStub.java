@@ -8,7 +8,14 @@ public class MasterDeckStub implements MasterDeckInterface {
     private static ArrayList<MemeCard> mock = new ArrayList<>();
 
     @Override
-    public boolean insertCard(String name, String description, String filename, int upvotes, String tag, boolean locked) {
+    public boolean insertCard(
+            String name,
+            String description,
+            String filename,
+            int upvotes,
+            String tag,
+            boolean locked
+    ) {
         if (this.retrieveCard(name) == null)
             return mock.add(new MemeCard(name, description, filename, upvotes, tag, locked));
         else
@@ -30,6 +37,24 @@ public class MasterDeckStub implements MasterDeckInterface {
         ArrayList<String> result = new ArrayList<>();
         for (MemeCard card : mock)
             result.add(card.getName());
+        return result;
+    }
+
+    @Override
+    public ArrayList<String> retrieveLockedCardNames() {
+        ArrayList<String> result = new ArrayList<>();
+        for (MemeCard card : mock)
+            if (card.isLocked())
+                result.add(card.getName());
+        return result;
+    }
+
+    @Override
+    public ArrayList<String> retrieveUnlockedCardNames() {
+        ArrayList<String> result = new ArrayList<>();
+        for (MemeCard card : mock)
+            if (!card.isLocked())
+                result.add(card.getName());
         return result;
     }
 
