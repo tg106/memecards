@@ -9,23 +9,34 @@ public class DBHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + DBContract.CardsSchema.TABLE_NAME + " (" +
                     DBContract.CardsSchema.COLUMN_NAME_NAME + " TEXT PRIMARY KEY," +
                     DBContract.CardsSchema.COLUMN_NAME_DESCRIPTION + " TEXT," +
-                    DBContract.CardsSchema.COLUMN_NAME_IMGPATH + " TEXT," +
+                    DBContract.CardsSchema.COLUMN_NAME_FILENAME + " TEXT," +
+                    DBContract.CardsSchema.COLUMN_NAME_TAG + " TEXT," +
                     DBContract.CardsSchema.COLUMN_NAME_UPVOTES + " INTEGER," +
                     DBContract.CardsSchema.COLUMN_NAME_LOCKED + " INTEGER)";
 
-    private static final String SQL_DELETE_CARDS =
-            "DROP TABLE IF EXISTS " + DBContract.CardsSchema.TABLE_NAME;
+    private static final String SQL_CREATE_EVENTS =
+            "CREATE TABLE " + DBContract.EventsSchema.TABLE_NAME + " (" +
+                    DBContract.EventsSchema.COLUMN_NAME_NAME + " TEXT PRIMARY KEY," +
+                    DBContract.EventsSchema.COLUMN_NAME_DESCRIPTION + " TEXT," +
+                    DBContract.EventsSchema.COLUMN_NAME_TAG + " TEXT," +
+                    DBContract.EventsSchema.COLUMN_NAME_POSITIVE + " INTEGER)";
 
     private static final String SQL_CREATE_BATTLEDECK =
             "CREATE TABLE " + DBContract.CardsSchema.TABLE_NAME + " (" +
                     DBContract.BattleDeckSchema.COLUMN_NAME_NAME + " TEXT PRIMARY KEY)";
 
-    private static final String SQL_DELETE_BATTLEDECK =
-            "DROP TABLE IF EXISTS " + DBContract.BattleDeckSchema.TABLE_NAME;
-
     private static final String SQL_CREATE_PLAYERSTATS =
             "CREATE TABLE " + DBContract.PlayerStatsSchema.TABLE_NAME + " (" +
                     DBContract.PlayerStatsSchema.COLUMN_NAME_CASH + " INTEGER PRIMARY KEY)";
+
+    private static final String SQL_DELETE_CARDS =
+            "DROP TABLE IF EXISTS " + DBContract.CardsSchema.TABLE_NAME;
+
+    private static final String SQL_DELETE_EVENTS =
+            "DROP TABLE IF EXISTS " + DBContract.EventsSchema.TABLE_NAME;
+
+    private static final String SQL_DELETE_BATTLEDECK =
+            "DROP TABLE IF EXISTS " + DBContract.BattleDeckSchema.TABLE_NAME;
 
     private static final String SQL_DELETE_PLAYERSTATS =
             "DROP TABLE IF EXISTS " + DBContract.PlayerStatsSchema.TABLE_NAME;
@@ -37,6 +48,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_CARDS);
         db.execSQL(SQL_CREATE_BATTLEDECK);
         db.execSQL(SQL_CREATE_PLAYERSTATS);
+        db.execSQL(SQL_CREATE_EVENTS);
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // just discard the data and start over if database is upgraded
@@ -44,6 +56,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_CARDS);
         db.execSQL(SQL_DELETE_BATTLEDECK);
         db.execSQL(SQL_DELETE_PLAYERSTATS);
+        db.execSQL(SQL_DELETE_EVENTS);
         onCreate(db);
     }
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {

@@ -15,7 +15,8 @@ public final class DBContract {
         public static final String TABLE_NAME = "cards";
         public static final String COLUMN_NAME_NAME = "name";
         public static final String COLUMN_NAME_DESCRIPTION = "description";
-        public static final String COLUMN_NAME_IMGPATH = "imgpath";
+        public static final String COLUMN_NAME_FILENAME = "filename";
+        public static final String COLUMN_NAME_TAG = "tag";
         public static final String COLUMN_NAME_UPVOTES = "upvotes";
         public static final String COLUMN_NAME_LOCKED = "locked";
     }
@@ -30,5 +31,14 @@ public final class DBContract {
     public static class PlayerStatsSchema implements BaseColumns {
         public static final String TABLE_NAME = "playerstats";
         public static final String COLUMN_NAME_CASH = "cash";
+    }
+
+    /* Inner class that defines the events contents */
+    public static class EventsSchema implements BaseColumns {
+        public static final String TABLE_NAME = "events";
+        public static final String COLUMN_NAME_NAME = "name";
+        public static final String COLUMN_NAME_DESCRIPTION = "description";
+        public static final String COLUMN_NAME_TAG = "tag";
+        public static final String COLUMN_NAME_POSITIVE = "positive";
     }
 }

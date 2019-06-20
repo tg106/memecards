@@ -26,7 +26,7 @@ class MasterDeck implements MasterDeckInterface {
     }
 
     @Override
-    public boolean insertCard(String name, String description, String imgpath, int upvotes, boolean locked){
+    public boolean insertCard(String name, String description, String filename, int upvotes, String tag, boolean locked){
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getDBHelper().getWritableDatabase();
 
@@ -40,8 +40,9 @@ class MasterDeck implements MasterDeckInterface {
         // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(DBContract.CardsSchema.COLUMN_NAME_NAME, name);
+        values.put(DBContract.CardsSchema.COLUMN_NAME_TAG, tag);
         values.put(DBContract.CardsSchema.COLUMN_NAME_DESCRIPTION, description);
-        values.put(DBContract.CardsSchema.COLUMN_NAME_IMGPATH, imgpath);
+        values.put(DBContract.CardsSchema.COLUMN_NAME_FILENAME, filename);
         values.put(DBContract.CardsSchema.COLUMN_NAME_UPVOTES, upvotes);
         values.put(DBContract.CardsSchema.COLUMN_NAME_LOCKED, lockedInt);
 
@@ -62,11 +63,12 @@ class MasterDeck implements MasterDeckInterface {
 
         // Define query projection
         String[] projection = {
-            DBContract.CardsSchema.COLUMN_NAME_NAME,
-            DBContract.CardsSchema.COLUMN_NAME_DESCRIPTION,
-            DBContract.CardsSchema.COLUMN_NAME_IMGPATH,
-            DBContract.CardsSchema.COLUMN_NAME_UPVOTES,
-            DBContract.CardsSchema.COLUMN_NAME_LOCKED,
+                DBContract.CardsSchema.COLUMN_NAME_NAME,
+                DBContract.CardsSchema.COLUMN_NAME_DESCRIPTION,
+                DBContract.CardsSchema.COLUMN_NAME_FILENAME,
+                DBContract.CardsSchema.COLUMN_NAME_UPVOTES,
+                DBContract.CardsSchema.COLUMN_NAME_TAG,
+                DBContract.CardsSchema.COLUMN_NAME_LOCKED,
         };
 
         // Result filter
@@ -75,13 +77,13 @@ class MasterDeck implements MasterDeckInterface {
 
         // DB query
         Cursor cursor = db.query(
-            DBContract.CardsSchema.TABLE_NAME,   // The table to query
-            projection,             // The array of columns to return (pass null to get all)
-            selection,              // The columns for the WHERE clause
-            selectionArgs,          // The values for the WHERE clause
-            null,          // don't group the rows
-            null,           // don't filter by row groups
-            null           // don't sort the rows
+                DBContract.CardsSchema.TABLE_NAME,   // The table to query
+                projection,             // The array of columns to return (pass null to get all)
+                selection,              // The columns for the WHERE clause
+                selectionArgs,          // The values for the WHERE clause
+                null,          // don't group the rows
+                null,           // don't filter by row groups
+                null           // don't sort the rows
         );
 
         // create a card object
@@ -91,16 +93,18 @@ class MasterDeck implements MasterDeckInterface {
                     cursor.getColumnIndexOrThrow(DBContract.CardsSchema.COLUMN_NAME_NAME));
             String description = cursor.getString(
                     cursor.getColumnIndexOrThrow(DBContract.CardsSchema.COLUMN_NAME_DESCRIPTION));
-            String imgpath = cursor.getString(
-                    cursor.getColumnIndexOrThrow(DBContract.CardsSchema.COLUMN_NAME_IMGPATH));
+            String filename = cursor.getString(
+                    cursor.getColumnIndexOrThrow(DBContract.CardsSchema.COLUMN_NAME_FILENAME));
             int upvotes = cursor.getInt(
                     cursor.getColumnIndexOrThrow(DBContract.CardsSchema.COLUMN_NAME_UPVOTES));
+            String tag = cursor.getString(
+                    cursor.getColumnIndexOrThrow(DBContract.CardsSchema.COLUMN_NAME_TAG));
             int lockedInt = cursor.getInt(
                     cursor.getColumnIndexOrThrow(DBContract.CardsSchema.COLUMN_NAME_LOCKED));
 
             boolean locked = lockedInt == 1;
 
-            card = new MemeCard(name, description, imgpath, upvotes, locked);
+            card = new MemeCard(name, description, filename, upvotes, tag, locked);
 
         }
         cursor.close();
@@ -121,6 +125,83 @@ class MasterDeck implements MasterDeckInterface {
         String field = DBContract.CardsSchema.COLUMN_NAME_NAME;
         Cursor  cursor = db.rawQuery(
                 "select " + field + " from " + table,null);
+
+        // exhaust cursor and build list
+        while (cursor.moveToNext()){
+            name = cursor.getString(
+                    cursor.getColumnIndexOrThrow(DBContract.CardsSchema.COLUMN_NAME_NAME));
+
+            cards.add(name);
+        }
+        return cards;
+    }
+
+
+    @Override
+    public ArrayList<String> retrieveLockedCardNames() {
+        ArrayList<String> cards = new ArrayList<>();
+        String name;
+
+        // Gets the data repository in read mode
+        SQLiteDatabase db = this.getDBHelper().getReadableDatabase();
+
+        // Define query projection
+        String[] projection = {
+                DBContract.CardsSchema.COLUMN_NAME_NAME,
+        };
+
+        // Result filter
+        String selection = DBContract.CardsSchema.COLUMN_NAME_LOCKED + " = ?";
+        String[] selectionArgs = { "1" };
+
+        // DB query
+        Cursor cursor = db.query(
+                DBContract.CardsSchema.TABLE_NAME,   // The table to query
+                projection,             // The array of columns to return (pass null to get all)
+                selection,              // The columns for the WHERE clause
+                selectionArgs,          // The values for the WHERE clause
+                null,          // don't group the rows
+                null,           // don't filter by row groups
+                null           // don't sort the rows
+        );
+
+        // exhaust cursor and build list
+        while (cursor.moveToNext()){
+            name = cursor.getString(
+                    cursor.getColumnIndexOrThrow(DBContract.CardsSchema.COLUMN_NAME_NAME));
+
+            cards.add(name);
+        }
+        return cards;
+    }
+
+    @Override
+    public ArrayList<String> retrieveUnlockedCardNames() {
+        ArrayList<String> cards = new ArrayList<>();
+        String name;
+
+        // Gets the data repository in read mode
+        SQLiteDatabase db = this.getDBHelper().getReadableDatabase();
+
+        // Define query projection
+        String[] projection = {
+                DBContract.CardsSchema.COLUMN_NAME_NAME,
+        };
+
+        // Result filter
+        String selection = DBContract.CardsSchema.COLUMN_NAME_LOCKED + " = ?";
+        String[] selectionArgs = { "0" };
+
+        // DB query
+        Cursor cursor = db.query(
+                DBContract.CardsSchema.TABLE_NAME,   // The table to query
+                projection,             // The array of columns to return (pass null to get all)
+                selection,              // The columns for the WHERE clause
+                selectionArgs,          // The values for the WHERE clause
+                null,          // don't group the rows
+                null,           // don't filter by row groups
+                null           // don't sort the rows
+        );
 
         // exhaust cursor and build list
         while (cursor.moveToNext()){
