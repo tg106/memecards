@@ -86,6 +86,8 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         this.evL = this.gameEngine.generatingNewEvents();
         displayEvents();;
 
+        makeCardClickable(false);
+        displayEventAnimation();
     }
 
     //Display the user's deck to the screen
@@ -209,9 +211,23 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         return tempI;
     }
 
-    //Get the card's tag position in the screen to display it
-    private int getCardfieldTagPosition(int pos) {
-        String tempS = "cardfield_tag_" + pos;
+    //Get the event info board position in the screen to display it
+    private int getEventBoardInfoPosition(int pos) {
+        String tempS = "info_board_event_info_" + pos;
+        int tempI = getResources().getIdentifier(tempS, "id",getPackageName() );
+        return tempI;
+    }
+
+    //Get the event priority position in info board
+    private int getEventPrioBoardInfoPosition(int pos) {
+        String tempS = "info_board_event_tag_" + pos;
+        int tempI = getResources().getIdentifier(tempS, "id",getPackageName() );
+        return tempI;
+    }
+
+    //Get AI hand card position
+    private int getHandCardForAIPosition(int pos) {
+        String tempS = "ai_card_" + pos;
         int tempI = getResources().getIdentifier(tempS, "id",getPackageName() );
         return tempI;
     }
@@ -311,10 +327,10 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 gameEngine.nextTurn();
                 if (!gameEngine.checkIfGameisOver()) {
                     Toast.makeText(StartGameActivity.this, "Next Turn", Toast.LENGTH_SHORT).show();
-                    makeCardClickable(true);
                     time_for_a_turn = 7;
                     evL = gameEngine.generatingNewEvents();
                     displayEvents();;
+                    displayEventAnimation();
                 } else {
                     if (gameEngine.getScoreForHuman() >= 3) {
                         Toast.makeText(StartGameActivity.this, "Congrats, you won", Toast.LENGTH_SHORT).show();
@@ -352,6 +368,63 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }, 1500);
     }
 
+    public  void setCardFieldVisible(boolean b)
+    {
+        View temp = findViewById(R.id.human_cardfield);
+        if (b)
+        {
+            temp.setVisibility(View.VISIBLE);
+            temp = findViewById(R.id.ai_cardfield);
+            temp.setVisibility(View.VISIBLE);
+            temp = findViewById(R.id.vs_text);
+            temp.setVisibility(View.VISIBLE);
+        } else {
+            temp.setVisibility(View.INVISIBLE);
+            temp = findViewById(R.id.ai_cardfield);
+            temp.setVisibility(View.INVISIBLE);
+            temp = findViewById(R.id.vs_text);
+            temp.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void displayEventAnimation() {
+        final View info_board = findViewById(R.id.info_board);
+        info_board.setVisibility(View.VISIBLE);
+
+        setCardFieldVisible(false);
+
+        TextView curT;
+        int tempI;
+        for (int i = 0; i < 3; i++) {
+            tempI = getEventBoardInfoPosition(i);
+            curT = (TextView) findViewById(tempI);
+            curT.setText(this.evL.getEventList().get(i).getDesc());
+
+            tempI = getEventPrioBoardInfoPosition(i);
+            curT = (TextView) findViewById(tempI);
+            switch (this.evL.getEventByPos(i).getPrio()) {
+                case 2:
+                    curT.setText("Hot");
+                    break;
+                case 1:
+                    curT.setText("New");
+                    break;
+                case 0:
+                    curT.setText("Fluff");
+                    break;
+            }
+        }
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                info_board.setVisibility(View.INVISIBLE);
+                View tempV = findViewById(R.id.event_board);
+                tempV.setVisibility(View.VISIBLE);
+                makeCardClickable(true);
+            }
+        }, 1500);
+    }
 
     /** Hides the status bar and action bar for an activity**/
     private void hideActionBar() {
@@ -409,17 +482,22 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 final int card_played_pos = data.getIntExtra("CardPlayed",0);
                 this.card_played_by_human = d.getCardinDeck(card_played_pos);
                 Toast.makeText(StartGameActivity.this, "Posting meme, Opponent's also posting...", Toast.LENGTH_SHORT).show();
-                ProgressBar temp = findViewById(R.id.cardfield_progressBar_1);
+                setCardFieldVisible(true);
+                View temp = findViewById(R.id.cardfield_progressBar_1);
                 ProgressBar temp2 = findViewById(R.id.cardfield_progressBar_0);
                 temp.setVisibility(View.VISIBLE);
                 temp2.setVisibility(View.VISIBLE);
                 makeCardClickable(false);
-                this.hand_card_btn[card_played_pos].setVisibility(View.GONE);
+                this.hand_card_btn[card_played_pos].setVisibility(View.INVISIBLE);
                 getMoveFromAI();
+                temp = findViewById(getHandCardForAIPosition(gameEngine.getTurn()));
+                temp.animate().alpha(0).setDuration(500);
                 delayDisplayForAnimation(card_played_pos);
                 gamePlayFlow();
 
             }
         }
     }
+
+
 }

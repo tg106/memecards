@@ -119,5 +119,7 @@ public class GameEngine {
         return this.scoreForHuman;
     }
 
-
+    public int getTurn() {
+        return turn;
+    }
 }
