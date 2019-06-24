@@ -311,14 +311,15 @@
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="15dp"
+            android:src="@drawable/player_default_avatar"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="25sp"
-            android:text="TEST"
+            android:text="YOU"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"/>
 
@@ -345,7 +346,8 @@
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="15dp"
+            android:src="@drawable/ai_avatar"/>
 
         <TextView
             android:layout_width="wrap_content"

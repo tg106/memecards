@@ -341,13 +341,13 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                     setCardFieldVisible(false);
                     displayEventAnimation();
                 } else {
+                    Intent newIntent = new Intent(getApplicationContext(), PopUpEndGameActivity.class);
                     if (gameEngine.getScoreForHuman() >= 3) {
-                        Toast.makeText(StartGameActivity.this, "Congrats, you won", Toast.LENGTH_SHORT).show();
-                        finish();;
+                        newIntent.putExtra("Win",  true);
                     } else {
-                        Toast.makeText(StartGameActivity.this, "Too bad, you lost, what an idiot", Toast.LENGTH_SHORT).show();
-                        finish();;
+                        newIntent.putExtra("Win", false);
                     }
+                    startActivity(newIntent);
                 }
             }
         }.start();
