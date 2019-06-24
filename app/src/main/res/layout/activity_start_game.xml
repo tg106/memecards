@@ -377,6 +377,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/final_board"
         android:layout_width="500dp"
         android:layout_height="300dp"
         android:layout_centerInParent="true">
@@ -388,7 +389,7 @@
             android:layout_alignParentBottom="true"
             android:orientation="vertical"
             android:background="@drawable/border_test"
-            android:visibility="visible">
+            android:visibility="invisible">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -458,7 +459,7 @@
             android:layout_alignParentRight="true"
             android:orientation="vertical"
             android:background="@drawable/border_test"
-            android:visibility="visible">
+            android:visibility="invisible">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -521,85 +522,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/info_board"
-            android:layout_width="250dp"
-            android:layout_height="200dp"
-            android:layout_centerInParent="true"
-            android:visibility="invisible"
-            android:orientation="vertical"
-            android:background="@drawable/border_test">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:text="Event"
-                android:textSize="20sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/info_board_event_tag_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/border_test"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:padding="2sp"
-                    android:layout_marginLeft="10dp"/>
-                <TextView
-                    android:id="@+id/info_board_event_info_0"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/info_board_event_tag_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/border_test"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:padding="2sp"
-                    android:layout_marginLeft="10dp"/>
-                <TextView
-                    android:id="@+id/info_board_event_info_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/info_board_event_tag_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/border_test"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:padding="2sp"
-                    android:layout_marginLeft="10dp"/>
-                <TextView
-                    android:id="@+id/info_board_event_info_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-
-        </LinearLayout>
-
         <TextView
             android:id="@+id/vs_text"
             android:layout_width="wrap_content"
@@ -608,7 +530,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:text="VS"
-            android:visibility="visible" />
+            android:visibility="invisible" />
 
     </RelativeLayout>
 
@@ -655,5 +577,84 @@
             android:scaleType="centerCrop"/>
 
     </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/info_board"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:background="@drawable/border_test">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="Event"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/info_board_event_tag_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_test"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:padding="2sp"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:id="@+id/info_board_event_info_0"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/info_board_event_tag_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_test"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:padding="2sp"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:id="@+id/info_board_event_info_1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/info_board_event_tag_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_test"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:padding="2sp"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:id="@+id/info_board_event_info_2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 
 </RelativeLayout>

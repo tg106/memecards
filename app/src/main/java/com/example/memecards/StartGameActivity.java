@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +41,8 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
     MemeCard card_played_by_human;
     MemeCard card_played_by_AI;
     int time_for_a_turn;
+    Animation smalltobig;
+    Animation bigtosmall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +93,9 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
         makeCardClickable(false);
         displayEventAnimation();
+
+        smalltobig = AnimationUtils.loadAnimation(this, R.anim.smalltobig);
+        bigtosmall = AnimationUtils.loadAnimation(this, R.anim.bigtosmall);
     }
 
     //Display the user's deck to the screen
@@ -330,6 +338,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                     time_for_a_turn = 7;
                     evL = gameEngine.generatingNewEvents();
                     displayEvents();;
+                    setCardFieldVisible(false);
                     displayEventAnimation();
                 } else {
                     if (gameEngine.getScoreForHuman() >= 3) {
@@ -370,28 +379,34 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
     public  void setCardFieldVisible(boolean b)
     {
-        View temp = findViewById(R.id.human_cardfield);
+        View temp = (LinearLayout) findViewById(R.id.human_cardfield);
         if (b)
         {
             temp.setVisibility(View.VISIBLE);
-            temp = findViewById(R.id.ai_cardfield);
+            temp.startAnimation(smalltobig);
+            temp = (LinearLayout) findViewById(R.id.ai_cardfield);
             temp.setVisibility(View.VISIBLE);
-            temp = findViewById(R.id.vs_text);
+            temp.startAnimation(smalltobig);
+            temp = (TextView) findViewById(R.id.vs_text);
             temp.setVisibility(View.VISIBLE);
+            temp.startAnimation(smalltobig);
         } else {
-            temp.setVisibility(View.INVISIBLE);
-            temp = findViewById(R.id.ai_cardfield);
-            temp.setVisibility(View.INVISIBLE);
-            temp = findViewById(R.id.vs_text);
-            temp.setVisibility(View.INVISIBLE);
+            hideViewAnimation(temp);
+            temp = (LinearLayout) findViewById(R.id.ai_cardfield);
+            hideViewAnimation(temp);
+            temp = (TextView) findViewById(R.id.vs_text);
+            hideViewAnimation(temp);
         }
     }
 
     private void displayEventAnimation() {
-        final View info_board = findViewById(R.id.info_board);
+        final LinearLayout info_board = (LinearLayout) findViewById(R.id.info_board);
         info_board.setVisibility(View.VISIBLE);
 
-        setCardFieldVisible(false);
+        if (gameEngine.getTurn() > 0)
+            info_board.startAnimation(smalltobig);
+
+        //setCardFieldVisible(false);
 
         TextView curT;
         int tempI;
@@ -418,9 +433,10 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                info_board.setVisibility(View.INVISIBLE);
-                View tempV = findViewById(R.id.event_board);
+                hideViewAnimation(info_board);
+                View tempV = (LinearLayout) findViewById(R.id.event_board);
                 tempV.setVisibility(View.VISIBLE);
+                tempV.startAnimation(smalltobig);
                 makeCardClickable(true);
             }
         }, 1500);
@@ -487,11 +503,16 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 ProgressBar temp2 = findViewById(R.id.cardfield_progressBar_0);
                 temp.setVisibility(View.VISIBLE);
                 temp2.setVisibility(View.VISIBLE);
+                temp = (ImageView) findViewById(R.id.cardfield_img_1);
+                ((ImageView) temp).setImageResource(0);
+                temp = (ImageView) findViewById(R.id.cardfield_img_0);
+                ((ImageView) temp).setImageResource(0);
                 makeCardClickable(false);
-                this.hand_card_btn[card_played_pos].setVisibility(View.INVISIBLE);
+                hideHumanPlayedCard(card_played_pos);
                 getMoveFromAI();
                 temp = findViewById(getHandCardForAIPosition(gameEngine.getTurn()));
                 temp.animate().alpha(0).setDuration(500);
+                temp.startAnimation(bigtosmall);
                 delayDisplayForAnimation(card_played_pos);
                 gamePlayFlow();
 
@@ -499,5 +520,34 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+
+    //Animation APIs
+
+    //hide played card animation
+    public void hideHumanPlayedCard(int pos)
+    {
+        final int position = pos;
+        hand_card_btn[pos].animate().alpha(0).setDuration(500);
+        hand_card_btn[pos].startAnimation(bigtosmall);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                hand_card_btn[position].setVisibility(View.INVISIBLE);
+            }
+        }, 1000);
+    }
+
+    public void hideViewAnimation(View temp) {
+        final View tempV = temp;
+        tempV.startAnimation(bigtosmall);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                tempV.setVisibility(View.INVISIBLE);
+            }
+        }, 500);
+    }
 
 }
