@@ -12,6 +12,7 @@ import com.example.memedatabase.DBLoader;
 import com.example.memedatabase.EventList;
 import com.example.memedatabase.MasterDeck;
 
+
 public class MainActivity extends AppCompatActivity {
     private Button battle;
     private Button library;
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the StartGame button */
     public void openStartGameActivity() {
-        Intent intent = new Intent(this, StartGameActivity.class);
+        Intent intent = new Intent(this, ModeSelectPopup.class);
         startActivity(intent);
     }
 
