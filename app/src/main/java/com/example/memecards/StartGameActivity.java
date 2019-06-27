@@ -54,6 +54,10 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         smalltobig = AnimationUtils.loadAnimation(this, R.anim.smalltobig);
         bigtosmall = AnimationUtils.loadAnimation(this, R.anim.bigtosmall);
 
+        int mode = getIntent().getExtras().getInt("Mode");
+
+        Toast.makeText(StartGameActivity.this, "mode is " + mode,Toast.LENGTH_SHORT).show();
+
         //get DB
         MasterDeckInterface db = new MasterDeckStub();
         EventListInterface eDB = new EventListStub();
@@ -67,13 +71,23 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         for (String cardName : db.retrieveAllCardNames())
             this.test.add(db.retrieveCard(cardName));
 
+        List<MemeCard> modeDeck = test;
+        if (mode == 1)
+        {
+            modeDeck = new ArrayList<MemeCard>();
+            for (int i = 0; i < 5; i++)
+            {
+                modeDeck.add(test.get( (int) (Math.random() * test.size()) ));
+            }
+        }
+
         //get events
         ArrayList<Event> evList = new ArrayList<Event>();
         for (String eventName : eDB.retrieveAllEventNames())
             evList.add(eDB.retrieveEvent(eventName));
 
         //Deck for user player
-        this.d = new Deck(test);
+        this.d = new Deck(modeDeck);
 
         //Generating time for a turn
         this.time_for_a_turn = 7;
@@ -101,6 +115,31 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
         makeCardClickable(false);
         displayEventAnimation();
+
+        if (mode == 2) {
+            countdown();
+            Toast.makeText(StartGameActivity.this, "You have 30 seconds to beat the AI, if not you lose", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+    //Time constrainst mode
+    private void countdown() {
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (!gameEngine.checkIfGameisOver())
+                {
+                    Toast.makeText(StartGameActivity.this, "Time's up", Toast.LENGTH_SHORT).show();
+                    makeCardClickable(false);
+                    Intent newIntent = new Intent(getApplicationContext(), PopUpEndGameActivity.class);
+                    newIntent.putExtra("Win", false);
+                    startActivity(newIntent);
+                }
+            }
+        }, 30000);
     }
 
     //Display the user's deck to the screen
