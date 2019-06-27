@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -43,11 +44,15 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
     int time_for_a_turn;
     Animation smalltobig;
     Animation bigtosmall;
+    Button quit_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_game);
+
+        smalltobig = AnimationUtils.loadAnimation(this, R.anim.smalltobig);
+        bigtosmall = AnimationUtils.loadAnimation(this, R.anim.bigtosmall);
 
         //get DB
         MasterDeckInterface db = new MasterDeckStub();
@@ -86,6 +91,9 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
             this.hand_card_btn[i].setOnClickListener(this);
         }
 
+        quit_btn = (Button) findViewById(R.id.ragequit_btn);
+        quit_btn.setOnClickListener(this);
+
         //Generating events and display the events
         this.gameEngine.generatingAllEventList(evList);
         this.evL = this.gameEngine.generatingNewEvents();
@@ -93,9 +101,6 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
         makeCardClickable(false);
         displayEventAnimation();
-
-        smalltobig = AnimationUtils.loadAnimation(this, R.anim.smalltobig);
-        bigtosmall = AnimationUtils.loadAnimation(this, R.anim.bigtosmall);
     }
 
     //Display the user's deck to the screen
@@ -396,7 +401,32 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
             hideViewAnimation(temp);
             temp = (TextView) findViewById(R.id.vs_text);
             hideViewAnimation(temp);
+            temp = (LinearLayout) findViewById(R.id.event_board);
+            hideViewAnimation(temp);
         }
+    }
+
+    public  void resetCardField() {
+        View temp = (ImageView) findViewById(R.id.cardfield_img_1);
+        ((ImageView) temp).setImageResource(0);
+        temp = (ImageView) findViewById(R.id.cardfield_img_0);
+        ((ImageView) temp).setImageResource(0);
+        temp = (ImageView) findViewById(R.id.cardfield_upvote_img_1);
+        ((ImageView) temp).setImageResource(0);
+        temp = (ImageView) findViewById(R.id.cardfield_upvote_img_0);
+        ((ImageView) temp).setImageResource(0);
+        temp = (TextView) findViewById(R.id.cardfield_name_0);
+        ((TextView) temp).setText("");
+        temp = (TextView) findViewById(R.id.cardfield_name_1);
+        ((TextView) temp).setText("");
+        temp = (TextView) findViewById(R.id.cardfield_tag_0);
+        ((TextView) temp).setText("");
+        temp = (TextView) findViewById(R.id.cardfield_tag_1);
+        ((TextView) temp).setText("");
+        temp = (TextView) findViewById(R.id.cardfield_text_0);
+        ((TextView) temp).setText("");
+        temp = (TextView) findViewById(R.id.cardfield_text_1);
+        ((TextView) temp).setText("");
     }
 
     private void displayEventAnimation() {
@@ -405,8 +435,6 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
         if (gameEngine.getTurn() > 0)
             info_board.startAnimation(smalltobig);
-
-        //setCardFieldVisible(false);
 
         TextView curT;
         int tempI;
@@ -458,6 +486,8 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
 
+        boolean check = true;
+
         int tempI = 0;
         switch (((View)v).getId() ) {
             case R.id.cardview_0:
@@ -476,16 +506,23 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 tempI = 4;
                 break;
         }
-        Intent i = new Intent(getApplicationContext(), PopupCardActivity.class);
-        i.putExtra("Name", d.getCardinDeck(tempI).getName());
-        i.putExtra("Upvote", d.getCardinDeck(tempI).getUpvotesStr());
-        i.putExtra("Desc", d.getCardinDeck(tempI).getDescription());
-        i.putExtra("Img",d.getCardinDeck(tempI).getResId());
-        i.putExtra("Pos", tempI);
-        i.putExtra("Tag", d.getCardinDeck(tempI).getTag());
 
-        startActivityForResult(i,1);
+        if  ( ((View)v).getId() == R.id.ragequit_btn ) {
+            check = false;
+            finish();
+        }
 
+        if (check) {
+            Intent i = new Intent(getApplicationContext(), PopupCardActivity.class);
+            i.putExtra("Name", d.getCardinDeck(tempI).getName());
+            i.putExtra("Upvote", d.getCardinDeck(tempI).getUpvotesStr());
+            i.putExtra("Desc", d.getCardinDeck(tempI).getDescription());
+            i.putExtra("Img", d.getCardinDeck(tempI).getResId());
+            i.putExtra("Pos", tempI);
+            i.putExtra("Tag", d.getCardinDeck(tempI).getTag());
+
+            startActivityForResult(i, 1);
+        }
     }
 
     //After player click "play card", play that card and create the game flow
@@ -503,10 +540,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 ProgressBar temp2 = findViewById(R.id.cardfield_progressBar_0);
                 temp.setVisibility(View.VISIBLE);
                 temp2.setVisibility(View.VISIBLE);
-                temp = (ImageView) findViewById(R.id.cardfield_img_1);
-                ((ImageView) temp).setImageResource(0);
-                temp = (ImageView) findViewById(R.id.cardfield_img_0);
-                ((ImageView) temp).setImageResource(0);
+                resetCardField();
                 makeCardClickable(false);
                 hideHumanPlayedCard(card_played_pos);
                 getMoveFromAI();

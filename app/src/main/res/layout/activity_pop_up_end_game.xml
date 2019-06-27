@@ -50,7 +50,7 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/player_default_avatar"/>
+                android:src="@drawable/pepega_avatar"/>
 
             <TextView
                 android:layout_width="wrap_content"
