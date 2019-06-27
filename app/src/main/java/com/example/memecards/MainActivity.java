@@ -1,11 +1,11 @@
 package com.example.memecards;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button battle;
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the StartGame button */
     public void openStartGameActivity() {
-        Intent intent = new Intent(this, StartGameActivity.class);
+        Intent intent = new Intent(this, ModeSelectPopup.class);
         startActivity(intent);
     }
 
