@@ -9,11 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PopUpEndGameActivity"
+            android:theme="@style/AppTheme.PopMe"/>
         <activity
             android:name=".CardInformationActivity"
             android:label="@string/title_activity_card_information"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".PopupCardActivity"
             android:theme="@style/AppTheme.PopMe" />
