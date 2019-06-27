@@ -6,7 +6,8 @@
       "upvotes" : 5900,
       "fileName" : "mocking_spongebob.jpg",
       "tag" : "Cartoon",
-      "locked" : false
+      "locked" : false,
+      "price" : 100
     },
     {
       "name": "Surprised Pikachu",
@@ -14,7 +15,8 @@
       "upvotes" : 2300,
       "fileName" : "surprised_pikachu.jpg",
       "tag" : "Anime",
-      "locked" : false
+      "locked" : false,
+      "price" : 100
     },
     {
       "name": "Unsettled Tom",
@@ -22,7 +24,8 @@
       "upvotes": 920,
       "fileName": "unsettled_tom.jpg",
       "tag" : "Cartoon",
-      "locked" : false
+      "locked" : false,
+      "price" : 100
     },
     {
       "name": "Pointing Spiderman",
@@ -30,7 +33,8 @@
       "upvotes" : 3700,
       "fileName" : "pointing_spiderman.jpg",
       "tag" : "Cartoon",
-      "locked" : false
+      "locked" : false,
+      "price" : 100
     },
     {
       "name": "Me And The Boys",
@@ -38,7 +42,8 @@
       "upvotes" : 1080,
       "fileName" : "me_and_the_boys.png",
       "tag" : "Cartoon",
-      "locked" : false
+      "locked" : false,
+      "price" : 100
     },
     {
       "name" : "Tuxedo Pooh",
@@ -46,7 +51,8 @@
       "upvotes" : 2030,
       "fileName" : "tuxedo_pooh.jpg",
       "tag" : "Cartoon",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "Is This?",
@@ -54,7 +60,8 @@
       "upvotes" : 3400,
       "fileName" : "is_this.jpg",
       "tag" : "Anime",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "Ah Shit",
@@ -62,7 +69,8 @@
       "upvotes" : 2500,
       "fileName" : "ah_shit.jpg",
       "tag" : "Gaming",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "Drake",
@@ -70,7 +78,8 @@
       "upvotes" : 3400,
       "fileName" : "drake.jpg",
       "tag" : "Music",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "It Ain't Much",
@@ -78,7 +87,8 @@
       "upvotes" : 4200,
       "fileName" : "it_aint_much.jpg",
       "tag" : "IRL",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "First Half",
@@ -86,7 +96,8 @@
       "upvotes" : 1240,
       "fileName" : "first_half.jpg",
       "tag" : "Sports",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "Expanding Brain",
@@ -94,7 +105,8 @@
       "upvotes" : 2700,
       "fileName" : "expanding_brain.jpg",
       "tag" : "IRL",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "Perfectly Balanced",
@@ -102,7 +114,8 @@
       "upvotes" : 5100,
       "fileName" : "perfectly_balanced.jpg",
       "tag" : "Movie",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "Choose Wisely",
@@ -110,7 +123,8 @@
       "upvotes" : 500,
       "fileName" : "choose_wisely.png",
       "tag" : "Technology",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "Confused Nick",
@@ -118,7 +132,8 @@
       "upvotes" : 800,
       "fileName" : "confused_nick.jpg",
       "tag" : "Sports",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "Guy Looking Back",
@@ -126,7 +141,8 @@
       "upvotes" : 3000,
       "fileName" : "guy_looking_back.jpg",
       "tag" : "IRL",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "Guy Stopping Another Guy",
@@ -134,7 +150,8 @@
       "upvotes" : 400,
       "fileName" : "guy_stopping.png",
       "tag" : "IRL",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "Smash Button",
@@ -142,7 +159,8 @@
       "upvotes" : 1300,
       "fileName" : "smash_button.jpg",
       "tag" : "IRL",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "Savage Patrick",
@@ -150,7 +168,8 @@
       "upvotes" : 3600,
       "fileName" : "savage_patrick.png",
       "tag" : "IRL",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     },
     {
       "name" : "Monkey Look Away",
@@ -158,7 +177,8 @@
       "upvotes" : 4800,
       "fileName" : "monkey_look_away.png",
       "tag" : "IRL",
-      "locked" : true
+      "locked" : true,
+      "price" : 100
     }
   ]
 }

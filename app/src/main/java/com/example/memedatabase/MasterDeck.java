@@ -9,7 +9,7 @@ import com.example.domainobjects.MemeCard;
 
 import java.util.ArrayList;
 
-class MasterDeck implements MasterDeckInterface {
+public class MasterDeck implements MasterDeckInterface {
     private DBHelper dbHelper;
     private Context context;
 
@@ -26,7 +26,7 @@ class MasterDeck implements MasterDeckInterface {
     }
 
     @Override
-    public boolean insertCard(String name, String description, String filename, int upvotes, String tag, boolean locked){
+    public boolean insertCard(String name, String description, String filename, int upvotes, String tag, boolean locked, int price){
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getDBHelper().getWritableDatabase();
 
@@ -45,6 +45,7 @@ class MasterDeck implements MasterDeckInterface {
         values.put(DBContract.CardsSchema.COLUMN_NAME_FILENAME, filename);
         values.put(DBContract.CardsSchema.COLUMN_NAME_UPVOTES, upvotes);
         values.put(DBContract.CardsSchema.COLUMN_NAME_LOCKED, lockedInt);
+        values.put(DBContract.CardsSchema.COLUMN_NAME_PRICE, price);
 
         // Insert the new row, returning the primary key value of the new row, return -1 if fails
         long newRowId = db.insert(DBContract.CardsSchema.TABLE_NAME, null, values);
@@ -69,6 +70,7 @@ class MasterDeck implements MasterDeckInterface {
                 DBContract.CardsSchema.COLUMN_NAME_UPVOTES,
                 DBContract.CardsSchema.COLUMN_NAME_TAG,
                 DBContract.CardsSchema.COLUMN_NAME_LOCKED,
+                DBContract.CardsSchema.COLUMN_NAME_PRICE,
         };
 
         // Result filter
@@ -101,10 +103,12 @@ class MasterDeck implements MasterDeckInterface {
                     cursor.getColumnIndexOrThrow(DBContract.CardsSchema.COLUMN_NAME_TAG));
             int lockedInt = cursor.getInt(
                     cursor.getColumnIndexOrThrow(DBContract.CardsSchema.COLUMN_NAME_LOCKED));
+            int price = cursor.getInt(
+                    cursor.getColumnIndexOrThrow(DBContract.CardsSchema.COLUMN_NAME_PRICE));
 
             boolean locked = lockedInt == 1;
 
-            card = new MemeCard(name, description, filename, upvotes, tag, locked);
+            card = new MemeCard(name, description, filename, upvotes, tag, locked, price);
 
         }
         cursor.close();

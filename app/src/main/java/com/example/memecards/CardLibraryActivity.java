@@ -14,20 +14,22 @@ import java.util.ArrayList;
 
 import com.example.domainobjects.MemeCard;
 import com.example.memedatabase.DBLoader;
+import com.example.memedatabase.MasterDeck;
 import com.example.memedatabase.MasterDeckInterface;
 import com.example.memedatabase.MasterDeckStub;
 
 public class CardLibraryActivity extends AppCompatActivity {
     private ArrayList<MemeCard> cards = new ArrayList<>();
-    private static MasterDeckInterface masterDeck = new MasterDeckStub();
+    private MasterDeckInterface masterDeck = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_library);
 
-        // load DB into static stub
-        DBLoader.loadMasterDeck(this.masterDeck, this.getApplicationContext());
+        // instantiate master Deck
+        this.masterDeck = new MasterDeck(this.getApplicationContext());
+
         MemeCard card;
         for (String n : this.masterDeck.retrieveAllCardNames()) {
             card = this.masterDeck.retrieveCard(n);

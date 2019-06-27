@@ -19,6 +19,7 @@ public final class DBContract {
         public static final String COLUMN_NAME_TAG = "tag";
         public static final String COLUMN_NAME_UPVOTES = "upvotes";
         public static final String COLUMN_NAME_LOCKED = "locked";
+        public static final String COLUMN_NAME_PRICE = "price";
     }
 
     /* Inner class that defines the BattleDeckTable contents */
