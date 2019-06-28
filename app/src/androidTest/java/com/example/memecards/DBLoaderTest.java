@@ -5,9 +5,12 @@ import android.content.Context;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
+import com.example.memedatabase.DBHelper;
 import com.example.memedatabase.DBLoader;
+import com.example.memedatabase.EventList;
 import com.example.memedatabase.EventListInterface;
 import com.example.memedatabase.EventListStub;
+import com.example.memedatabase.MasterDeck;
 import com.example.memedatabase.MasterDeckInterface;
 import com.example.memedatabase.MasterDeckStub;
 
@@ -24,17 +27,25 @@ public class DBLoaderTest {
     public void testDBLoad() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+//        DBHelper dbHelper = new DBHelper(appContext);
+//        dbHelper.resetDB();
 
         // load master deck test
         MasterDeckInterface masterDB = new MasterDeckStub();
+//        ArrayList<String> cardNamess = masterDB.retrieveAllCardNames();
+//        assertTrue(cardNamess.size() == 0);
         DBLoader.loadMasterDeck(masterDB, appContext);
         ArrayList<String> cardNames = masterDB.retrieveAllCardNames();
         assertTrue(cardNames.size() > 0);
 
         // load events list test
         EventListInterface eventDB = new EventListStub();
+//        ArrayList<String> eventNamess = eventDB.retrieveAllEventNames();
+//        assertTrue(eventNamess.size() == 0);
         DBLoader.loadEventsList(eventDB, appContext);
         ArrayList<String> eventNames = eventDB.retrieveAllEventNames();
         assertTrue(eventNames.size() > 0);
+
+//        dbHelper.resetDB();
     }
 }
