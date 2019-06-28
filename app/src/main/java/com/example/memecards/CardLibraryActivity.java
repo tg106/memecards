@@ -30,12 +30,6 @@ public class CardLibraryActivity extends AppCompatActivity {
         // instantiate master Deck
         this.masterDeck = new MasterDeck(this.getApplicationContext());
 
-        MemeCard card;
-        for (String n : this.masterDeck.retrieveAllCardNames()) {
-            card = this.masterDeck.retrieveCard(n);
-            this.cards.add(card);
-        }
-
         showCardStats();
         MakeCardsList();
     }
@@ -60,6 +54,18 @@ public class CardLibraryActivity extends AppCompatActivity {
     }
 
     private void MakeCardsList() {
+        ArrayList<MemeCard> lockedCards = new ArrayList<>();
+        this.cards.clear();
+        MemeCard card;
+        // make sure unlocked cards is at the front of list
+        for (String n : this.masterDeck.retrieveAllCardNames()) {
+            card = this.masterDeck.retrieveCard(n);
+            if (card.isLocked())
+                lockedCards.add(card);
+            else
+                this.cards.add(card);
+        }
+        this.cards.addAll(lockedCards);
         RecyclerView myRecyView = (RecyclerView)findViewById(R.id.RecyclerView);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, this.cards);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
