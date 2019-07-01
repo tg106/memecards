@@ -14,25 +14,21 @@ import java.util.ArrayList;
 
 import com.example.domainobjects.MemeCard;
 import com.example.memedatabase.DBLoader;
+import com.example.memedatabase.MasterDeck;
 import com.example.memedatabase.MasterDeckInterface;
 import com.example.memedatabase.MasterDeckStub;
 
 public class CardLibraryActivity extends AppCompatActivity {
     private ArrayList<MemeCard> cards = new ArrayList<>();
-    private static MasterDeckInterface masterDeck = new MasterDeckStub();
+    private MasterDeckInterface masterDeck = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_library);
 
-        // load DB into static stub
-        DBLoader.loadMasterDeck(this.masterDeck, this.getApplicationContext());
-        MemeCard card;
-        for (String n : this.masterDeck.retrieveAllCardNames()) {
-            card = this.masterDeck.retrieveCard(n);
-            this.cards.add(card);
-        }
+        // instantiate master Deck
+        this.masterDeck = new MasterDeck(this.getApplicationContext());
 
         showCardStats();
         MakeCardsList();
@@ -58,6 +54,18 @@ public class CardLibraryActivity extends AppCompatActivity {
     }
 
     private void MakeCardsList() {
+        ArrayList<MemeCard> lockedCards = new ArrayList<>();
+        this.cards.clear();
+        MemeCard card;
+        // make sure unlocked cards is at the front of list
+        for (String n : this.masterDeck.retrieveAllCardNames()) {
+            card = this.masterDeck.retrieveCard(n);
+            if (card.isLocked())
+                lockedCards.add(card);
+            else
+                this.cards.add(card);
+        }
+        this.cards.addAll(lockedCards);
         RecyclerView myRecyView = (RecyclerView)findViewById(R.id.RecyclerView);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, this.cards);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);

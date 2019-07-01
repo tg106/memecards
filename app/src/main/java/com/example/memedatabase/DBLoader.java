@@ -35,7 +35,7 @@ public class DBLoader {
             JSONArray json_cards = json_obj.getJSONArray("cards");
             String name, desc, fileName, tag;
             boolean locked;
-            int upvotes;
+            int upvotes, price;
             JSONObject json_card;
             ArrayList<String> cardNames = db.retrieveAllCardNames();
 
@@ -50,9 +50,10 @@ public class DBLoader {
                     fileName = json_card.getString("fileName");
                     tag = json_card.getString("tag");
                     locked = json_card.getBoolean("locked");
+                    price = json_card.getInt("price");
 
                     // insert into db
-                    db.insertCard(name, desc, fileName, upvotes, tag, locked);
+                    db.insertCard(name, desc, fileName, upvotes, tag, locked, price);
                 }
             }
         } catch (JSONException e) {

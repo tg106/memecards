@@ -2,10 +2,16 @@ package com.example.memecards;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.memedatabase.DBLoader;
+import com.example.memedatabase.EventList;
+import com.example.memedatabase.MasterDeck;
+
 
 public class MainActivity extends AppCompatActivity {
     private Button battle;
@@ -42,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
                 System.exit(0);
             }
         });
+
+        Context context = this.getApplicationContext();
+
+        // load master deck test
+        DBLoader.loadMasterDeck(new MasterDeck(context), context);
+
+        // load events list test
+        DBLoader.loadEventsList(new EventList(context), context);
     }
 
     @Override
@@ -52,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the StartGame button */
     public void openStartGameActivity() {
-        Intent intent = new Intent(this, StartGameActivity.class);
+        Intent intent = new Intent(this, ModeSelectPopup.class);
         startActivity(intent);
     }
 

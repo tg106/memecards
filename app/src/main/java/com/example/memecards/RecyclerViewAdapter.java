@@ -44,6 +44,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         if (card.isLocked()) {
             resID = R.drawable.mystery;
             cardDesc = "Unlock The Card To Find Out!";
+            price = card.getPrice();
         }
         else {
             resID = card.getResId();

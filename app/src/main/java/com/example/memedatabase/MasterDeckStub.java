@@ -14,10 +14,11 @@ public class MasterDeckStub implements MasterDeckInterface {
             String filename,
             int upvotes,
             String tag,
-            boolean locked
+            boolean locked,
+            int price
     ) {
         if (this.retrieveCard(name) == null)
-            return mock.add(new MemeCard(name, description, filename, upvotes, tag, locked));
+            return mock.add(new MemeCard(name, description, filename, upvotes, tag, locked, price));
         else
             return false;
     }
