@@ -37,9 +37,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
-        final int resID;
         MemeCard card = this.cards.get(position);
+        final int resID;
         final String cardDesc;
+        final int price;
         if (card.isLocked()) {
             resID = R.drawable.mystery;
             cardDesc = "Unlock The Card To Find Out!";
@@ -55,7 +56,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.myCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(myContext, CardInformationActivity.class);
+                Intent intent = new Intent(myContext, LibraryPopupCardActivity.class);
                 intent.putExtra("Description", cardDesc);
                 intent.putExtra("ImageID", resID);
                 myContext.startActivity(intent);
