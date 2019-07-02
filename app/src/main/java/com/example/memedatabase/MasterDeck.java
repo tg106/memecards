@@ -247,4 +247,17 @@ public class MasterDeck implements MasterDeckInterface {
         return cards.size();
     }
 
+    public ArrayList<MemeCard> retrieveAllCards(){
+        ArrayList<MemeCard> cards = new ArrayList<>();
+        MemeCard card = null;
+        ArrayList<String> cardNames = this.retrieveAllCardNames();
+        for (String name : cardNames){
+            card = this.retrieveCard(name);
+            if (card != null)
+                cards.add(card);
+        }
+        return cards;
+
+    }
+
 }
