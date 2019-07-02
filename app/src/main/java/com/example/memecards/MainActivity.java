@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.memedatabase.BattleDeck;
 import com.example.memedatabase.DBLoader;
 import com.example.memedatabase.EventList;
 import com.example.memedatabase.MasterDeck;
@@ -51,11 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
         Context context = this.getApplicationContext();
 
-        // load master deck test
-        DBLoader.loadMasterDeck(new MasterDeck(context), context);
-
-        // load events list test
-        DBLoader.loadEventsList(new EventList(context), context);
+        // load DB
+        DBLoader.loadDB(context);
     }
 
     @Override

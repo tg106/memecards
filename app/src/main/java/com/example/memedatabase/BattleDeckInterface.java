@@ -14,7 +14,7 @@ public interface BattleDeckInterface {
      * Inserts a new card to the BattleDeck table. Fails if the BattleDeck is already full, or, if
      * the card already exists in the BattleDeck, or, if the card is locked / doesn't exist in the
      * MasterDeck.
-     * @param name : name of the card (card must exist in the MasterDeck)
+     * @param cardName : name of the card (card must exist in the MasterDeck)
      * @return returns true if insertion is successful, false otherwise.
      */
     public boolean insertCard(String cardName);

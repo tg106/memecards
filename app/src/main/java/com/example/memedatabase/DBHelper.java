@@ -28,7 +28,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_PLAYERSTATS =
             "CREATE TABLE IF NOT EXISTS " + DBContract.PlayerStatsSchema.TABLE_NAME + " (" +
-                    DBContract.PlayerStatsSchema.COLUMN_NAME_CASH + " INTEGER PRIMARY KEY)";
+                    DBContract.PlayerStatsSchema.COLUMN_NAME_NAME + " TEXT PRIMARY KEY," +
+                    DBContract.PlayerStatsSchema.COLUMN_NAME_VALUE + " TEXT)";
 
     private static final String SQL_DELETE_CARDS =
             "DROP TABLE IF EXISTS " + DBContract.CardsSchema.TABLE_NAME;
