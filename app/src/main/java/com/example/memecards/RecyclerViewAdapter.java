@@ -38,17 +38,26 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         MemeCard card = this.cards.get(position);
-        final int resID;
+
         final String cardDesc;
+        final String name;
         final int price;
+        final int resID;
+        final boolean locked;
+
         if (card.isLocked()) {
             resID = R.drawable.mystery;
             cardDesc = "Unlock The Card To Find Out!";
             price = card.getPrice();
+            locked = true;
+            name = card.getName();
         }
         else {
             resID = card.getResId();
             cardDesc = card.getDescription();
+            price = 0;
+            locked = false;
+            name = card.getName();
         }
 
         holder.myName.setText(card.getName());
@@ -60,6 +69,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Intent intent = new Intent(myContext, LibraryPopupCardActivity.class);
                 intent.putExtra("Description", cardDesc);
                 intent.putExtra("ImageID", resID);
+                intent.putExtra("Price", price);
+                intent.putExtra("Locked", locked);
+                intent.putExtra("Name", name);
                 myContext.startActivity(intent);
             }
         });

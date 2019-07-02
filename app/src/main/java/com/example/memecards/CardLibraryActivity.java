@@ -80,31 +80,31 @@ public class CardLibraryActivity extends AppCompatActivity {
         hideActionBar();
     }
 
-    public void unlockCard(View v) {
-        String new_card = null;
-        for (MemeCard card : this.cards){
-            if (card.isLocked()) {
-                masterDeck.unlockCard(card.getName());
-                new_card = card.getName();
-                Toast.makeText(
-                        CardLibraryActivity.this,
-                        "Congratulations, you have unlocked " + new_card + "!!",
-                        Toast.LENGTH_SHORT).show();
-                break;
-            }
-        }
-        if (new_card == null)
-            Toast.makeText(
-                    CardLibraryActivity.this,
-                    "You've already unlocked all cards!!!",
-                    Toast.LENGTH_SHORT).show();
-        else {
-            //update recycler view
-            MakeCardsList();
-            showCardStats();
-        }
-
-    }
+//    public void unlockCard(View v) {
+//        String new_card = null;
+//        for (MemeCard card : this.cards){
+//            if (card.isLocked()) {
+//                masterDeck.unlockCard(card.getName());
+//                new_card = card.getName();
+//                Toast.makeText(
+//                        CardLibraryActivity.this,
+//                        "Congratulations, you have unlocked " + new_card + "!!",
+//                        Toast.LENGTH_SHORT).show();
+//                break;
+//            }
+//        }
+//        if (new_card == null)
+//            Toast.makeText(
+//                    CardLibraryActivity.this,
+//                    "You've already unlocked all cards!!!",
+//                    Toast.LENGTH_SHORT).show();
+//        else {
+//            //update recycler view
+//            MakeCardsList();
+//            showCardStats();
+//        }
+//
+//    }
 
     /** Hides the status bar and action bar for an activity**/
     private void hideActionBar() {
