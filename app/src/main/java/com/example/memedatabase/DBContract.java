@@ -31,7 +31,8 @@ public final class DBContract {
     /* Inner class that defines the PlayerStatsTable contents */
     public static class PlayerStatsSchema implements BaseColumns {
         public static final String TABLE_NAME = "playerstats";
-        public static final String COLUMN_NAME_CASH = "cash";
+        public static final String COLUMN_NAME_NAME= "itemname";
+        public static final String COLUMN_NAME_VALUE= "value";
     }
 
     /* Inner class that defines the events contents */

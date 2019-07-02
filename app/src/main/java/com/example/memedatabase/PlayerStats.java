@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class PlayerStats implements PlayerStatsInterface {
     private DBHelper dbHelper;
     private Context context;
+    private static String CASH_KEY = "cash";
 
     public PlayerStats(Context context){
         this.dbHelper = null;
@@ -27,22 +28,8 @@ public class PlayerStats implements PlayerStatsInterface {
 
     @Override
     public int getPlayerCash(){
-        int cash;
-
-        // Gets the data repository in read mode
-        SQLiteDatabase db = this.getDBHelper().getReadableDatabase();
-
-        // make query
-        String table = DBContract.PlayerStatsSchema.TABLE_NAME;
-        String field = DBContract.PlayerStatsSchema.COLUMN_NAME_CASH;
-        Cursor cursor = db.rawQuery(
-                "select " + field + " from " + table,null);
-
-        // get db entry
-        cash = cursor.getInt(
-                cursor.getColumnIndexOrThrow(DBContract.PlayerStatsSchema.COLUMN_NAME_CASH));
-
-        return cash;
+        this.ensureInitialized();
+        return Integer.parseInt(this.getItem(PlayerStats.CASH_KEY));
     }
 
     @Override
@@ -63,19 +50,87 @@ public class PlayerStats implements PlayerStatsInterface {
     }
 
     private boolean updatePlayerCash(int amount){
+        this.ensureInitialized();
+        return this.updateItem(PlayerStats.CASH_KEY, Integer.toString(amount));
+    }
+
+    private String getItem(String key){
+        // Gets the data repository in read mode
+        SQLiteDatabase db = this.getDBHelper().getReadableDatabase();
+
+        // Define query projection
+        String[] projection = {
+                DBContract.PlayerStatsSchema.COLUMN_NAME_VALUE,
+        };
+
+        // Result filter
+        String selection = DBContract.PlayerStatsSchema.COLUMN_NAME_NAME + " = ?";
+        String[] selectionArgs = { key };
+
+        // DB query
+        Cursor cursor = db.query(
+                DBContract.PlayerStatsSchema.TABLE_NAME,   // The table to query
+                projection,             // The array of columns to return (pass null to get all)
+                selection,              // The columns for the WHERE clause
+                selectionArgs,          // The values for the WHERE clause
+                null,          // don't group the rows
+                null,           // don't filter by row groups
+                null           // don't sort the rows
+        );
+
+        // query battle deck
+        String val = null;
+        if (cursor.moveToNext()){
+            val = cursor.getString(
+                    cursor.getColumnIndexOrThrow(DBContract.PlayerStatsSchema.COLUMN_NAME_VALUE));
+        }
+        cursor.close();
+
+        return val;
+    }
+
+    private boolean updateItem(String key, String val){
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getDBHelper().getWritableDatabase();
 
-        // the field to update
+        // The field to update, i.e chg the 'locked' field to 0
         ContentValues values = new ContentValues();
-        values.put(DBContract.PlayerStatsSchema.COLUMN_NAME_CASH, amount);
+        values.put(DBContract.PlayerStatsSchema.COLUMN_NAME_VALUE, val);
+
+        // Which row to update, based on the cardName
+        String selection = DBContract.PlayerStatsSchema.COLUMN_NAME_NAME + " = ?";
+        String[] selectionArgs = { key };
 
         int count = db.update(
                 DBContract.PlayerStatsSchema.TABLE_NAME,
                 values,
-                null,
-                null);
+                selection,
+                selectionArgs);
 
         return count > 0;
+    }
+
+    private boolean putItem(String key, String val){
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getDBHelper().getWritableDatabase();
+
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(DBContract.PlayerStatsSchema.COLUMN_NAME_NAME, key);
+        values.put(DBContract.PlayerStatsSchema.COLUMN_NAME_VALUE, val);
+
+        // Insert the new row, returning the primary key value of the new row, return -1 if fails
+        long newRowId = db.insert(DBContract.PlayerStatsSchema.TABLE_NAME, null, values);
+
+        boolean result = true;
+        if (newRowId < 0)
+            result = false;
+
+        return result;
+    }
+
+    private void ensureInitialized(){
+        if (this.getItem(PlayerStats.CASH_KEY) == null)
+            this.putItem(PlayerStats.CASH_KEY, "0");
     }
 }
