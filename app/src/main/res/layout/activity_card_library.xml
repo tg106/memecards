@@ -23,11 +23,11 @@
 
     <TextView
         android:id="@+id/CashNum"
-        android:layout_width="186dp"
+        android:layout_width="wrap_content"
         android:layout_height="81dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="476dp"
-        android:layout_marginLeft="476dp"
+        android:layout_marginStart="580dp"
+        android:layout_marginLeft="580dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:textColor="#000000"
@@ -37,11 +37,11 @@
 
     <TextView
         android:id="@+id/CashText"
-        android:layout_width="129dp"
+        android:layout_width="wrap_content"
         android:layout_height="81dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="344dp"
-        android:layout_marginLeft="344dp"
+        android:layout_marginStart="480dp"
+        android:layout_marginLeft="480dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="Dollaroos"
@@ -69,7 +69,7 @@
 
     <TextView
         android:id="@+id/UnlockedNum"
-        android:layout_width="180dp"
+        android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
