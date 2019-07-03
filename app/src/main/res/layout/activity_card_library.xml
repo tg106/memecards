@@ -22,17 +22,31 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/CashNum"
+        android:layout_width="186dp"
+        android:layout_height="81dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="380dp"
-        android:layout_marginLeft="380dp"
+        android:layout_marginStart="476dp"
+        android:layout_marginLeft="476dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="Card Library"
-        android:textSize="36sp"
         android:textColor="#000000"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/CashText"
+        android:layout_width="129dp"
+        android:layout_height="81dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="344dp"
+        android:layout_marginLeft="344dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Dollaroos"
+        android:textColor="#000000"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,6 +62,7 @@
         android:gravity="center"
         android:textSize="24sp"
         android:textColor="#000000"
+        android:text="Unlocked Cards"
         app:layout_constraintEnd_toStartOf="@+id/UnlockedNum"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -62,8 +77,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:gravity="center"
-        android:textSize="40sp"
         android:textColor="#000000"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toEndOf="@+id/UnlockedText"
@@ -88,20 +103,4 @@
         app:layout_constraintVertical_bias="0.8">
 
     </androidx.recyclerview.widget.RecyclerView>
-
-    <!--<Button-->
-        <!--android:id="@+id/freeUnlock"-->
-        <!--android:layout_width="130dp"-->
-        <!--android:layout_height="72dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginLeft="8dp"-->
-        <!--android:layout_marginTop="16dp"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginRight="8dp"-->
-        <!--android:onClick="unlockCard"-->
-        <!--android:text="Free Unlock (Unlimited for now)"-->
-        <!--android:textSize="15sp"-->
-        <!--app:layout_constraintEnd_toStartOf="@+id/textView"-->
-        <!--app:layout_constraintStart_toEndOf="@+id/Back"-->
-        <!--app:layout_constraintTop_toTopOf="parent" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

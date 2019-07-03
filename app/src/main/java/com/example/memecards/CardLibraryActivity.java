@@ -39,25 +39,26 @@ public class CardLibraryActivity extends AppCompatActivity {
         // instantiate player stats
         this.playerStats = new PlayerStats(this.getApplicationContext());
 
+        showCash();
         showCardStats();
         MakeCardsList();
     }
 
     /** Back to the home page when the user taps the BACK button */
     public void BackHomePage(View v) {
-//        Intent intent = new Intent(this, MainActivity.class);
-//        startActivity(intent);
         onBackPressed();
+    }
+
+    private void showCash() {
+        TextView cashNum = findViewById(R.id.CashNum);
+        cashNum.setText("  " + this.playerStats.getPlayerCash());
     }
 
     // Show the number of total cards and locked cards
     private void showCardStats() {
-        TextView unlockedText = findViewById(R.id.UnlockedText);
         TextView unlockedNum = findViewById(R.id.UnlockedNum);
-
-        unlockedText.setText("Unlocked Cards");
         unlockedNum.setText(
-                ":  " + this.masterDeck.retrieveUnlockedCardNames().size() +
+                "  " + this.masterDeck.retrieveUnlockedCardNames().size() +
                         " / " + this.masterDeck.deckSize()
         );
     }
@@ -95,6 +96,7 @@ public class CardLibraryActivity extends AppCompatActivity {
                     this.playerStats.subtractPlayerCash(price);
                     this.masterDeck.unlockCard(resultIntent.getStringExtra("Name"));
                     this.adapter.notifyItemChanged(resultIntent.getIntExtra("Position", -1));
+                    showCash();
                     showCardStats();
                 } else {
                     Toast.makeText(CardLibraryActivity.this, "Not enough minerals.", Toast.LENGTH_SHORT).show();
