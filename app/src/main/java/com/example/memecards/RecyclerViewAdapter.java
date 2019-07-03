@@ -7,12 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.app.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.domainobjects.MemeCard;
+import com.example.memedatabase.MasterDeck;
+import com.example.memedatabase.MasterDeckInterface;
 
 import java.util.ArrayList;
 
@@ -20,10 +23,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private Context myContext;
     private ArrayList<MemeCard> cards;
+    private MasterDeckInterface masterDeck;
 
     public RecyclerViewAdapter(Context myContext, ArrayList<MemeCard> cards){
         this.myContext = myContext;
         this.cards = cards;
+        this.masterDeck = new MasterDeck(myContext);
     }
 
     @NonNull
@@ -37,7 +42,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
-        MemeCard card = this.cards.get(position);
+        MemeCard card = masterDeck.retrieveCard(this.cards.get(position).getName());
 
         final String cardDesc;
         final String name;
@@ -72,7 +77,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 intent.putExtra("Price", price);
                 intent.putExtra("Locked", locked);
                 intent.putExtra("Name", name);
-                myContext.startActivity(intent);
+                intent.putExtra("Position", position);
+                ((Activity)myContext).startActivityForResult(intent, 1);
             }
         });
     }

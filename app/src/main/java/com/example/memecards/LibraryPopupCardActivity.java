@@ -11,21 +11,14 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
-import android.widget.Toast;
-
-import com.example.memedatabase.MasterDeck;
-import com.example.memedatabase.MasterDeckInterface;
-import com.example.memedatabase.PlayerStats;
-import com.example.memedatabase.PlayerStatsInterface;
 
 public class LibraryPopupCardActivity extends AppCompatActivity {
     private String name;
     private String desc;
     private int price;
     private int imageID;
+    private int position;
     private boolean locked;
-    private MasterDeckInterface masterDeck = null;
-    private PlayerStatsInterface player;
     private Button unlockButton;
 
 
@@ -33,22 +26,14 @@ public class LibraryPopupCardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library_popup_card);
-
-        // instantiate master Deck
-        this.masterDeck = new MasterDeck(this.getApplicationContext());
-        // instantiate player stats
-        this.player = new PlayerStats(this.getApplicationContext());
-
+        //Make popup be in the center
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
-
         getWindow().setLayout(800,1200);
-
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;
         params.x = 0;
         params.y = -20;
-
         getWindow().setAttributes(params);
 
         this.desc = getIntent().getExtras().getString("Description");
@@ -56,6 +41,7 @@ public class LibraryPopupCardActivity extends AppCompatActivity {
         this.price = getIntent().getExtras().getInt("Price");
         this.locked = getIntent().getExtras().getBoolean("Locked");
         this.name = getIntent().getExtras().getString("Name");
+        this.position = getIntent().getExtras().getInt("Position");
 
         this.unlockButton = (Button) findViewById(R.id.libraryPopupCardUnlockButton);
         this.unlockButton.setText("Unlock for " + price);
@@ -78,21 +64,13 @@ public class LibraryPopupCardActivity extends AppCompatActivity {
     }
 
     public void unlockCard(View v) {
-        // Checks player's cash before unlocking
-//        if (this.locked && (this.player.getPlayerCash() - this.price >= 0)) {
-//            masterDeck.unlockCard(this.name);
-//            this.player.subtractPlayerCash(this.price);
-//            Intent intent = new Intent(this, CardLibraryActivity.class);
-//            startActivity(intent);
-//        } else {
-//            Toast.makeText(LibraryPopupCardActivity.this, "You've already unlocked all cards!!!", Toast.LENGTH_SHORT).show();
-//        }
-
-        masterDeck.unlockCard(this.name);
-        Intent intent = new Intent(this, CardLibraryActivity.class);
-        startActivity(intent);
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("Name", this.name);
+        resultIntent.putExtra("Position", this.position);
+        resultIntent.putExtra("Price", this.price);
+        setResult(RESULT_OK, resultIntent);
+        finish();
     }
-
 
     /** Hides the status bar and action bar for an activity**/
     private void hideActionBar(){
