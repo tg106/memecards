@@ -1,3 +1,6 @@
+/*
+* adapter for recycler view
+* */
 package com.example.memecards;
 
 import android.content.Context;
@@ -52,15 +55,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.myName.setText(card.getName());
         holder.myImage.setImageResource(resID);
 
-        holder.myCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(myContext, CardInformationActivity.class);
-                intent.putExtra("Description", cardDesc);
-                intent.putExtra("ImageID", resID);
-                myContext.startActivity(intent);
-            }
-        });
+        // click for pop-up page of card information
+        if(!CardLibraryActivity.isStart){
+            holder.myCardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(myContext, CardInformationActivity.class);
+                    intent.putExtra("Description", cardDesc);
+                    intent.putExtra("ImageID", resID);
+                    myContext.startActivity(intent);
+                }
+            });
+        }
+
+        holder.bind(cards.get(position));
     }
 
     @Override
@@ -73,12 +81,54 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView myName;
         ImageView myImage;
         CardView myCardView;
+        ImageView myStar;
 
         public MyViewHolder(View view){
             super(view);
             this.myName = (TextView)itemView.findViewById(R.id.CardName);
             this.myImage = (ImageView)itemView.findViewById(R.id.CardImage);
             this.myCardView = (CardView)itemView.findViewById(R.id.CardView);
+            this.myStar = (ImageView)itemView.findViewById(R.id.Selected);
+            myStar.bringToFront();
         }
+
+        void bind(final MemeCard card) {
+            myStar.setVisibility(card.isChecked() ? View.VISIBLE : View.INVISIBLE);
+            myName.setText(card.getName());
+            // listener for selecting card
+            if(CardLibraryActivity.isStart){
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(!card.isLocked()) {
+                            card.setChecked(!card.isChecked());
+                            myStar.setVisibility(card.isChecked() ? View.VISIBLE : View.INVISIBLE);
+                        }
+                    }
+                });
+            }
+            // reset the check box for the card
+            if(CardLibraryActivity.isCancel){
+                if(!card.isLocked()) {
+                    if(card.isChecked()) card.setChecked(false);
+                    myStar.setVisibility(card.isChecked() ? View.VISIBLE : View.INVISIBLE);
+                }
+            }
+        }
+    }
+
+    // return a list of MemeCard the user has selected
+    public ArrayList<MemeCard> getSelected() {
+        ArrayList<MemeCard> selected = new ArrayList<>();
+        for (int i = 0; i < cards.size(); i++) {
+            if (cards.get(i).isChecked()) {
+                selected.add(cards.get(i));
+                //=========================================================================
+                // add 5 cards to the battle deck
+                // you can add code here
+                //=========================================================================
+            }
+        }
+        return selected;
     }
 }

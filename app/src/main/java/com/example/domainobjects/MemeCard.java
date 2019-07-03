@@ -48,7 +48,15 @@ public class MemeCard {
         this.price = 0;
     }
 
+    private boolean isChecked = false;
 
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
 
     public String getName() {
         return name;
