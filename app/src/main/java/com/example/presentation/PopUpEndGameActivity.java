@@ -1,4 +1,4 @@
-package com.example.memecards;
+package com.example.presentation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.memecards.R;
 import com.example.memedatabase.PlayerStats;
 import com.example.memedatabase.PlayerStatsInterface;
 

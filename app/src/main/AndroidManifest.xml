@@ -9,25 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ModeSelectPopup"
+        <activity android:name="com.example.presentation.ModeSelectPopup"
             android:theme="@style/AppTheme.PopMe"/>
         <activity
-            android:name=".PopUpEndGameActivity"
+            android:name="com.example.presentation.PopUpEndGameActivity"
             android:theme="@style/AppTheme.PopMe" />
         <activity
-            android:name=".LibraryPopupCardActivity"
+            android:name="com.example.presentation.LibraryPopupCardActivity"
             android:theme="@style/AppTheme.PopMe" />
         <activity
-            android:name=".PopupCardActivity"
+            android:name="com.example.presentation.PopupCardActivity"
             android:theme="@style/AppTheme.PopMe" />
         <activity
-            android:name=".StartGameActivity"
+            android:name="com.example.presentation.StartGameActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".CardLibraryActivity"
+            android:name="com.example.presentation.CardLibraryActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.presentation.MainActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

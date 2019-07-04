@@ -1,4 +1,4 @@
-package com.example.memecards;
+package com.example.presentation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,6 +23,7 @@ import com.example.domainobjects.Event;
 import com.example.domainobjects.EventList;
 import com.example.domainobjects.MemeCard;
 import com.example.gamelogic.GameEngine;
+import com.example.memecards.R;
 import com.example.memedatabase.BattleDeck;
 import com.example.memedatabase.BattleDeckInterface;
 import com.example.memedatabase.DBLoader;
@@ -55,8 +56,6 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         bigtosmall = AnimationUtils.loadAnimation(this, R.anim.bigtosmall);
 
         int mode = getIntent().getExtras().getInt("Mode");
-
-        Toast.makeText(StartGameActivity.this, "mode is " + mode,Toast.LENGTH_SHORT).show();
 
         EventListInterface eDB = new EventListStub();
         DBLoader.loadEventsList(eDB, this.getApplicationContext());

@@ -1,4 +1,4 @@
-package com.example.memecards;
+package com.example.presentation;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.domainobjects.MemeCard;
+import com.example.memecards.R;
 import com.example.memedatabase.MasterDeck;
 import com.example.memedatabase.MasterDeckInterface;
 import com.example.memedatabase.BattleDeck;

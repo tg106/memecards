@@ -1,4 +1,4 @@
-package com.example.memecards;
+package com.example.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
+
+import com.example.memecards.R;
 
 public class LibraryPopupCardActivity extends AppCompatActivity {
     private String name;

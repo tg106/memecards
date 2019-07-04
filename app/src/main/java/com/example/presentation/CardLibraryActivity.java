@@ -1,4 +1,4 @@
-package com.example.memecards;
+package com.example.presentation;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +10,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,16 +17,15 @@ import android.view.Gravity;
 import android.widget.Button;
 
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 import com.example.domainobjects.MemeCard;
+import com.example.memecards.R;
 import com.example.memedatabase.MasterDeck;
 import com.example.memedatabase.MasterDeckInterface;
 import com.example.memedatabase.PlayerStats;
 import com.example.memedatabase.PlayerStatsInterface;
 import com.example.memedatabase.BattleDeck;
-import com.example.memedatabase.BattleDeckInterface;
 
 
 public class CardLibraryActivity extends AppCompatActivity {
