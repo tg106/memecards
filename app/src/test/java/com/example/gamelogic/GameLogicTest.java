@@ -1,16 +1,13 @@
-package com.example.memecards;
+package com.example.gamelogic;
 
 import com.example.domainobjects.Deck;
 import com.example.domainobjects.Event;
 import com.example.domainobjects.EventList;
 import com.example.domainobjects.MemeCard;
-import com.example.gamelogic.AI_Player;
-import com.example.gamelogic.GameEngine;
 
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
