@@ -26,7 +26,8 @@ public interface MasterDeckInterface {
             String filename,
             int upvotes,
             String tag,
-            boolean locked
+            boolean locked,
+            int price
     );
 
     /**

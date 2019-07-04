@@ -35,7 +35,7 @@ public class DBLoader {
             JSONArray json_cards = json_obj.getJSONArray("cards");
             String name, desc, fileName, tag;
             boolean locked;
-            int upvotes;
+            int upvotes, price;
             JSONObject json_card;
             ArrayList<String> cardNames = db.retrieveAllCardNames();
 
@@ -50,9 +50,10 @@ public class DBLoader {
                     fileName = json_card.getString("fileName");
                     tag = json_card.getString("tag");
                     locked = json_card.getBoolean("locked");
+                    price = json_card.getInt("price");
 
                     // insert into db
-                    db.insertCard(name, desc, fileName, upvotes, tag, locked);
+                    db.insertCard(name, desc, fileName, upvotes, tag, locked, price);
                 }
             }
         } catch (JSONException e) {
@@ -101,5 +102,46 @@ public class DBLoader {
     public static void loadEventsList(EventListInterface db, Context context) {
         String json = DBLoader.loadJSONFromAsset(context, "events.json");
         DBLoader.loadEventsList(db, json);
+    }
+
+    public static void loadBattleDeck(BattleDeckInterface db, Context context){
+        String jsonString = DBLoader.loadJSONFromAsset(context, "cards.json");
+        // only loads battle deck for the first time
+        if (!db.isFull()){
+            try {
+                // load json encoded string
+                JSONObject json_obj = new JSONObject(jsonString);
+                JSONArray json_cards = json_obj.getJSONArray("cards");
+                String name, desc, fileName, tag;
+                boolean locked;
+                int upvotes, price;
+                JSONObject json_card;
+
+                for (int i = 0; i < json_cards.length(); i++) {
+                    // extract json data
+                    json_card = json_cards.getJSONObject(i);
+                    name = json_card.getString("name");
+                    locked = json_card.getBoolean("locked");
+                    // only continue processing if card does not exist in db
+                    if (!locked) {
+                        // insert into db
+                        db.insertCard(name);
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void loadDB(Context context){
+        // load master deck test
+        DBLoader.loadMasterDeck(new MasterDeck(context), context);
+
+        // load events list test
+        DBLoader.loadEventsList(new EventList(context), context);
+
+        //load battle deck
+        DBLoader.loadBattleDeck(new BattleDeck(context), context);
     }
 }

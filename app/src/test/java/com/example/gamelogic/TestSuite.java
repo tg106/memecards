@@ -1,4 +1,4 @@
-package com.example.memecards;
+package com.example.gamelogic;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

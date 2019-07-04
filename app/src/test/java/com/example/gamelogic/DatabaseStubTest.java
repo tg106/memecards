@@ -1,4 +1,4 @@
-package com.example.memecards;
+package com.example.gamelogic;
 
 import com.example.domainobjects.Event;
 import com.example.domainobjects.MemeCard;
@@ -37,10 +37,10 @@ public class DatabaseStubTest {
         assertEquals(testInt, 0);
 
         // test insert card
-        testBool = stub.insertCard("sampleA", "blah", "path", 99, "tag", true
+        testBool = stub.insertCard("sampleA", "blah", "path", 99, "tag", true, 0
         );
         assertTrue(testBool);
-        testBool = stub.insertCard("sampleB", "blah", "path", 99, "tag", false
+        testBool = stub.insertCard("sampleB", "blah", "path", 99, "tag", false, 0
         );
         assertTrue(testBool);
 
@@ -75,22 +75,22 @@ public class DatabaseStubTest {
         MasterDeckStub master = new MasterDeckStub();
         master.resetStub();
         master.insertCard(
-                "sampleA", "blah", "path", 99, "tag", true
+                "sampleA", "blah", "path", 99, "tag", true, 0
         );
         master.insertCard(
-                "sampleB", "blah", "path", 99, "tag", false
+                "sampleB", "blah", "path", 99, "tag", false, 0
         );
         master.insertCard(
-                "sampleC", "blah", "path", 99, "tag", false
+                "sampleC", "blah", "path", 99, "tag", false, 0
         );
         master.insertCard(
-                "sampleD", "blah", "path", 99, "tag", false
+                "sampleD", "blah", "path", 99, "tag", false, 0
         );
         master.insertCard(
-                "sampleE", "blah", "path", 99, "tag", false
+                "sampleE", "blah", "path", 99, "tag", false, 0
         );
         master.insertCard(
-                "sampleF", "blah", "path", 99, "tag", false
+                "sampleF", "blah", "path", 99, "tag", false, 0
         );
 
         // instantiate battle deck stub db

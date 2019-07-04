@@ -2,85 +2,85 @@
   "events" : [
     {
       "name" : "pedoWeebs",
-      "description" : "Breaking new: All weebs are pedo",
+      "description" : "r/anime: Breaking new: all weebs are pedo",
       "tag" : "Anime",
       "positive" : false
     },
     {
       "name" : "oscar",
-      "description" : "Oscar Award is coming soon",
+      "description" : "r/movies: Oscar award's coming soon",
       "tag" : "Movies",
       "positive" : true
     },
     {
       "name" : "cartoons",
-      "description" : "CartoonNetwork joined Disney",
+      "description" : "r/cartoon: CartoonNetwork joined Disney",
       "tag" : "Cartoon",
       "positive" : true
     },
     {
       "name" : "newBlockbusters",
-      "description" : "3 new blockbusters are now showing in theatres.",
+      "description" : "r/movies: 3 new blockbusters are now showing in theatres.",
       "tag" : "Movies",
       "positive" : true
     },
     {
       "name" : "dumped",
-      "description" : "You have just been dumped.",
+      "description" : "r/irl: You have just been dumped.",
       "tag" : "IRL",
       "positive" : true
     },
     {
       "name" : "newSeason",
-      "description" : "The new season for sporting leagues has started.",
+      "description" : "r/sports: E-sport is now recognized as real sport",
       "tag" : "Sports",
       "positive" : true
     },
     {
       "name" : "newStudy",
-      "description" : "New study finds that many animes encourage violence.",
+      "description" : "r/anime: New study finds that many animes encourage creativity.",
       "tag" : "Anime",
-      "positive" : false
+      "positive" : true
     },
     {
       "name" : "streamable",
-      "description" : "Streamable: Lebron James' grotesque leg injury.",
+      "description" : "r/sports: Lebron James' grotesque leg injury.",
       "tag" : "Sports",
       "positive" : false
     },
     {
       "name" : "notFunny",
-      "description" : "You are not feeling funny.",
+      "description" : "r/irl: TIFU by watching porn",
       "tag" : "IRL",
       "positive" : false
     },
     {
       "name" : "sony",
-      "description" : "Sony cracks down on copyrighted materials on Reddit.",
+      "description" : "r/movies: Sony cracks down on copyrighted materials on Reddit.",
       "tag" : "Movies",
       "positive" : false
     },
     {
       "name" : "olympics",
-      "description" : "The Olympics is nearing.",
+      "description" : "r/sports: The Olympics is nearing.",
       "tag" : "Sports",
       "positive" : true
     },
     {
       "name" : "offensive",
-      "description" : "You feel compelled to make an offensive IRL post.",
-      "tag" : "IRL",
-      "positive" : false
+      "description" : "r/gaming: CyberPunk's coming out",
+      "tag" : "Gaming",
+      "positive" : true
     },
     {
       "name" : "rMeIrl",
-      "description" : "Posting to r/me_irl",
-      "tag" : "IRL",
+      "description" : "r/gaming: Fortnite is doomed",
+      "tag" : "Gaming",
       "positive" : true
     },
     {
       "name" : "rMovies",
-      "description" : "Posting to r/movies",
+      "description" : "r/movies Posting to r/movies",
       "tag" : "Movies",
       "positive" : true
     }
