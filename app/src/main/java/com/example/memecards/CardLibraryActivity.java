@@ -29,6 +29,7 @@ import com.example.memedatabase.BattleDeckInterface;
 
 public class CardLibraryActivity extends AppCompatActivity {
     private ArrayList<MemeCard> cards = new ArrayList<>();
+    private ArrayList<MemeCard> battleCards = new ArrayList<>();
     private MasterDeckInterface masterDeck = null;
     private PlayerStatsInterface playerStats = null;
     private BattleDeckInterface battleDeck;
@@ -39,8 +40,10 @@ public class CardLibraryActivity extends AppCompatActivity {
     private Button myEdit; // edit button to start edit the customized deck
     private Button mySave; // save the selections for the customized deck
     private Button myCancel; // cancel the selections for the customized deck
+    private Button myShowDeck;
     public static boolean isStart = false; // true: start the edit mode; false: exit the edit mode
     public static boolean isCancel = true; // true: clean all selections and exit the edit mode
+    public static boolean showDeck = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,7 @@ public class CardLibraryActivity extends AppCompatActivity {
     private void showCash() {
         TextView cashNum = findViewById(R.id.CashNum);
         cashNum.setText("  " + this.playerStats.getPlayerCash());
+        //cashNum.setText("  " + this.battleDeck.numCards());
     }
 
     // Show the number of total cards and locked cards
@@ -153,6 +157,7 @@ public class CardLibraryActivity extends AppCompatActivity {
         mySave.setVisibility(View.VISIBLE);
         myCancel.setVisibility(View.VISIBLE);
         myEdit.setVisibility(View.INVISIBLE);
+        myCancel.bringToFront();
         adapter.notifyDataSetChanged();
     }
 
@@ -164,6 +169,32 @@ public class CardLibraryActivity extends AppCompatActivity {
         myCancel.setVisibility(View.INVISIBLE);
         myEdit.setVisibility(View.VISIBLE);
         adapter.notifyDataSetChanged();
+    }
+
+    public void showMyDeck(View v){
+        showDeck = true;
+        MemeCard card;
+        if(battleDeck != null){
+            for (String n : this.battleDeck.retrieveAllCardNames()) {
+                card = this.battleDeck.retrieveCard(n);
+                battleCards.add(card);
+            }
+        }
+        this.myShowDeck = (Button) findViewById(R.id.ShowDeck);
+        this.myEdit = (Button) findViewById(R.id.StartEdit);
+        this.mySave = (Button) findViewById(R.id.SaveSelected);
+        this.myCancel = (Button) findViewById(R.id.CancelSelected);
+        myEdit.setVisibility(View.INVISIBLE);
+        mySave.setVisibility(View.INVISIBLE); // only show when on the edit mode
+        myCancel.setVisibility(View.INVISIBLE); //
+
+        this.myRecyView = (RecyclerView)findViewById(R.id.RecyclerView);
+        this.adapter = new RecyclerViewAdapter(this, this.battleCards);
+        this.layoutManager = new LinearLayoutManager(this);
+        this.layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        this.myRecyView.setLayoutManager(layoutManager);
+        this.myRecyView.setAdapter(adapter);
+        myShowDeck.setVisibility(View.INVISIBLE);
     }
 
     //Unlock button pressed on popup card

@@ -82,7 +82,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
         });
 
-        holder.bind(cards.get(position));
+        if(!CardLibraryActivity.showDeck){
+            holder.bind(cards.get(position));
+        }
+        else{
+            holder.showDeck(cards.get(position));
+            CardLibraryActivity.showDeck = false;
+        }
     }
 
     // return a list of MemeCard the user has selected
@@ -139,6 +145,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     myStar.setVisibility(card.isChecked() ? View.VISIBLE : View.INVISIBLE);
                 }
             }
+        }
+
+        void showDeck(final MemeCard card) {
+            myStar.setVisibility(View.INVISIBLE);
+            myName.setText(card.getName());
         }
     }
 }
