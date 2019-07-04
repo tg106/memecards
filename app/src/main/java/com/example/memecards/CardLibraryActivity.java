@@ -18,10 +18,13 @@ import com.example.domainobjects.MemeCard;
 import com.example.memedatabase.DBLoader;
 import com.example.memedatabase.MasterDeckInterface;
 import com.example.memedatabase.MasterDeckStub;
+import com.example.memedatabase.BattleDeckInterface;
+import com.example.memedatabase.BattleDeck;
 
 public class CardLibraryActivity extends AppCompatActivity {
     private ArrayList<MemeCard> cards = new ArrayList<>();
     private static MasterDeckInterface masterDeck = new MasterDeckStub();
+    private BattleDeckInterface battleDeck;
     private RecyclerViewAdapter adapter;
     private Button myEdit; // edit button to start edit the customized deck
     private Button mySave; // save the selections for the customized deck
@@ -36,6 +39,9 @@ public class CardLibraryActivity extends AppCompatActivity {
 
         // load DB into static stub
         DBLoader.loadMasterDeck(this.masterDeck, this.getApplicationContext());
+        // load Battle Deck
+        this.battleDeck = new BattleDeck(this.getApplicationContext());
+
         MemeCard card;
         for (String n : this.masterDeck.retrieveAllCardNames()) {
             card = this.masterDeck.retrieveCard(n);
@@ -104,8 +110,7 @@ public class CardLibraryActivity extends AppCompatActivity {
 //                        stringBuilder.append(adapter.getSelected().get(i).getName());
 //                        stringBuilder.append("\n");
                         //=========================================================================
-                        // add 5 cards to the battle deck
-                        // you can add code here
+                        battleDeck.insertCard(adapter.getSelected().get(i).getName());
                         //=========================================================================
                         isStart = false; // successfully saved then exit
                         mySave.setVisibility(View.INVISIBLE);
