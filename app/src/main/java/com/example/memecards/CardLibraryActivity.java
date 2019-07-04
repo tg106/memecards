@@ -34,7 +34,7 @@ public class CardLibraryActivity extends AppCompatActivity {
     private ArrayList<MemeCard> cards = new ArrayList<>();
     private MasterDeckInterface masterDeck = null;
     private PlayerStatsInterface playerStats = null;
-    private BattleDeckInterface battleDeck;
+    private BattleDeck battleDeck;
 
     private RecyclerView myRecyView;
     private RecyclerViewAdapter adapter;
@@ -105,9 +105,7 @@ public class CardLibraryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (adapter.getSelected().size() == 5) {
-                    for (String s : battleDeck.retrieveAllCardNames()) {
-                        battleDeck.removeCard(s);
-                    }
+                    battleDeck.clearDeck();
                     for (int i = 0; i < adapter.getSelected().size(); i++) {
                         battleDeck.insertCard(adapter.getSelected().get(i).getName());
                         isStart = false; // successfully saved then exit
