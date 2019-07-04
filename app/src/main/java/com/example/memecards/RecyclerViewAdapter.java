@@ -129,6 +129,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         void bind(final MemeCard card) {
             if (battleDeck.retrieveCard(card.getName()) != null) {
+                card.setChecked(true);
                 myStar.setVisibility(View.VISIBLE);
             } else {
                 myStar.setVisibility(View.INVISIBLE);
