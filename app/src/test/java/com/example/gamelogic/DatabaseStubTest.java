@@ -1,4 +1,4 @@
-package com.example.memecards;
+package com.example.gamelogic;
 
 import com.example.domainobjects.Event;
 import com.example.domainobjects.MemeCard;

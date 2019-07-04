@@ -615,4 +615,9 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }, 500);
     }
 
+    @Override
+    public void finish() {
+        gameEngine.gameEnd();
+        super.finish();
+    }
 }
