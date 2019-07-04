@@ -7,7 +7,7 @@
     android:background="@drawable/library_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CardLibraryActivity">
+    tools:context="com.example.presentation.CardLibraryActivity">
 
     <Button
         android:id="@+id/Back"

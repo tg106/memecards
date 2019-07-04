@@ -1,4 +1,4 @@
-package com.example.memecards;
+package com.example.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,10 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.memedatabase.BattleDeck;
+import com.example.memecards.R;
 import com.example.memedatabase.DBLoader;
-import com.example.memedatabase.EventList;
-import com.example.memedatabase.MasterDeck;
 
 
 public class MainActivity extends AppCompatActivity {

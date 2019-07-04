@@ -1,4 +1,4 @@
-package com.example.memecards;
+package com.example.presentation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.memecards.R;
 
 public class ModeSelectPopup extends AppCompatActivity {
 
