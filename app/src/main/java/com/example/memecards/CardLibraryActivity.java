@@ -32,7 +32,6 @@ import com.example.memedatabase.BattleDeckInterface;
 
 public class CardLibraryActivity extends AppCompatActivity {
     private ArrayList<MemeCard> cards = new ArrayList<>();
-    private ArrayList<MemeCard> battleCards = new ArrayList<>();
     private MasterDeckInterface masterDeck = null;
     private PlayerStatsInterface playerStats = null;
     private BattleDeckInterface battleDeck;
@@ -59,9 +58,6 @@ public class CardLibraryActivity extends AppCompatActivity {
         this.playerStats = new PlayerStats(this.getApplicationContext());
         // load Battle Deck
         this.battleDeck = new BattleDeck(this.getApplicationContext());
-
-        //DELETE THIS PLZ - TESTING UNLOCK
-        playerStats.addPlayerCash(500);
 
         showCash();
         showCardStats();
