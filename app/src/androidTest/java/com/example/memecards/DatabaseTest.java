@@ -197,22 +197,22 @@ public class DatabaseTest {
         int testInt;
 
         testInt = stats.getPlayerCash();
-        assertEquals(testInt, 0);
+        assertEquals(testInt, 200);
 
-        testBool = stats.subtractPlayerCash(1);
+        testBool = stats.subtractPlayerCash(201);
         assertFalse(testBool);
 
         stats.addPlayerCash(10);
         testInt = stats.getPlayerCash();
-        assertEquals(testInt, 10);
+        assertEquals(testInt, 210);
 
         stats.addPlayerCash(15);
         testBool = stats.subtractPlayerCash(3);
         assertTrue(testBool);
-        testBool = stats.subtractPlayerCash(99);
+        testBool = stats.subtractPlayerCash(299);
         assertFalse(testBool);
         testInt = stats.getPlayerCash();
-        assertEquals(testInt, 10 + 15 - 3);
+        assertEquals(testInt, 210 + 15 - 3);
 
         // clear db after tests
         dbHelper.resetDB();
