@@ -85,7 +85,7 @@ public class PopUpEndGameActivity extends AppCompatActivity {
             tempV.setText("YOU LOST");
             tempV = findViewById(R.id.popup_endgame_gold);
             tempV.setText("+ 0 gold");
-            tempV.findViewById(R.id.player_cash);
+            tempV = findViewById(R.id.player_cash);
             tempV.setText("Cash: " + cash);
         } else {
             tempV = findViewById(R.id.player_cash);
