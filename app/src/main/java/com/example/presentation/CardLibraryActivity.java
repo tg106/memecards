@@ -124,6 +124,7 @@ public class CardLibraryActivity extends AppCompatActivity {
                             "Please select 5 cards.", Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
+                    cancelSelect(view);
                 }
                 // no selection
                 else{
@@ -131,6 +132,7 @@ public class CardLibraryActivity extends AppCompatActivity {
                             "No Selection", Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
+                    cancelSelect(view);
                 }
                 adapter.notifyDataSetChanged();
             }
