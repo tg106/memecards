@@ -12,6 +12,7 @@ public class MemeCard {
     private boolean locked;
     private String tag;
     private int price;
+    private boolean isChecked;
 
     public MemeCard(
             String name,
@@ -29,6 +30,7 @@ public class MemeCard {
         this.locked = locked;
         this.tag = tag;
         this.price = price;
+        this.isChecked = false;
     }
 
     public MemeCard(
@@ -48,7 +50,9 @@ public class MemeCard {
         this.price = 0;
     }
 
+    public boolean isChecked() { return isChecked; }
 
+    public void setChecked(boolean checked) { isChecked = checked; }
 
     public String getName() {
         return name;
