@@ -102,6 +102,10 @@ public class GameEngine {
         return check;
     }
 
+    public void gameEnd() {
+        this.turn = 6;
+    }
+
     public EventList getEventList() {
         return this.eventList;
     }
