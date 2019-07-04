@@ -54,8 +54,6 @@ public class CardLibraryActivity extends AppCompatActivity {
 
     /** Back to the home page when the user taps the BACK button */
     public void BackHomePage(View v) {
-//        Intent intent = new Intent(this, MainActivity.class);
-//        startActivity(intent);
         onBackPressed();
     }
 
@@ -105,10 +103,7 @@ public class CardLibraryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (adapter.getSelected().size() == 5) {
-                    //StringBuilder stringBuilder = new StringBuilder();
                     for (int i = 0; i < adapter.getSelected().size(); i++) {
-//                        stringBuilder.append(adapter.getSelected().get(i).getName());
-//                        stringBuilder.append("\n");
                         //=========================================================================
                         battleDeck.insertCard(adapter.getSelected().get(i).getName());
                         //=========================================================================
@@ -117,7 +112,6 @@ public class CardLibraryActivity extends AppCompatActivity {
                         myCancel.setVisibility(View.INVISIBLE);
                         myEdit.setVisibility(View.VISIBLE);
                     }
-                    //showToast(stringBuilder.toString());
                     Toast toast = Toast.makeText(getApplicationContext(),
                             "Your deck has been saved.", Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER, 0, 0);

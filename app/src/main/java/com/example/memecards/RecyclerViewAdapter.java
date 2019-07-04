@@ -123,10 +123,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         for (int i = 0; i < cards.size(); i++) {
             if (cards.get(i).isChecked()) {
                 selected.add(cards.get(i));
-                //=========================================================================
-                // add 5 cards to the battle deck
-                // you can add code here
-                //=========================================================================
             }
         }
         return selected;
