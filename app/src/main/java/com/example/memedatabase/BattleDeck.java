@@ -31,8 +31,11 @@ public class BattleDeck implements BattleDeckInterface {
     public boolean insertCard(String cardName){
         // first check if the card exists in the master deck
         MemeCard card = this.masterDeck.retrieveCard(cardName);
+        ArrayList<String> currentDeck = this.retrieveAllCardNames();
+        int size = currentDeck.size();
+        int maxSize = BattleDeckInterface.DECK_SIZE;
         long newRowId = -1;
-        if (card != null && !card.isLocked()){
+        if (size < maxSize && card != null && !card.isLocked() && !currentDeck.contains(cardName)){
             // Gets the data repository in write mode
             SQLiteDatabase db = this.getDBHelper().getWritableDatabase();
 
@@ -152,5 +155,11 @@ public class BattleDeck implements BattleDeckInterface {
                 cards.add(card);
         }
         return cards;
+    }
+
+    public void clearDeck(){
+        ArrayList<String> cards = this.retrieveAllCardNames();
+        for (String cardName : cards)
+            this.removeCard(cardName);
     }
 }

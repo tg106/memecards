@@ -131,6 +131,6 @@ public class PlayerStats implements PlayerStatsInterface {
 
     private void ensureInitialized(){
         if (this.getItem(PlayerStats.CASH_KEY) == null)
-            this.putItem(PlayerStats.CASH_KEY, "0");
+            this.putItem(PlayerStats.CASH_KEY, "200");
     }
 }
