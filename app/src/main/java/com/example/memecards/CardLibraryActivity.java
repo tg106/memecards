@@ -10,12 +10,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.Gravity;
 import android.widget.Button;
 
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 import com.example.domainobjects.MemeCard;
@@ -40,7 +43,7 @@ public class CardLibraryActivity extends AppCompatActivity {
     private Button myEdit; // edit button to start edit the customized deck
     private Button mySave; // save the selections for the customized deck
     private Button myCancel; // cancel the selections for the customized deck
-    private Button myShowDeck;
+    private RadioGroup myViewFilter;
     public static boolean isStart = false; // true: start the edit mode; false: exit the edit mode
     public static boolean isCancel = true; // true: clean all selections and exit the edit mode
     public static boolean showDeck = false;
@@ -73,7 +76,6 @@ public class CardLibraryActivity extends AppCompatActivity {
     private void showCash() {
         TextView cashNum = findViewById(R.id.CashNum);
         cashNum.setText("  " + this.playerStats.getPlayerCash());
-        //cashNum.setText("  " + this.battleDeck.numCards());
     }
 
     // Show the number of total cards and locked cards
@@ -86,24 +88,13 @@ public class CardLibraryActivity extends AppCompatActivity {
     }
 
     private void MakeCardsList() {
-        ArrayList<MemeCard> lockedCards = new ArrayList<>();
-        this.cards.clear();
-        MemeCard card;
-        // make sure unlocked cards is at the front of list
-        for (String n : this.masterDeck.retrieveAllCardNames()) {
-            card = this.masterDeck.retrieveCard(n);
-            if (card.isLocked())
-                lockedCards.add(card);
-            else
-                this.cards.add(card);
+        for (String s : masterDeck.retrieveAllCardNames()) {
+            cards.add(masterDeck.retrieveCard(s));
         }
-        this.cards.addAll(lockedCards);
-
         this.myEdit = (Button) findViewById(R.id.StartEdit);
         this.mySave = (Button) findViewById(R.id.SaveSelected);
         this.myCancel = (Button) findViewById(R.id.CancelSelected);
-        mySave.setVisibility(View.INVISIBLE); // only show when on the edit mode
-        myCancel.setVisibility(View.INVISIBLE); //
+        this.myViewFilter = (RadioGroup) findViewById(R.id.ViewFilter);
 
         this.myRecyView = (RecyclerView)findViewById(R.id.RecyclerView);
         this.adapter = new RecyclerViewAdapter(this, this.cards);
@@ -118,12 +109,16 @@ public class CardLibraryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (adapter.getSelected().size() == 5) {
+                    for (String s : battleDeck.retrieveAllCardNames()) {
+                        battleDeck.removeCard(s);
+                    }
                     for (int i = 0; i < adapter.getSelected().size(); i++) {
                         battleDeck.insertCard(adapter.getSelected().get(i).getName());
                         isStart = false; // successfully saved then exit
                         mySave.setVisibility(View.INVISIBLE);
                         myCancel.setVisibility(View.INVISIBLE);
                         myEdit.setVisibility(View.VISIBLE);
+                        myViewFilter.setVisibility(View.VISIBLE);
                     }
                     Toast toast = Toast.makeText(getApplicationContext(),
                             "Your deck has been saved.", Toast.LENGTH_LONG);
@@ -158,6 +153,7 @@ public class CardLibraryActivity extends AppCompatActivity {
         myCancel.setVisibility(View.VISIBLE);
         myEdit.setVisibility(View.INVISIBLE);
         myCancel.bringToFront();
+        myViewFilter.setVisibility(View.INVISIBLE);
         adapter.notifyDataSetChanged();
     }
 
@@ -168,40 +164,50 @@ public class CardLibraryActivity extends AppCompatActivity {
         mySave.setVisibility(View.INVISIBLE);
         myCancel.setVisibility(View.INVISIBLE);
         myEdit.setVisibility(View.VISIBLE);
+        myViewFilter.setVisibility(View.VISIBLE);
         adapter.notifyDataSetChanged();
     }
 
     public void showMyDeck(View v){
-        showDeck = true;
-        MemeCard card;
-        if(battleDeck != null){
-            for (String n : this.battleDeck.retrieveAllCardNames()) {
-                card = this.battleDeck.retrieveCard(n);
-                battleCards.add(card);
-            }
+        cards.clear();
+        for (String s : battleDeck.retrieveAllCardNames()) {
+            cards.add(masterDeck.retrieveCard(s));
         }
-        this.myShowDeck = (Button) findViewById(R.id.ShowDeck);
-        this.myEdit = (Button) findViewById(R.id.StartEdit);
-        this.mySave = (Button) findViewById(R.id.SaveSelected);
-        this.myCancel = (Button) findViewById(R.id.CancelSelected);
         myEdit.setVisibility(View.INVISIBLE);
-        mySave.setVisibility(View.INVISIBLE); // only show when on the edit mode
-        myCancel.setVisibility(View.INVISIBLE); //
+        this.adapter.notifyDataSetChanged();
+    }
 
-        this.myRecyView = (RecyclerView)findViewById(R.id.RecyclerView);
-        this.adapter = new RecyclerViewAdapter(this, this.battleCards);
-        this.layoutManager = new LinearLayoutManager(this);
-        this.layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        this.myRecyView.setLayoutManager(layoutManager);
-        this.myRecyView.setAdapter(adapter);
-        myShowDeck.setVisibility(View.INVISIBLE);
+    public void showAll(View v) {
+        cards.clear();
+        for (String s : masterDeck.retrieveAllCardNames()) {
+            cards.add(masterDeck.retrieveCard(s));
+        }
+        myEdit.setVisibility(View.VISIBLE);
+        this.adapter.notifyDataSetChanged();
+    }
+
+    public void showUnlocked(View v) {
+        cards.clear();
+        for (String s : masterDeck.retrieveUnlockedCardNames()) {
+            cards.add(masterDeck.retrieveCard(s));
+        }
+        myEdit.setVisibility(View.VISIBLE);
+        this.adapter.notifyDataSetChanged();
+    }
+
+    public void showLocked(View v) {
+        cards.clear();
+        for (String s : masterDeck.retrieveLockedCardNames()) {
+            cards.add(masterDeck.retrieveCard(s));
+        }
+        myEdit.setVisibility(View.VISIBLE);
+        this.adapter.notifyDataSetChanged();
     }
 
     //Unlock button pressed on popup card
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent resultIntent) {
         super.onActivityResult(requestCode, resultCode, resultIntent);
-
         if (requestCode == 1) {
             if (resultCode == Activity.RESULT_OK) {
                 int price = resultIntent.getIntExtra("Price", Integer.MAX_VALUE);

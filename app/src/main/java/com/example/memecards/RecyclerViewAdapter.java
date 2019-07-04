@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.domainobjects.MemeCard;
 import com.example.memedatabase.MasterDeck;
 import com.example.memedatabase.MasterDeckInterface;
+import com.example.memedatabase.BattleDeck;
+import com.example.memedatabase.BattleDeckInterface;
 
 import java.util.ArrayList;
 
@@ -23,12 +25,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private Context myContext;
     private ArrayList<MemeCard> cards;
-    private MasterDeckInterface masterDeck;
+    private static MasterDeckInterface masterDeck;
+    private static BattleDeckInterface battleDeck;
 
     public RecyclerViewAdapter(Context myContext, ArrayList<MemeCard> cards){
         this.myContext = myContext;
         this.cards = cards;
         this.masterDeck = new MasterDeck(myContext);
+        this.battleDeck = new BattleDeck(myContext);
     }
 
     @NonNull
@@ -124,14 +128,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
 
         void bind(final MemeCard card) {
-            myStar.setVisibility(card.isChecked() ? View.VISIBLE : View.INVISIBLE);
+            if (battleDeck.retrieveCard(card.getName()) != null) {
+                myStar.setVisibility(View.VISIBLE);
+            } else {
+                myStar.setVisibility(View.INVISIBLE);
+            }
             myName.setText(card.getName());
             // listener for selecting card
             if(CardLibraryActivity.isStart){
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!card.isLocked()) {
+                        if(!masterDeck.retrieveCard(card.getName()).isLocked()) {
                             card.setChecked(!card.isChecked());
                             myStar.setVisibility(card.isChecked() ? View.VISIBLE : View.INVISIBLE);
                         }
@@ -140,7 +148,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
             // reset the check box for the card
             if(CardLibraryActivity.isCancel){
-                if(!card.isLocked()) {
+                if(!masterDeck.retrieveCard(card.getName()).isLocked()) {
                     if(card.isChecked()) card.setChecked(false);
                     myStar.setVisibility(card.isChecked() ? View.VISIBLE : View.INVISIBLE);
                 }

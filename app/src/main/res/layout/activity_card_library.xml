@@ -11,7 +11,7 @@
 
     <Button
         android:id="@+id/Back"
-        android:layout_width="87dp"
+        android:layout_width="95dp"
         android:layout_height="54dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -19,55 +19,88 @@
         android:onClick="BackHomePage"
         android:text="R/BACK"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
 
     <Button
         android:id="@+id/StartEdit"
-        android:layout_width="87dp"
+        android:layout_width="95dp"
         android:layout_height="54dp"
         android:layout_marginStart="144dp"
         android:layout_marginLeft="144dp"
         android:layout_marginTop="16dp"
         android:onClick="startSelect"
-        android:text="Edit"
+        android:text="Edit Deck"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/SaveSelected"
-        android:layout_width="87dp"
+        android:layout_width="95dp"
         android:layout_height="54dp"
         android:layout_marginStart="144dp"
         android:layout_marginLeft="144dp"
         android:layout_marginTop="16dp"
         android:text="Save"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/CancelSelected"
-        android:layout_width="87dp"
+        android:layout_width="95dp"
         android:layout_height="54dp"
         android:layout_marginStart="248dp"
         android:layout_marginLeft="248dp"
         android:layout_marginTop="16dp"
         android:text="Cancel"
         android:onClick="cancelSelect"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/ShowDeck"
-        android:layout_width="87dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="248dp"
-        android:layout_marginLeft="248dp"
-        android:layout_marginTop="16dp"
-        android:onClick="showMyDeck"
-        android:text="Show my deck"
+    <RadioGroup
+        android:id="@+id/ViewFilter"
+        android:layout_width="152dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="268dp"
+        android:layout_marginLeft="268dp"
+        android:layout_marginTop="4dp"
+        android:checkedButton="@id/ShowAll"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/ShowAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showAll"
+            android:text="All Cards"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/ShowUnlocked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showUnlocked"
+            android:text="Unlocked Cards"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showLocked"
+            android:text="Locked Cards"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/ShowDeck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showMyDeck"
+            android:text="Deck"
+            android:textStyle="bold" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/CashNum"
@@ -139,7 +172,7 @@
         android:layout_height="400dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="24dp"
