@@ -21,5 +21,5 @@ There are 2 types of tests and test suites exists for both:
     - Located in `app/src/androidTest/java/com/example/memecards/`. Run the `InstrumentedTestSuite` class in the directory to run all tests.
 
 ## Related Documents
-- [Vision](VISION.md)
-- [Architecture](ARCHITECTURE.md)
+- [Vision](./vision.md)
+- [Architecture](./architecture.md)
