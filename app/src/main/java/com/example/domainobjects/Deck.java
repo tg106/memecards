@@ -33,7 +33,7 @@ public class Deck {
                 "Gachi",
                 "Manliest man on earth, SPAM GachiBASS for ANIKI",
                 "card_img_gachi",
-                2000,
+                2500,
                 "IRL",
                 false
         ));
@@ -49,14 +49,14 @@ public class Deck {
                 "Tom Cat",
                 "God father of cartoon",
                 "card_img_tomcat",
-                2000,
+                2300,
                 "Cartoon",
                 false));
         deck.add(new MemeCard(
                 "Pepe Frog",
                 "PepeHands ...",
                 "card_img_pepe",
-                1000,
+                1500,
                 "IRL",
                 false
         ));
