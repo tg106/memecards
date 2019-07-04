@@ -16,6 +16,7 @@ public class GameEngine {
     private int scoreForAI;
     private int turn;
     private int eventCount;
+    private EventList currEList;
 
 
     public GameEngine(Deck deck, int difficulty) {
@@ -56,6 +57,7 @@ public class GameEngine {
         }
 
         EventList newEvl = new EventList(list);
+        currEList = newEvl;
 
         return newEvl;
     }
@@ -64,7 +66,7 @@ public class GameEngine {
         int newUpvote = upv;
 
         for (int i = 0; i < 3; i++) {
-            Event temp = this.eventList.getEventByPos(i);
+            Event temp = currEList.getEventByPos(i);
 
             if (tag.equals(temp.getTag()) && temp.checkEventPositive())
                 newUpvote += 200*(temp.getPrio()+1);

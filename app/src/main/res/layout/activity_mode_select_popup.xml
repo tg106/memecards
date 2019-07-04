@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:textSize="30sp"
-                android:text="Get a random deck generated from all cards pool"/>
+                android:text="Play with a random deck"/>
         </LinearLayout>
 
         <Button

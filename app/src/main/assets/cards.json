@@ -21,7 +21,7 @@
     {
       "name": "Unsettled Tom",
       "description": "Me: *clears off table after dinner*\nDatabase team:",
-      "upvotes": 920,
+      "upvotes": 1000,
       "fileName": "unsettled_tom.jpg",
       "tag" : "Cartoon",
       "locked" : false,
@@ -39,7 +39,7 @@
     {
       "name": "Me And The Boys",
       "description" : "Me and the group putting off drawing the architecture diagrams",
-      "upvotes" : 1080,
+      "upvotes" : 1300,
       "fileName" : "me_and_the_boys.png",
       "tag" : "Cartoon",
       "locked" : false,
@@ -48,7 +48,7 @@
     {
       "name" : "Tuxedo Pooh",
       "description" : "white\n#FFFFFF",
-      "upvotes" : 2030,
+      "upvotes" : 2100,
       "fileName" : "tuxedo_pooh.jpg",
       "tag" : "Cartoon",
       "locked" : true,
@@ -93,7 +93,7 @@
     {
       "name" : "First Half",
       "description" : "Not gonna lie",
-      "upvotes" : 1240,
+      "upvotes" : 1200,
       "fileName" : "first_half.jpg",
       "tag" : "Sports",
       "locked" : true,
@@ -113,14 +113,14 @@
       "description" : "As all things should be",
       "upvotes" : 5100,
       "fileName" : "perfectly_balanced.jpg",
-      "tag" : "Movie",
+      "tag" : "Movies",
       "locked" : true,
       "price" : 100
     },
     {
       "name" : "Choose Wisely",
       "description" : "Apple",
-      "upvotes" : 500,
+      "upvotes" : 700,
       "fileName" : "choose_wisely.png",
       "tag" : "Technology",
       "locked" : true,
@@ -147,7 +147,7 @@
     {
       "name" : "Guy Stopping Another Guy",
       "description" : "Hol up",
-      "upvotes" : 400,
+      "upvotes" : 2200,
       "fileName" : "guy_stopping.png",
       "tag" : "IRL",
       "locked" : true,
@@ -165,7 +165,7 @@
     {
       "name" : "Savage Patrick",
       "description" : "hehe",
-      "upvotes" : 3600,
+      "upvotes" : 1100,
       "fileName" : "savage_patrick.png",
       "tag" : "IRL",
       "locked" : true,
@@ -174,7 +174,7 @@
     {
       "name" : "Monkey Look Away",
       "description" : "nope",
-      "upvotes" : 4800,
+      "upvotes" : 3100,
       "fileName" : "monkey_look_away.png",
       "tag" : "IRL",
       "locked" : true,

@@ -23,18 +23,18 @@ import com.example.domainobjects.Event;
 import com.example.domainobjects.EventList;
 import com.example.domainobjects.MemeCard;
 import com.example.gamelogic.GameEngine;
+import com.example.memedatabase.BattleDeck;
+import com.example.memedatabase.BattleDeckInterface;
 import com.example.memedatabase.DBLoader;
 import com.example.memedatabase.EventListInterface;
 import com.example.memedatabase.EventListStub;
+import com.example.memedatabase.MasterDeck;
 import com.example.memedatabase.MasterDeckInterface;
-import com.example.memedatabase.MasterDeckStub;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class StartGameActivity extends AppCompatActivity implements View.OnClickListener {
 
-    List<MemeCard> test;
     Deck d;
     CardView[] hand_card_btn = new CardView[5];
     EventList evL;
@@ -58,26 +58,21 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
         Toast.makeText(StartGameActivity.this, "mode is " + mode,Toast.LENGTH_SHORT).show();
 
-        //get DB
-        MasterDeckInterface db = new MasterDeckStub();
         EventListInterface eDB = new EventListStub();
-
-        // load DB
-        DBLoader.loadMasterDeck(db, this.getApplicationContext());
         DBLoader.loadEventsList(eDB, this.getApplicationContext());
 
-        //get cards
-        this.test = new ArrayList<MemeCard>();
-        for (String cardName : db.retrieveAllCardNames())
-            this.test.add(db.retrieveCard(cardName));
-
-        List<MemeCard> modeDeck = test;
-        if (mode == 1)
+        ArrayList<MemeCard> modeDeck;
+        if (mode != 1)
         {
+            BattleDeckInterface deckDB = new BattleDeck(this.getApplicationContext());
+            modeDeck = ((BattleDeck) deckDB).retrieveAllCards();
+        } else {
+            MasterDeckInterface mdDB = new MasterDeck(this.getApplicationContext());
+            ArrayList<MemeCard> master_deck = ((MasterDeck) mdDB).retrieveAllCards();
             modeDeck = new ArrayList<MemeCard>();
             for (int i = 0; i < 5; i++)
             {
-                modeDeck.add(test.get( (int) (Math.random() * test.size()) ));
+                modeDeck.add(master_deck.get( (int) (Math.random() * master_deck.size()) ));
             }
         }
 
@@ -164,11 +159,11 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         for (int i = 0; i < 3; i++) {
             tempI = getEventDisplayPosition(i);
             curT = (TextView) findViewById(tempI);
-            curT.setText(this.evL.getEventList().get(i).getDesc());
+            curT.setText(evL.getEventByPos(i).getDesc());
 
             tempI = getEventPriorityPosition(i);
             curT = (TextView) findViewById(tempI);
-            switch (this.evL.getEventByPos(i).getPrio()) {
+            switch (evL.getEventByPos(i).getPrio()) {
                 case 2:
                     curT.setText("Hot");
                     break;
@@ -352,7 +347,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         hideActionBar();
     }
 
-    //The game flow, this is each phase of a turn, each phase will do something
+    //The game flow, this is each phase of a turn, each phase will display something
     private void gamePlayFlow() {
         new CountDownTimer(7000, 1000) {
             @Override
@@ -397,13 +392,6 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }.start();
     }
 
-    //Get a move from AI player
-    public void getMoveFromAI() {
-        if (this.gameEngine.checkAImovable())
-            this.card_played_by_AI = this.gameEngine.moveByAI();
-
-    }
-
     //Display the animation after user pick a card
     private void delayDisplayForAnimation(int pos) {
         final int position = pos;
@@ -421,6 +409,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }, 1500);
     }
 
+    //make cardfield invisible
     public  void setCardFieldVisible(boolean b)
     {
         View temp = (LinearLayout) findViewById(R.id.human_cardfield);
@@ -445,6 +434,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    //reset the cardfield img to make it blank
     public  void resetCardField() {
         View temp = (ImageView) findViewById(R.id.cardfield_img_1);
         ((ImageView) temp).setImageResource(0);
@@ -468,6 +458,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         ((TextView) temp).setText("");
     }
 
+    //displaying event in the middle of the screen in early round
     private void displayEventAnimation() {
         final LinearLayout info_board = (LinearLayout) findViewById(R.id.info_board);
         info_board.setVisibility(View.VISIBLE);
@@ -480,11 +471,11 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         for (int i = 0; i < 3; i++) {
             tempI = getEventBoardInfoPosition(i);
             curT = (TextView) findViewById(tempI);
-            curT.setText(this.evL.getEventList().get(i).getDesc());
+            curT.setText(evL.getEventByPos(i).getDesc());
 
             tempI = getEventPrioBoardInfoPosition(i);
             curT = (TextView) findViewById(tempI);
-            switch (this.evL.getEventByPos(i).getPrio()) {
+            switch (evL.getEventByPos(i).getPrio()) {
                 case 2:
                     curT.setText("Hot");
                     break;
@@ -564,7 +555,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-    //After player click "play card", play that card and create the game flow
+    //After player click "play card", play that card and display the played card on the field and move to next turn (in gameflow)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -582,7 +573,8 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 resetCardField();
                 makeCardClickable(false);
                 hideHumanPlayedCard(card_played_pos);
-                getMoveFromAI();
+                if (gameEngine.checkAImovable())
+                    card_played_by_AI = gameEngine.moveByAI();
                 temp = findViewById(getHandCardForAIPosition(gameEngine.getTurn()));
                 temp.animate().alpha(0).setDuration(500);
                 temp.startAnimation(bigtosmall);
@@ -611,6 +603,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }, 1000);
     }
 
+    //hide view animation
     public void hideViewAnimation(View temp) {
         final View tempV = temp;
         tempV.startAnimation(bigtosmall);
