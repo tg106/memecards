@@ -53,13 +53,14 @@
                 android:src="@drawable/pepega_avatar"/>
 
             <TextView
+                android:id="@+id/player_cash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
                 android:layout_gravity="center"
                 android:textStyle="bold"
-                android:text="Level 69"/>
+                android:text="Cash: 70 + 69"/>
 
         </LinearLayout>
 
@@ -84,18 +85,9 @@
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
                 android:textStyle="italic"
-                android:text="+ 6969 gold"
+                android:text="+ 69 gold"
                 android:layout_marginLeft="10dp"/>
 
-            <TextView
-                android:id="@+id/popup_endgame_exp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:textStyle="italic"
-                android:text="+ 666 exp"
-                android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="wrap_content"

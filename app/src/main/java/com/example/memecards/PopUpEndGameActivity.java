@@ -11,10 +11,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.memedatabase.PlayerStats;
+import com.example.memedatabase.PlayerStatsInterface;
+
 public class PopUpEndGameActivity extends AppCompatActivity {
 
     Button btn;
     boolean win;
+    PlayerStatsInterface cashDB;
+    int cash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,9 @@ public class PopUpEndGameActivity extends AppCompatActivity {
         params.y = -20;
 
         getWindow().setAttributes(params);
+
+        cashDB = new PlayerStats(this.getApplicationContext());
+        cash = cashDB.getPlayerCash();
 
         displayEndGameBoard();
 
@@ -77,8 +85,12 @@ public class PopUpEndGameActivity extends AppCompatActivity {
             tempV.setText("YOU LOST");
             tempV = findViewById(R.id.popup_endgame_gold);
             tempV.setText("+ 0 gold");
-            tempV = findViewById(R.id.popup_endgame_exp);
-            tempV.setText("+ 0 exp");
+            tempV.findViewById(R.id.player_cash);
+            tempV.setText("Cash: " + cash);
+        } else {
+            tempV = findViewById(R.id.player_cash);
+            tempV.setText("Cash: " + cash + " + 69");
+            cashDB.addPlayerCash(69);
         }
     }
 
