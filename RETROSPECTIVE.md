@@ -8,5 +8,6 @@ We aim to have a merged product one day before the actual deadline to leave room
 
 # Project Velocity
 The chart below shows the project velocity from iterations 1 and 2.
+
 ![Project Velocity Diagram](projectVelocity.png)
 
