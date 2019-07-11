@@ -130,7 +130,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                     makeCardClickable(false);
                     Intent newIntent = new Intent(getApplicationContext(), PopUpEndGameActivity.class);
                     newIntent.putExtra("Win", false);
-                    startActivity(newIntent);
+                    startActivityForResult(newIntent, 2);
                 }
             }
         }, 30000);
@@ -385,7 +385,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                     } else {
                         newIntent.putExtra("Win", false);
                     }
-                    startActivity(newIntent);
+                    startActivityForResult(newIntent, 2);
                 }
             }
         }.start();
@@ -581,6 +581,9 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 gamePlayFlow();
 
             }
+        } else if (requestCode == 2) {
+            if (resultCode == RESULT_OK)
+                finish();
         }
     }
 
