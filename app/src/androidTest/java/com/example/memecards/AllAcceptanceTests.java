@@ -6,7 +6,6 @@ import org.junit.runners.Suite;
 // Runs all unit tests.
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        DBLoaderTest.class,
-        DatabaseTest.class
+        LibraryUITest.class
 })
-public class InstrumentedTestSuite {}
+public class AllAcceptanceTests {}
