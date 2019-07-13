@@ -23,5 +23,6 @@ public interface PlayerStatsInterface {
      * @param amount amount of cash to subtract
      * @return returns true if successful, false otherwise
      */
-    public boolean subtractPlayerCash(int amount);
+    public void subtractPlayerCash(int amount);
 }
+

@@ -10,6 +10,7 @@ import com.example.domainobjects.MemeCard;
 import com.example.memedatabase.BattleDeck;
 import com.example.memedatabase.DBHelper;
 import com.example.memedatabase.EventList;
+import com.example.memedatabase.InsufficientCashException;
 import com.example.memedatabase.MasterDeck;
 import com.example.memedatabase.PlayerStats;
 
@@ -193,24 +194,32 @@ public class DatabaseTest {
         PlayerStats stats = new PlayerStats(appContext);
 
         // test vals
-        boolean testBool;
+        boolean testBool = false;
         int testInt;
 
         testInt = stats.getPlayerCash();
         assertEquals(testInt, 200);
 
-        testBool = stats.subtractPlayerCash(201);
-        assertFalse(testBool);
+        try {
+            stats.subtractPlayerCash(201);
+        } catch (InsufficientCashException e) {
+            testBool = true;
+        }
+        assertTrue(testBool);
 
         stats.addPlayerCash(10);
         testInt = stats.getPlayerCash();
         assertEquals(testInt, 210);
 
         stats.addPlayerCash(15);
-        testBool = stats.subtractPlayerCash(3);
+        stats.subtractPlayerCash(3);
+        try {
+            stats.subtractPlayerCash(299);
+        } catch (InsufficientCashException e) {
+            testBool = true;
+        }
         assertTrue(testBool);
-        testBool = stats.subtractPlayerCash(299);
-        assertFalse(testBool);
+
         testInt = stats.getPlayerCash();
         assertEquals(testInt, 210 + 15 - 3);
 

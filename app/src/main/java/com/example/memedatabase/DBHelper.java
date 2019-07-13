@@ -5,6 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
+    /*
+    SQLite Helper class.
+     */
     private static final String SQL_CREATE_CARDS =
             "CREATE TABLE IF NOT EXISTS " + DBContract.CardsSchema.TABLE_NAME + " (" +
                     DBContract.CardsSchema.COLUMN_NAME_NAME + " TEXT PRIMARY KEY," +

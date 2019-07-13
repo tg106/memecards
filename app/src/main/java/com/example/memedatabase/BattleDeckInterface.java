@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * current set of card in the player's BattleDeck. Cards in the BattleDeck are unique.
  */
 public interface BattleDeckInterface {
-    int DECK_SIZE = 5;
+    final int DECK_SIZE = 5;
     /**
      * Inserts a new card to the BattleDeck table. Fails if the BattleDeck is already full, or, if
      * the card already exists in the BattleDeck, or, if the card is locked / doesn't exist in the

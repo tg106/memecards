@@ -133,10 +133,7 @@ public class BattleDeck implements BattleDeckInterface {
 
     @Override
     public boolean isFull(){
-        boolean result = false;
-        if (this.numCards() >= this.DECK_SIZE)
-            result = true;
-        return result;
+        return this.numCards() >= this.DECK_SIZE;
     }
 
     @Override

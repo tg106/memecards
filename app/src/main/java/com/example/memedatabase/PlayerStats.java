@@ -40,13 +40,13 @@ public class PlayerStats implements PlayerStatsInterface {
     }
 
     @Override
-    public boolean subtractPlayerCash(int amount){
+    public void subtractPlayerCash(int amount){
         int cash = this.getPlayerCash();
         cash -= amount;
         if (cash >= 0)
-            return this.updatePlayerCash(cash);
+            this.updatePlayerCash(cash);
         else
-            return false;
+            throw new InsufficientCashException("Insufficient cash : Trying to substract " + amount + " from " + cash);
     }
 
     private boolean updatePlayerCash(int amount){

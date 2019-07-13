@@ -14,12 +14,11 @@ public class PlayerStatsStub implements PlayerStatsInterface {
     }
 
     @Override
-    public boolean subtractPlayerCash(int amount) {
+    public void subtractPlayerCash(int amount){
         if (PlayerStatsStub.cash >= amount)
             PlayerStatsStub.cash -= amount;
         else
-            return false;
-        return true;
+            throw new InsufficientCashException("Insufficient cash : Trying to substract " + amount + " from " + PlayerStatsStub.cash);
     }
 
     // helper method to reset stub db for tests
@@ -27,3 +26,4 @@ public class PlayerStatsStub implements PlayerStatsInterface {
         PlayerStatsStub.cash = 0;
     }
 }
+
