@@ -1,6 +1,14 @@
-package com.example.memedatabase;
+package com.example.gamelogic;
 
 import android.content.Context;
+
+import com.example.memedatabase.BattleDeck;
+import com.example.memedatabase.BattleDeckInterface;
+import com.example.memedatabase.EventList;
+import com.example.memedatabase.EventListInterface;
+import com.example.memedatabase.MasterDeck;
+import com.example.memedatabase.MasterDeckInterface;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
