@@ -4,6 +4,7 @@ import com.example.domainobjects.Event;
 import com.example.domainobjects.MemeCard;
 import com.example.memedatabase.BattleDeckStub;
 import com.example.memedatabase.EventListStub;
+import com.example.memedatabase.InsufficientCashException;
 import com.example.memedatabase.MasterDeckStub;
 import com.example.memedatabase.PlayerStatsStub;
 
@@ -165,24 +166,32 @@ public class DatabaseStubTest {
         stub.resetStub();
 
         // test vals
-        boolean testBool;
+        boolean testBool = false;
         int testInt;
 
         testInt = stub.getPlayerCash();
         assertEquals(testInt, 0);
 
-        testBool = stub.subtractPlayerCash(1);
-        assertFalse(testBool);
+        try {
+            stub.subtractPlayerCash(1);
+        } catch (InsufficientCashException e) {
+            testBool = true;
+        }
+        assertTrue(testBool);
 
         stub.addPlayerCash(10);
         testInt = stub.getPlayerCash();
         assertEquals(testInt, 10);
 
         stub.addPlayerCash(15);
-        testBool = stub.subtractPlayerCash(3);
+        stub.subtractPlayerCash(3);
+        try {
+            stub.subtractPlayerCash(99);
+        } catch (InsufficientCashException e) {
+            testBool = true;
+        }
         assertTrue(testBool);
-        testBool = stub.subtractPlayerCash(99);
-        assertFalse(testBool);
+
         testInt = stub.getPlayerCash();
         assertEquals(testInt, 10 + 15 - 3);
 
