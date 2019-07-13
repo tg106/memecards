@@ -6,6 +6,9 @@ import org.junit.runners.Suite;
 // Runs all unit tests.
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        LibraryUITest.class
+        LibraryUITest.class,
+        PersonalizedDeckModeTest.class,
+        RandomDeckModeTest.class,
+        TimeConstraintModeTest.class
 })
 public class AllAcceptanceTests {}
