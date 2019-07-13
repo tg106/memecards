@@ -538,6 +538,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
         if  ( ((View)v).getId() == R.id.ragequit_btn ) {
             check = false;
+            gameEngine.gameEnd();
             finish();
         }
 
@@ -618,9 +619,4 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }, 500);
     }
 
-    @Override
-    public void finish() {
-        gameEngine.gameEnd();
-        super.finish();
-    }
 }
