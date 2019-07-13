@@ -118,6 +118,7 @@
                 android:layout_marginRight="25dp"
                 android:layout_gravity="center"
                 android:text="UNLOCK CARD"
+                android:onClick="unlockCard"
                 android:layout_marginBottom="15dp"
                 android:visibility="invisible"/>
         </LinearLayout>
