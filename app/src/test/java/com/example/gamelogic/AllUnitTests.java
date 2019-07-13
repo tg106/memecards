@@ -10,5 +10,5 @@ import org.junit.runners.Suite;
         GameLogicTest.class
 })
 
-public class TestSuite {
+public class AllUnitTests {
 } 

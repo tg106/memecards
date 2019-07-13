@@ -26,6 +26,23 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha05'
     implementation 'com.google.android.material:material:1.0.0'
     testImplementation 'junit:junit:4.12'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.+'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+//    androidTestImplementation (group: 'com.android.support.test.espresso', name: 'espresso-core', version: '3.0.2') {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    }
+    androidTestImplementation 'com.android.support:support-annotations:23.3.0'
+//    androidTestImplementation ('com.android.support.test:rules:1.0.2'){
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    }
+    androidTestImplementation 'androidx.test:rules:1.1.0'
+    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:2.2.2") {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-v7'
+        exclude group: 'com.android.support', module: 'design'
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+    }
 }
