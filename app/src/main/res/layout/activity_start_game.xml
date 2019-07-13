@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     tools:context="com.example.presentation.StartGameActivity">
 
-    <!--<ImageView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:background="@drawable/battle_bg"-->
-        <!--android:alpha="0.3"/>-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/battle_bg"
+        android:alpha="0.3"/>
 
     <LinearLayout
         android:id="@+id/time_constraint_mode"
