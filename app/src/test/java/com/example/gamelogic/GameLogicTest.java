@@ -17,10 +17,14 @@ public class GameLogicTest {
     public void GameEngineTest() {
         //Generating test deck
         Deck testDeck = new Deck();
-        testDeck.generatingTestDeckforAI();
+        ArrayList<MemeCard> testDeck2 = new ArrayList<MemeCard>();
+        for (int i = 0; i < 5; i++)
+        {
+            testDeck2.add(new MemeCard("","","",0,"",false,0));
+        }
 
         //Generating GameEngine
-        GameEngine gameEngine = new GameEngine(testDeck, 0);
+        GameEngine gameEngine = new GameEngine(testDeck, 0, testDeck2);
 
         //Check if the game is initialized
         assertTrue(gameEngine.getScoreForAI() == 0);
@@ -81,9 +85,14 @@ public class GameLogicTest {
     public void AI_PlayerTest() {
         //Generating AI player
         AI_Player aiTest = new AI_Player(0);
+        ArrayList<MemeCard> testDeck2 = new ArrayList<MemeCard>();
+        for (int i = 0; i < 5; i++)
+        {
+            testDeck2.add(new MemeCard("","","",0,"",false,0));
+        }
 
         //Check if AI deck is valid
-        aiTest.generatingAIDeck();
+        aiTest.generatingAIDeck(testDeck2);
         assertTrue(aiTest.getAi_deck() != null);
 
         //Check if AI deck has valid cards
