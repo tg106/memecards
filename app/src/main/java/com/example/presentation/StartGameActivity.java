@@ -121,9 +121,22 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
     //Time constrainst mode
     private void countdown() {
 
-        new Handler().postDelayed(new Runnable() {
+        final View tempV = findViewById(R.id.time_constraint_mode);
+        tempV.setVisibility(View.VISIBLE);
+        final TextView tempT = findViewById(R.id.time_countdown);
+
+        new CountDownTimer(30000,1000) {
+            int timer = 30;
+
             @Override
-            public void run() {
+            public void onTick(long millisUntilFinished) {
+                timer--;
+               tempT.setText(timer + "");
+            }
+
+            @Override
+            public void onFinish() {
+                tempT.setText("0");
                 if (!gameEngine.checkIfGameisOver())
                 {
                     Toast.makeText(StartGameActivity.this, "Time's up", Toast.LENGTH_SHORT).show();
@@ -133,7 +146,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                     startActivityForResult(newIntent, 2);
                 }
             }
-        }, 30000);
+        }.start();
     }
 
     //Display the user's deck to the screen
@@ -538,6 +551,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
         if  ( ((View)v).getId() == R.id.ragequit_btn ) {
             check = false;
+            gameEngine.gameEnd();
             finish();
         }
 
@@ -618,9 +632,4 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }, 500);
     }
 
-    @Override
-    public void finish() {
-        gameEngine.gameEnd();
-        super.finish();
-    }
 }

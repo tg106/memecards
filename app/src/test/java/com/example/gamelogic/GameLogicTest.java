@@ -42,7 +42,8 @@ public class GameLogicTest {
         assertTrue(gameEngine.getScoreForHuman() == 1);
 
         //Check if generating eventlist work
-        gameEngine.generatingEventList();
+        ArrayList<Event> testE = new ArrayList<Event>();
+        gameEngine.generatingAllEventList(testE);
         assertTrue(gameEngine.getEventList() != null);
 
         //Check if gameEngine go to next turn and end the game
