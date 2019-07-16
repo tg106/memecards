@@ -20,14 +20,14 @@ public class GameEngine {
     private boolean over;
 
 
-    public GameEngine(Deck deck, int difficulty) {
+    public GameEngine(Deck deck, int difficulty, ArrayList<MemeCard> masterDeck) {
         this.deckForHuman = deck;
         this.ai = new AI_Player(difficulty);
         this.eventList = new EventList();
         this.scoreForAI = 0;
         this.scoreForHuman = 0;
         this.turn = 0;
-        this.ai.generatingAIDeck();
+        this.ai.generatingAIDeck(masterDeck);
         this.over = false;
     }
 

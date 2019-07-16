@@ -87,7 +87,9 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         this.time_for_a_turn = 7;
 
         //Creating gameEngine (gamelogic)
-        this.gameEngine = new GameEngine(d, 0);
+        MasterDeckInterface aiDeckDB = new MasterDeck(this.getApplicationContext());
+        ArrayList<MemeCard> aiDeck = ((MasterDeck) aiDeckDB).retrieveAllCards();
+        this.gameEngine = new GameEngine(d, 0, aiDeck);
 
 
         displayDeck();;

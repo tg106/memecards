@@ -179,6 +179,51 @@
       "tag" : "IRL",
       "locked" : true,
       "price" : 100
+    },
+    {
+      "name" : "Pepe Frog",
+      "description" : "MFW I look back at my life PepeHands",
+      "upvotes" : 1500,
+      "fileName" : "card_img_pepe.jpg",
+      "tag" : "IRL",
+      "locked" : true,
+      "price" : 100
+    },
+    {
+      "name" : "Tom Cat",
+      "description" : "God father of cartoon",
+      "upvotes" : 2300,
+      "fileName" : "card_img_tomcat.jpg",
+      "tag" : "Cartoon",
+      "locked" : true,
+      "price" : 100
+    },
+    {
+      "name" : "Thanos",
+      "description" : "Strongest creature in the universe",
+      "upvotes" : 5000,
+      "fileName" : "card_img_thanos.jpg",
+      "tag" : "Movies",
+      "locked" : true,
+      "price" : 100
+    },
+    {
+      "name" : "Gachi",
+      "description" : "Manliest man on earth, spam GachiBass for ANIKI",
+      "upvotes" : 2500,
+      "fileName" : "card_img_gachi.jpg",
+      "tag" : "IRL",
+      "locked" : true,
+      "price" : 100
+    },
+    {
+      "name" : "AYAYA",
+      "description" : "Represents all weebs",
+      "upvotes" : 3000,
+      "fileName" : "card_img_ayaya.jpg",
+      "tag" : "Anime",
+      "locked" : true,
+      "price" : 100
     }
   ]
 }
