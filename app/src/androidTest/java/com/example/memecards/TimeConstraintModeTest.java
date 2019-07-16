@@ -31,13 +31,14 @@ import static org.hamcrest.Matchers.is;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
+
+//Testing user stories:
+//Time constraint mode(timer should be 30 seconds)
 public class TimeConstraintModeTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
-    //Testing user stories:
-    //Time constraint mode(timer should be 30 seconds)
     @Test
     public void timeConstraintModeTest() {
         ViewInteraction appCompatButton = onView(
