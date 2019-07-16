@@ -31,13 +31,14 @@ import static org.hamcrest.Matchers.is;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
+
+//Testing user stories:
+//Random Deck mode(cards should be different every test)
 public class RandomDeckModeTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
-    //Testing user stories:
-    //Random Deck mode(cards should be different every test)
     @Test
     public void randomDeckModeTest() {
         ViewInteraction appCompatButton = onView(
@@ -60,11 +61,8 @@ public class RandomDeckModeTest {
                         isDisplayed()));
         appCompatButton2.perform(click());
 
-        // Added a sleep statement to match the app's execution delay.
-        // The recommended way to handle such scenarios is to use Espresso idling resources:
-        // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -74,7 +72,7 @@ public class RandomDeckModeTest {
                         childAtPosition(
                                 childAtPosition(
                                         withClassName(is("android.widget.RelativeLayout")),
-                                        5),
+                                        6),
                                 2),
                         isDisplayed()));
         appCompatButton3.perform(click());
@@ -89,6 +87,7 @@ public class RandomDeckModeTest {
                         isDisplayed()));
         appCompatButton4.perform(click());
 
+        //cards shown the second time should be different from the first
         ViewInteraction appCompatButton5 = onView(
                 allOf(withText("Battle"),
                         childAtPosition(
@@ -99,11 +98,8 @@ public class RandomDeckModeTest {
                         isDisplayed()));
         appCompatButton5.perform(click());
 
-        // Added a sleep statement to match the app's execution delay.
-        // The recommended way to handle such scenarios is to use Espresso idling resources:
-        // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -113,7 +109,7 @@ public class RandomDeckModeTest {
                         childAtPosition(
                                 childAtPosition(
                                         withClassName(is("android.widget.RelativeLayout")),
-                                        5),
+                                        6),
                                 2),
                         isDisplayed()));
         appCompatButton6.perform(click());
