@@ -21,7 +21,7 @@
     {
       "name": "Unsettled Tom",
       "description": "Me: *clears off table after dinner*\nDatabase team:",
-      "upvotes": 4900,
+      "upvotes": 1000,
       "fileName": "unsettled_tom.jpg",
       "tag" : "Cartoon",
       "locked" : false,
@@ -39,7 +39,7 @@
     {
       "name": "Me And The Boys",
       "description" : "Me and the group making a meme theme card game",
-      "upvotes" : 4300,
+      "upvotes" : 1300,
       "fileName" : "me_and_the_boys.png",
       "tag" : "Cartoon",
       "locked" : false,
