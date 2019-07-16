@@ -1,21 +1,27 @@
 package com.example.memecards;
 
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
+import androidx.test.InstrumentationRegistry;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
+import com.example.gamelogic.DBLoader;
 import com.example.memecards.R;
+import com.example.memedatabase.DBHelper;
 import com.example.presentation.MainActivity;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,6 +44,26 @@ public class RandomDeckModeTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+
+    @Before
+    public void setupDatabase(){
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        DBHelper dbHelper = new DBHelper(appContext);
+        // reset DB
+        dbHelper.resetDB();
+
+        // load DB
+        DBLoader.loadDB(appContext);
+
+    }
+
+    @After
+    public void dropDatabase(){
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        DBHelper dbHelper = new DBHelper(appContext);
+        // reset DB
+        dbHelper.resetDB();
+    }
 
     @Test
     public void randomDeckModeTest() {
