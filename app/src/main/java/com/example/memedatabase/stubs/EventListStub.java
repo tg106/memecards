@@ -1,6 +1,7 @@
-package com.example.memedatabase;
+package com.example.memedatabase.stubs;
 
 import com.example.domainobjects.Event;
+import com.example.memedatabase.dbinterface.EventListInterface;
 
 import java.util.ArrayList;
 

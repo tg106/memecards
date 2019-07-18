@@ -1,4 +1,7 @@
-package com.example.memedatabase;
+package com.example.memedatabase.stubs;
+
+import com.example.memedatabase.dbinterface.InsufficientCashException;
+import com.example.memedatabase.dbinterface.PlayerStatsInterface;
 
 public class PlayerStatsStub implements PlayerStatsInterface {
     private static int cash = 0;

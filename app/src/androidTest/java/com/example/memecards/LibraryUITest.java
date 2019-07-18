@@ -9,7 +9,7 @@ import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
-import com.example.memedatabase.DBHelper;
+import com.example.memedatabase.sqlite.core.DBHelper;
 import com.example.gamelogic.DBLoader;
 import com.example.presentation.MainActivity;
 

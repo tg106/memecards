@@ -2,12 +2,12 @@ package com.example.gamelogic;
 
 import android.content.Context;
 
-import com.example.memedatabase.BattleDeck;
-import com.example.memedatabase.BattleDeckInterface;
-import com.example.memedatabase.EventList;
-import com.example.memedatabase.EventListInterface;
-import com.example.memedatabase.MasterDeck;
-import com.example.memedatabase.MasterDeckInterface;
+import com.example.memedatabase.sqlite.implementations.BattleDeck;
+import com.example.memedatabase.dbinterface.BattleDeckInterface;
+import com.example.memedatabase.sqlite.implementations.EventList;
+import com.example.memedatabase.dbinterface.EventListInterface;
+import com.example.memedatabase.sqlite.implementations.MasterDeck;
+import com.example.memedatabase.dbinterface.MasterDeckInterface;
 
 import org.json.JSONArray;
 import org.json.JSONException;

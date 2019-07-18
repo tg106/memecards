@@ -1,6 +1,7 @@
-package com.example.memedatabase;
+package com.example.memedatabase.stubs;
 
 import com.example.domainobjects.MemeCard;
+import com.example.memedatabase.dbinterface.MasterDeckInterface;
 
 import java.util.ArrayList;
 

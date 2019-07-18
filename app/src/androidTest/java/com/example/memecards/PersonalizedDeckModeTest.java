@@ -13,8 +13,7 @@ import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
 import com.example.gamelogic.DBLoader;
-import com.example.memecards.R;
-import com.example.memedatabase.DBHelper;
+import com.example.memedatabase.sqlite.core.DBHelper;
 import com.example.presentation.MainActivity;
 
 import org.hamcrest.Description;

@@ -1,4 +1,4 @@
-package com.example.memedatabase;
+package com.example.memedatabase.sqlite.implementations;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.domainobjects.MemeCard;
+import com.example.memedatabase.dbinterface.BattleDeckInterface;
+import com.example.memedatabase.sqlite.core.DBContract;
+import com.example.memedatabase.sqlite.core.DBHelper;
 
 import java.util.ArrayList;
 
@@ -27,6 +30,9 @@ public class BattleDeck implements BattleDeckInterface {
         return this.dbHelper;
     }
 
+    // This returns a boolean instead of throwing an Exception because:
+    // It is not an error when inserting an already existing card into the deck, we do this a lot
+    // and we want the deck to work like a set object and simply return a boolean value.
     @Override
     public boolean insertCard(String cardName){
         // first check if the card exists in the master deck

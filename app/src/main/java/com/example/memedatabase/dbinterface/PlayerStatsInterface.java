@@ -1,4 +1,4 @@
-package com.example.memedatabase;
+package com.example.memedatabase.dbinterface;
 
 /**
  * An interface to the PlayerStats. The PlayerStats is a database table that stores player info and
