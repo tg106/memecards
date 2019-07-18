@@ -2,11 +2,11 @@ package com.example.gamelogic;
 
 import com.example.domainobjects.Event;
 import com.example.domainobjects.MemeCard;
-import com.example.memedatabase.BattleDeckStub;
-import com.example.memedatabase.EventListStub;
-import com.example.memedatabase.InsufficientCashException;
-import com.example.memedatabase.MasterDeckStub;
-import com.example.memedatabase.PlayerStatsStub;
+import com.example.memedatabase.stubs.BattleDeckStub;
+import com.example.memedatabase.stubs.EventListStub;
+import com.example.memedatabase.dbinterface.InsufficientCashException;
+import com.example.memedatabase.stubs.MasterDeckStub;
+import com.example.memedatabase.stubs.PlayerStatsStub;
 
 import org.junit.Test;
 

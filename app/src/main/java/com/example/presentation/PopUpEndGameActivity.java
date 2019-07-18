@@ -12,8 +12,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.memecards.R;
-import com.example.memedatabase.PlayerStats;
-import com.example.memedatabase.PlayerStatsInterface;
+import com.example.memedatabase.sqlite.implementations.PlayerStats;
+import com.example.memedatabase.dbinterface.PlayerStatsInterface;
 
 public class PopUpEndGameActivity extends AppCompatActivity {
 

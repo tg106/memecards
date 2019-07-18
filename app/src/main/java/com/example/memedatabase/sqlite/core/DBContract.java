@@ -1,4 +1,4 @@
-package com.example.memedatabase;
+package com.example.memedatabase.sqlite.core;
 
 import android.provider.BaseColumns;
 

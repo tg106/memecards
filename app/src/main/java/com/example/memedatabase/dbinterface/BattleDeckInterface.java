@@ -1,4 +1,4 @@
-package com.example.memedatabase;
+package com.example.memedatabase.dbinterface;
 
 import com.example.domainobjects.MemeCard;
 

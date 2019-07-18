@@ -7,12 +7,12 @@ import androidx.test.runner.AndroidJUnit4;
 
 import com.example.domainobjects.Event;
 import com.example.domainobjects.MemeCard;
-import com.example.memedatabase.BattleDeck;
-import com.example.memedatabase.DBHelper;
-import com.example.memedatabase.EventList;
-import com.example.memedatabase.InsufficientCashException;
-import com.example.memedatabase.MasterDeck;
-import com.example.memedatabase.PlayerStats;
+import com.example.memedatabase.sqlite.implementations.BattleDeck;
+import com.example.memedatabase.sqlite.core.DBHelper;
+import com.example.memedatabase.sqlite.implementations.EventList;
+import com.example.memedatabase.dbinterface.InsufficientCashException;
+import com.example.memedatabase.sqlite.implementations.MasterDeck;
+import com.example.memedatabase.sqlite.implementations.PlayerStats;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

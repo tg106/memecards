@@ -1,13 +1,14 @@
-package com.example.memedatabase;
+package com.example.memedatabase.sqlite.implementations;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.domainobjects.MemeCard;
-
-import java.util.ArrayList;
+import com.example.memedatabase.dbinterface.PlayerStatsInterface;
+import com.example.memedatabase.dbinterface.InsufficientCashException;
+import com.example.memedatabase.sqlite.core.DBContract;
+import com.example.memedatabase.sqlite.core.DBHelper;
 
 public class PlayerStats implements PlayerStatsInterface {
     private DBHelper dbHelper;

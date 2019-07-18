@@ -1,4 +1,4 @@
-package com.example.memedatabase;
+package com.example.memedatabase.sqlite.implementations;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.domainobjects.MemeCard;
+import com.example.memedatabase.dbinterface.MasterDeckInterface;
+import com.example.memedatabase.sqlite.core.DBContract;
+import com.example.memedatabase.sqlite.core.DBHelper;
 
 import java.util.ArrayList;
 
