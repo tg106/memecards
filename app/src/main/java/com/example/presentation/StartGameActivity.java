@@ -22,7 +22,7 @@ import com.example.domainobjects.Deck;
 import com.example.domainobjects.Event;
 import com.example.domainobjects.EventList;
 import com.example.domainobjects.MemeCard;
-import com.example.gamelogic.DBLoader;
+import com.example.databaseloader.DBLoader;
 import com.example.gamelogic.GameEngine;
 import com.example.memecards.R;
 import com.example.memedatabase.sqlite.implementations.BattleDeck;
