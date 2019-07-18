@@ -31,6 +31,16 @@ public class GameEngine {
         this.over = false;
     }
 
+    public GameEngine(Deck deck, int difficulty, AI_Player ai) {
+        this.deckForHuman = deck;
+        this.ai = ai;
+        this.eventList = new EventList();
+        this.scoreForAI = 0;
+        this.scoreForHuman = 0;
+        this.turn = 0;
+        this.over = false;
+    }
+
     public MemeCard moveByAI() {
         return this.ai.makeMoveForAI();
     }
