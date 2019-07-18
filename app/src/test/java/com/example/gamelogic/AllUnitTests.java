@@ -7,7 +7,8 @@ import org.junit.runners.Suite;
 
 @Suite.SuiteClasses({
         DatabaseStubTest.class,
-        GameLogicTest.class
+        GameLogicTest.class,
+        CalculateUpvotesTest.class,
 })
 
 public class AllUnitTests {
