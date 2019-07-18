@@ -22,11 +22,11 @@ import com.example.domainobjects.Deck;
 import com.example.domainobjects.Event;
 import com.example.domainobjects.EventList;
 import com.example.domainobjects.MemeCard;
+import com.example.gamelogic.DBLoader;
 import com.example.gamelogic.GameEngine;
 import com.example.memecards.R;
 import com.example.memedatabase.BattleDeck;
 import com.example.memedatabase.BattleDeckInterface;
-import com.example.gamelogic.DBLoader;
 import com.example.memedatabase.EventListInterface;
 import com.example.memedatabase.EventListStub;
 import com.example.memedatabase.MasterDeck;
@@ -46,6 +46,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
     Animation smalltobig;
     Animation bigtosmall;
     Button quit_btn;
+    boolean end;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +112,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
         makeCardClickable(false);
         displayEventAnimation();
+        end = false;
 
         if (mode == 2) {
             countdown();
@@ -146,6 +148,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                     Intent newIntent = new Intent(getApplicationContext(), PopUpEndGameActivity.class);
                     newIntent.putExtra("Win", false);
                     startActivityForResult(newIntent, 2);
+                    end = true;
                 }
             }
         }.start();
@@ -367,16 +370,16 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onTick(long millisUntilFinished) {
 
-                if (time_for_a_turn == 5) {
+                if (time_for_a_turn == 5 && !end) {
                     Toast.makeText(StartGameActivity.this, "Calculating Upvotes...",Toast.LENGTH_SHORT).show();
                 }
 
-                if (time_for_a_turn == 4) {
+                if (time_for_a_turn == 4 && !end)  {
                     Toast.makeText(StartGameActivity.this, "Updated Upvotes for both cards",Toast.LENGTH_SHORT).show();
                     updateUpvotes();;
                 }
 
-                if (time_for_a_turn == 2) {
+                if (time_for_a_turn == 2 && !end) {
                     deciseWinnerForATurn();;
                 }
 
@@ -386,14 +389,14 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onFinish() {
                 gameEngine.nextTurn();
-                if (!gameEngine.checkIfGameisOver()) {
+                if (!gameEngine.checkIfGameisOver() && !end) {
                     Toast.makeText(StartGameActivity.this, "Next Turn", Toast.LENGTH_SHORT).show();
                     time_for_a_turn = 7;
                     evL = gameEngine.generatingNewEvents();
                     displayEvents();;
                     setCardFieldVisible(false);
                     displayEventAnimation();
-                } else {
+                } else if (!end) {
                     Intent newIntent = new Intent(getApplicationContext(), PopUpEndGameActivity.class);
                     if (gameEngine.getScoreForHuman() >= 3) {
                         newIntent.putExtra("Win",  true);
