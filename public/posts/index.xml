@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on memecards</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on memecards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Jul 2019 09:13:56 -0500</lastBuildDate>
+    
+	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Postmortem</title>
+      <link>http://example.org/posts/postmortem/</link>
+      <pubDate>Thu, 18 Jul 2019 09:13:56 -0500</pubDate>
+      
+      <guid>http://example.org/posts/postmortem/</guid>
+      <description>Positive points  All members finished distributed works on time and members were enthusiastic to help those who in trouble. Members shared the ideas when they did their works so that each member could see the whole picture about this project.  Negative points  Since the coding style are different, bugs and code smells occurred when codes from different team members try to merge. We seldom held meeting face-to-face, resulting in most communications are done at Whatsapp which is not very efficient.</description>
+    </item>
+    
+    <item>
+      <title>Video</title>
+      <link>http://example.org/posts/video/</link>
+      <pubDate>Thu, 18 Jul 2019 08:48:05 -0500</pubDate>
+      
+      <guid>http://example.org/posts/video/</guid>
+      <description>For for infomation, please check out the video below. https://www.youtube.com/watch?v=h-B9voowZvk&amp;amp;feature=youtu.be</description>
+    </item>
+    
+    <item>
+      <title>Contributor</title>
+      <link>http://example.org/posts/contributor/</link>
+      <pubDate>Tue, 16 Jul 2019 13:05:36 -0500</pubDate>
+      
+      <guid>http://example.org/posts/contributor/</guid>
+      <description>Emile Bui Emile is a computer science student in University of Manitoba. Emile is creative and enthusiastic during all the three iterations. The gameplay and the interactions of battle field are designed by Emile. Emile also showed solid coding skills to help the team completing the project such as using thread to trace real time.
+Siren Chen Siren is a computer engineering student in University of Manitoba. Siren has explored many existing well-known websites for determining art style of this project.</description>
+    </item>
+    
+    <item>
+      <title>Intended_User</title>
+      <link>http://example.org/posts/intended_user/</link>
+      <pubDate>Tue, 16 Jul 2019 13:05:03 -0500</pubDate>
+      
+      <guid>http://example.org/posts/intended_user/</guid>
+      <description>The gameplay is designed to be quick and simple so that everyone can have fun anywhere, anytime. The game is aimed to be a time killer, quick entertainment for people who have some free time, whether it is long or short. There is also a quick tutorial for the first time the game is started so that everyone could pick the game up, play and enjoy immediately.</description>
+    </item>
+    
+    <item>
+      <title>Major_Functionality</title>
+      <link>http://example.org/posts/major_functionality/</link>
+      <pubDate>Tue, 16 Jul 2019 13:04:54 -0500</pubDate>
+      
+      <guid>http://example.org/posts/major_functionality/</guid>
+      <description>Card Librry - User could check the unlocked and locked card from card library. For those unlocked card, user could purchase them with currency earned from playing the card game. Also, user could edit and choose their deck of cards to play in games. There are up to 20 different cards with different funny memes for user to collect.
+Battle - User could play the card game with an AI player with AI logic we designed.</description>
+    </item>
+    
+    <item>
+      <title>Vision</title>
+      <link>http://example.org/posts/vision/</link>
+      <pubDate>Tue, 16 Jul 2019 12:36:23 -0500</pubDate>
+      
+      <guid>http://example.org/posts/vision/</guid>
+      <description>What is MemeCards? MemeCards is a fun, interactive yet simple turn-based card game that everyone can enjoy. It is a fusion of the classic Rock-paper-scissor, Pokemon, Yu-gi-oh and Memes. Players will pick their best cards to construct a deck for the battle. Each card has its own power and attributes that can be a huge advantage if used in the right situation. Players will have to use their cards effectively to reduce opponent’s Life Points.</description>
+    </item>
+    
+  </channel>
+</rss>
