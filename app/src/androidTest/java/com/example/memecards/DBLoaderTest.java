@@ -6,7 +6,7 @@ import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
 import com.example.memedatabase.DBHelper;
-import com.example.gamelogic.DBLoader;
+import com.example.databaseloader.DBLoader;
 import com.example.memedatabase.EventList;
 import com.example.memedatabase.EventListInterface;
 import com.example.memedatabase.MasterDeck;

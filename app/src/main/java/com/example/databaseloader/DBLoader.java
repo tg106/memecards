@@ -1,4 +1,4 @@
-package com.example.gamelogic;
+package com.example.databaseloader;
 
 import android.content.Context;
 

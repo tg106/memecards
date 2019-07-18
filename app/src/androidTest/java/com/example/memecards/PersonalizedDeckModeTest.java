@@ -15,7 +15,7 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.*;
 import static androidx.test.espresso.matcher.ViewMatchers.*;
 
-import com.example.gamelogic.DBLoader;
+import com.example.databaseloader.DBLoader;
 import com.example.memedatabase.DBHelper;
 import com.example.presentation.MainActivity;
 
