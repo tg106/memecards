@@ -22,7 +22,7 @@ public class Event {
         this.tag = tag;
         this.positiveEvent = b;
 
-        this.prio = (int) (Math.random()*3);
+        this.prio = (int) (Math.random()*3);        //For 3 priority in this game (Hot, New, Fluff)
     }
 
     public String getName() {

@@ -22,15 +22,15 @@ import com.example.domainobjects.Deck;
 import com.example.domainobjects.Event;
 import com.example.domainobjects.EventList;
 import com.example.domainobjects.MemeCard;
+import com.example.databaseloader.DBLoader;
 import com.example.gamelogic.GameEngine;
 import com.example.memecards.R;
-import com.example.memedatabase.BattleDeck;
-import com.example.memedatabase.BattleDeckInterface;
-import com.example.memedatabase.DBLoader;
-import com.example.memedatabase.EventListInterface;
-import com.example.memedatabase.EventListStub;
-import com.example.memedatabase.MasterDeck;
-import com.example.memedatabase.MasterDeckInterface;
+import com.example.memedatabase.sqlite.implementations.BattleDeck;
+import com.example.memedatabase.dbinterface.BattleDeckInterface;
+import com.example.memedatabase.dbinterface.EventListInterface;
+import com.example.memedatabase.stubs.EventListStub;
+import com.example.memedatabase.sqlite.implementations.MasterDeck;
+import com.example.memedatabase.dbinterface.MasterDeckInterface;
 
 import java.util.ArrayList;
 
@@ -46,6 +46,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
     Animation smalltobig;
     Animation bigtosmall;
     Button quit_btn;
+    boolean end;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +88,9 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         this.time_for_a_turn = 7;
 
         //Creating gameEngine (gamelogic)
-        this.gameEngine = new GameEngine(d, 0);
+        MasterDeckInterface aiDeckDB = new MasterDeck(this.getApplicationContext());
+        ArrayList<MemeCard> aiDeck = ((MasterDeck) aiDeckDB).retrieveAllCards();
+        this.gameEngine = new GameEngine(d, 0, aiDeck);
 
 
         displayDeck();;
@@ -109,6 +112,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
         makeCardClickable(false);
         displayEventAnimation();
+        end = false;
 
         if (mode == 2) {
             countdown();
@@ -121,19 +125,33 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
     //Time constrainst mode
     private void countdown() {
 
-        new Handler().postDelayed(new Runnable() {
+        final View tempV = findViewById(R.id.time_constraint_mode);
+        tempV.setVisibility(View.VISIBLE);
+        final TextView tempT = findViewById(R.id.time_countdown);
+
+        new CountDownTimer(30000,1000) {
+            int timer = 30;
+
             @Override
-            public void run() {
+            public void onTick(long millisUntilFinished) {
+                timer--;
+               tempT.setText(timer + "");
+            }
+
+            @Override
+            public void onFinish() {
+                tempT.setText("0");
                 if (!gameEngine.checkIfGameisOver())
                 {
                     Toast.makeText(StartGameActivity.this, "Time's up", Toast.LENGTH_SHORT).show();
                     makeCardClickable(false);
                     Intent newIntent = new Intent(getApplicationContext(), PopUpEndGameActivity.class);
                     newIntent.putExtra("Win", false);
-                    startActivity(newIntent);
+                    startActivityForResult(newIntent, 2);
+                    end = true;
                 }
             }
-        }, 30000);
+        }.start();
     }
 
     //Display the user's deck to the screen
@@ -352,16 +370,16 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onTick(long millisUntilFinished) {
 
-                if (time_for_a_turn == 5) {
+                if (time_for_a_turn == 5 && !end) {
                     Toast.makeText(StartGameActivity.this, "Calculating Upvotes...",Toast.LENGTH_SHORT).show();
                 }
 
-                if (time_for_a_turn == 4) {
+                if (time_for_a_turn == 4 && !end)  {
                     Toast.makeText(StartGameActivity.this, "Updated Upvotes for both cards",Toast.LENGTH_SHORT).show();
                     updateUpvotes();;
                 }
 
-                if (time_for_a_turn == 2) {
+                if (time_for_a_turn == 2 && !end) {
                     deciseWinnerForATurn();;
                 }
 
@@ -371,21 +389,21 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onFinish() {
                 gameEngine.nextTurn();
-                if (!gameEngine.checkIfGameisOver()) {
+                if (!gameEngine.checkIfGameisOver() && !end) {
                     Toast.makeText(StartGameActivity.this, "Next Turn", Toast.LENGTH_SHORT).show();
                     time_for_a_turn = 7;
                     evL = gameEngine.generatingNewEvents();
                     displayEvents();;
                     setCardFieldVisible(false);
                     displayEventAnimation();
-                } else {
+                } else if (!end) {
                     Intent newIntent = new Intent(getApplicationContext(), PopUpEndGameActivity.class);
                     if (gameEngine.getScoreForHuman() >= 3) {
                         newIntent.putExtra("Win",  true);
                     } else {
                         newIntent.putExtra("Win", false);
                     }
-                    startActivity(newIntent);
+                    startActivityForResult(newIntent, 2);
                 }
             }
         }.start();
@@ -538,6 +556,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
         if  ( ((View)v).getId() == R.id.ragequit_btn ) {
             check = false;
+            gameEngine.gameEnd();
             finish();
         }
 
@@ -581,6 +600,9 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 gamePlayFlow();
 
             }
+        } else if (requestCode == 2) {
+            if (resultCode == RESULT_OK)
+                finish();
         }
     }
 
@@ -615,9 +637,4 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         }, 500);
     }
 
-    @Override
-    public void finish() {
-        gameEngine.gameEnd();
-        super.finish();
-    }
 }

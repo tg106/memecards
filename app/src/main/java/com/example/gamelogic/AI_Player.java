@@ -3,6 +3,8 @@ package com.example.gamelogic;
 import com.example.domainobjects.Deck;
 import com.example.domainobjects.MemeCard;
 
+import java.util.ArrayList;
+
 public class AI_Player {
 
     private Deck ai_deck;
@@ -23,9 +25,15 @@ public class AI_Player {
         return this.difficulty;
     }
 
-    public void generatingAIDeck() {
-        if (this.difficulty == 0)
-            this.ai_deck.generatingTestDeckforAI();
+    public void generatingAIDeck(ArrayList<MemeCard> masterDeck) {
+        ArrayList<MemeCard> newDeck = new ArrayList<MemeCard>();
+
+        for (int i = 0; i < 5; i++)     //5 cards for AI
+        {
+            newDeck.add(masterDeck.get(masterDeck.size()-i-1));
+        }
+
+        ai_deck.setDeck(newDeck);
     }
 
     public MemeCard makeMoveForAI() {

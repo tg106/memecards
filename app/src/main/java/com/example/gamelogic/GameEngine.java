@@ -17,24 +17,32 @@ public class GameEngine {
     private int turn;
     private int eventCount;
     private EventList currEList;
+    private boolean over;
 
 
-    public GameEngine(Deck deck, int difficulty) {
+    public GameEngine(Deck deck, int difficulty, ArrayList<MemeCard> masterDeck) {
         this.deckForHuman = deck;
         this.ai = new AI_Player(difficulty);
         this.eventList = new EventList();
         this.scoreForAI = 0;
         this.scoreForHuman = 0;
         this.turn = 0;
-        this.ai.generatingAIDeck();
+        this.ai.generatingAIDeck(masterDeck);
+        this.over = false;
+    }
+
+    public GameEngine(Deck deck, int difficulty, AI_Player ai) {
+        this.deckForHuman = deck;
+        this.ai = ai;
+        this.eventList = new EventList();
+        this.scoreForAI = 0;
+        this.scoreForHuman = 0;
+        this.turn = 0;
+        this.over = false;
     }
 
     public MemeCard moveByAI() {
         return this.ai.makeMoveForAI();
-    }
-
-    public void generatingEventList() {
-        this.eventList.generatingTestEventList();
     }
 
     public void generatingAllEventList(ArrayList<Event> db) {
@@ -45,8 +53,8 @@ public class GameEngine {
 
         ArrayList<Event> list = new ArrayList<Event>();
 
-        for (int i = 0; i < 3; i++) {
-            if (this.eventCount < 10) {
+        for (int i = 0; i < 3; i++) {                   //These are 3 events that will be displayed in the game play
+            if (this.eventCount < eventList.getEventListLength()) {
                 list.add(this.eventList.getEventByPos(this.eventCount));
                 this.eventCount++;
             } else {
@@ -65,10 +73,10 @@ public class GameEngine {
     public int calculateNewUpv(int upv, String tag) {
         int newUpvote = upv;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {       //Calculate new upvotes base on 3 current events
             Event temp = currEList.getEventByPos(i);
 
-            if (tag.equals(temp.getTag()) && temp.checkEventPositive())
+            if (tag.equals(temp.getTag()) && temp.checkEventPositive())    //Calculation mechanic
                 newUpvote += 200*(temp.getPrio()+1);
             if (tag.equals(temp.getTag()) && !temp.checkEventPositive())
                 newUpvote -= 200*(temp.getPrio()+1);
@@ -87,23 +95,20 @@ public class GameEngine {
 
     public void nextTurn() {
         this.turn++;
+
+        if (this.turn < 5) {
+            if (scoreForHuman > 2 || scoreForAI > 2)   // BO5 game
+                this.over = true;
+        } else
+            this.over = true;
     }
 
     public boolean checkIfGameisOver() {
-        Boolean check = false;
-
-        if (this.scoreForAI > 2)
-            check = true;
-        if (this.scoreForHuman > 2)
-            check = true;
-        if (this.turn >= 5)
-            check = true;
-
-        return check;
+        return this.over;
     }
 
     public void gameEnd() {
-        this.turn = 6;
+        this.over = true;
     }
 
     public EventList getEventList() {
@@ -111,7 +116,7 @@ public class GameEngine {
     }
 
     public boolean checkAImovable() {
-        if (this.ai.getCardPosition() < 5)
+        if (this.ai.getCardPosition() < 5)  //5 cards in a deck
             return true;
         else
             return false;

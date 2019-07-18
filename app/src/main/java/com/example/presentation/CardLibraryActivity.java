@@ -21,11 +21,11 @@ import java.util.ArrayList;
 
 import com.example.domainobjects.MemeCard;
 import com.example.memecards.R;
-import com.example.memedatabase.MasterDeck;
-import com.example.memedatabase.MasterDeckInterface;
-import com.example.memedatabase.PlayerStats;
-import com.example.memedatabase.PlayerStatsInterface;
-import com.example.memedatabase.BattleDeck;
+import com.example.memedatabase.sqlite.implementations.MasterDeck;
+import com.example.memedatabase.dbinterface.MasterDeckInterface;
+import com.example.memedatabase.sqlite.implementations.PlayerStats;
+import com.example.memedatabase.dbinterface.PlayerStatsInterface;
+import com.example.memedatabase.sqlite.implementations.BattleDeck;
 
 
 public class CardLibraryActivity extends AppCompatActivity {

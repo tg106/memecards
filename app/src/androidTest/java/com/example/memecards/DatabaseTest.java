@@ -7,11 +7,12 @@ import androidx.test.runner.AndroidJUnit4;
 
 import com.example.domainobjects.Event;
 import com.example.domainobjects.MemeCard;
-import com.example.memedatabase.BattleDeck;
-import com.example.memedatabase.DBHelper;
-import com.example.memedatabase.EventList;
-import com.example.memedatabase.MasterDeck;
-import com.example.memedatabase.PlayerStats;
+import com.example.memedatabase.sqlite.implementations.BattleDeck;
+import com.example.memedatabase.sqlite.core.DBHelper;
+import com.example.memedatabase.sqlite.implementations.EventList;
+import com.example.memedatabase.dbinterface.InsufficientCashException;
+import com.example.memedatabase.sqlite.implementations.MasterDeck;
+import com.example.memedatabase.sqlite.implementations.PlayerStats;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -193,24 +194,32 @@ public class DatabaseTest {
         PlayerStats stats = new PlayerStats(appContext);
 
         // test vals
-        boolean testBool;
+        boolean testBool = false;
         int testInt;
 
         testInt = stats.getPlayerCash();
         assertEquals(testInt, 200);
 
-        testBool = stats.subtractPlayerCash(201);
-        assertFalse(testBool);
+        try {
+            stats.subtractPlayerCash(201);
+        } catch (InsufficientCashException e) {
+            testBool = true;
+        }
+        assertTrue(testBool);
 
         stats.addPlayerCash(10);
         testInt = stats.getPlayerCash();
         assertEquals(testInt, 210);
 
         stats.addPlayerCash(15);
-        testBool = stats.subtractPlayerCash(3);
+        stats.subtractPlayerCash(3);
+        try {
+            stats.subtractPlayerCash(299);
+        } catch (InsufficientCashException e) {
+            testBool = true;
+        }
         assertTrue(testBool);
-        testBool = stats.subtractPlayerCash(299);
-        assertFalse(testBool);
+
         testInt = stats.getPlayerCash();
         assertEquals(testInt, 210 + 15 - 3);
 

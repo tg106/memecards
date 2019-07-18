@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.memecards.R;
-import com.example.memedatabase.DBLoader;
+import com.example.databaseloader.DBLoader;
 
 
 public class MainActivity extends AppCompatActivity {

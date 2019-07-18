@@ -1,5 +1,6 @@
 package com.example.presentation;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -7,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.app.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -15,10 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.domainobjects.MemeCard;
 import com.example.memecards.R;
-import com.example.memedatabase.MasterDeck;
-import com.example.memedatabase.MasterDeckInterface;
-import com.example.memedatabase.BattleDeck;
-import com.example.memedatabase.BattleDeckInterface;
+import com.example.memedatabase.sqlite.implementations.BattleDeck;
+import com.example.memedatabase.dbinterface.BattleDeckInterface;
+import com.example.memedatabase.sqlite.implementations.MasterDeck;
+import com.example.memedatabase.dbinterface.MasterDeckInterface;
 
 import java.util.ArrayList;
 
@@ -54,6 +54,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         final int price;
         final int resID;
         final boolean locked;
+        final String upv;
+        final String tag;
 
         if (card.isLocked()) {
             resID = R.drawable.mystery;
@@ -61,6 +63,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             price = card.getPrice();
             locked = true;
             name = card.getName();
+            upv = "";
+            tag = "";
         }
         else {
             resID = card.getResId();
@@ -68,6 +72,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             price = 0;
             locked = false;
             name = card.getName();
+            upv = card.getUpvotesStr();
+            tag = card.getTag();
         }
 
         holder.myName.setText(card.getName());
@@ -83,6 +89,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 intent.putExtra("Locked", locked);
                 intent.putExtra("Name", name);
                 intent.putExtra("Position", position);
+                intent.putExtra("Upv", upv);
+                intent.putExtra("Tag", tag);
                 ((Activity)myContext).startActivityForResult(intent, 1);
             }
         });

@@ -5,12 +5,12 @@ import android.content.Context;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
-import com.example.memedatabase.DBHelper;
-import com.example.memedatabase.DBLoader;
-import com.example.memedatabase.EventList;
-import com.example.memedatabase.EventListInterface;
-import com.example.memedatabase.MasterDeck;
-import com.example.memedatabase.MasterDeckInterface;
+import com.example.memedatabase.sqlite.core.DBHelper;
+import com.example.databaseloader.DBLoader;
+import com.example.memedatabase.sqlite.implementations.EventList;
+import com.example.memedatabase.dbinterface.EventListInterface;
+import com.example.memedatabase.sqlite.implementations.MasterDeck;
+import com.example.memedatabase.dbinterface.MasterDeckInterface;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -2,7 +2,7 @@
   "cards" : [
     {
       "name": "Mocking Spongebob",
-      "description" : "TESt-DrIven DevELoPMEnT",
+      "description" : "I aM A rEtARd \n(this meme is so bad 1/5)",
       "upvotes" : 5900,
       "fileName" : "mocking_spongebob.jpg",
       "tag" : "Cartoon",
@@ -11,7 +11,7 @@
     },
     {
       "name": "Surprised Pikachu",
-      "description" : "Segmentation fault",
+      "description" : "Her: Haha, you're so short \nMe: Haha, you're so fat",
       "upvotes" : 2300,
       "fileName" : "surprised_pikachu.jpg",
       "tag" : "Anime",
@@ -21,7 +21,7 @@
     {
       "name": "Unsettled Tom",
       "description": "Me: *clears off table after dinner*\nDatabase team:",
-      "upvotes": 1000,
+      "upvotes": 4600,
       "fileName": "unsettled_tom.jpg",
       "tag" : "Cartoon",
       "locked" : false,
@@ -29,7 +29,7 @@
     },
     {
       "name": "Pointing Spiderman",
-      "description" : "C++ vs. C=C+1",
+      "description" : "when 2 retards shit talk each other",
       "upvotes" : 3700,
       "fileName" : "pointing_spiderman.jpg",
       "tag" : "Cartoon",
@@ -38,8 +38,8 @@
     },
     {
       "name": "Me And The Boys",
-      "description" : "Me and the group putting off drawing the architecture diagrams",
-      "upvotes" : 1300,
+      "description" : "Me and the group making a meme theme card game",
+      "upvotes" : 5300,
       "fileName" : "me_and_the_boys.png",
       "tag" : "Cartoon",
       "locked" : false,
@@ -65,7 +65,7 @@
     },
     {
       "name" : "Ah Shit",
-      "description" : "Ah Shit Here We Go Again",
+      "description" : "Mfw working on the next iteration",
       "upvotes" : 2500,
       "fileName" : "ah_shit.jpg",
       "tag" : "Gaming",
@@ -74,7 +74,7 @@
     },
     {
       "name" : "Drake",
-      "description" : "Hotline Bling" ,
+      "description" : "Use Unity to build game? Nay \nUse Android Studio to build game? YEA" ,
       "upvotes" : 3400,
       "fileName" : "drake.jpg",
       "tag" : "Music",
@@ -83,7 +83,7 @@
     },
     {
       "name" : "It Ain't Much",
-      "description" : "But it's honest work" ,
+      "description" : "Build my own shitty layout rather copying from the open source" ,
       "upvotes" : 4200,
       "fileName" : "it_aint_much.jpg",
       "tag" : "IRL",
@@ -92,7 +92,7 @@
     },
     {
       "name" : "First Half",
-      "description" : "Not gonna lie",
+      "description" : "Making a comeback on this course",
       "upvotes" : 1200,
       "fileName" : "first_half.jpg",
       "tag" : "Sports",
@@ -101,7 +101,7 @@
     },
     {
       "name" : "Expanding Brain",
-      "description" : "Expanding brain",
+      "description" : "Using spoon to eat rice instead of chopstick",
       "upvotes" : 2700,
       "fileName" : "expanding_brain.jpg",
       "tag" : "IRL",
@@ -110,7 +110,7 @@
     },
     {
       "name" : "Perfectly Balanced",
-      "description" : "As all things should be",
+      "description" : "My motivation and my lazyness",
       "upvotes" : 5100,
       "fileName" : "perfectly_balanced.jpg",
       "tag" : "Movies",
@@ -119,7 +119,7 @@
     },
     {
       "name" : "Choose Wisely",
-      "description" : "Apple",
+      "description" : "Imagine spending 1k for a stand OMEGALUL",
       "upvotes" : 700,
       "fileName" : "choose_wisely.jpg",
       "tag" : "Technology",
@@ -128,7 +128,7 @@
     },
     {
       "name" : "Confused Nick",
-      "description" : "????",
+      "description" : "Things teacher said in class",
       "upvotes" : 800,
       "fileName" : "confused_nick.jpg",
       "tag" : "Sports",
@@ -137,7 +137,7 @@
     },
     {
       "name" : "Guy Looking Back",
-      "description" : "Damn",
+      "description" : "Me remembering shit memory instead of good one",
       "upvotes" : 3000,
       "fileName" : "guy_looking_back.jpg",
       "tag" : "IRL",
@@ -146,7 +146,7 @@
     },
     {
       "name" : "Guy Stopping Another Guy",
-      "description" : "Hol up",
+      "description" : "Me chasing my goal vs reality",
       "upvotes" : 2200,
       "fileName" : "guy_stopping.png",
       "tag" : "IRL",
@@ -155,7 +155,7 @@
     },
     {
       "name" : "Smash Button",
-      "description" : "NUT",
+      "description" : "SUBSCRIBE TO PEWDIEPIE",
       "upvotes" : 1300,
       "fileName" : "smash_button.jpg",
       "tag" : "IRL",
@@ -164,7 +164,7 @@
     },
     {
       "name" : "Savage Patrick",
-      "description" : "hehe",
+      "description" : "me at 2 am",
       "upvotes" : 1100,
       "fileName" : "savage_patrick.png",
       "tag" : "IRL",
@@ -173,10 +173,55 @@
     },
     {
       "name" : "Monkey Look Away",
-      "description" : "nope",
+      "description" : "MFW The guy peeing next to me",
       "upvotes" : 3100,
       "fileName" : "monkey_look_away.png",
       "tag" : "IRL",
+      "locked" : true,
+      "price" : 100
+    },
+    {
+      "name" : "Pepe Frog",
+      "description" : "MFW I look back at my life PepeHands",
+      "upvotes" : 1500,
+      "fileName" : "card_img_pepe.jpg",
+      "tag" : "IRL",
+      "locked" : true,
+      "price" : 100
+    },
+    {
+      "name" : "Tom Cat",
+      "description" : "God father of cartoon",
+      "upvotes" : 2300,
+      "fileName" : "card_img_tomcat.jpg",
+      "tag" : "Cartoon",
+      "locked" : true,
+      "price" : 100
+    },
+    {
+      "name" : "Thanos",
+      "description" : "Strongest creature in the universe",
+      "upvotes" : 5000,
+      "fileName" : "card_img_thanos.jpg",
+      "tag" : "Movies",
+      "locked" : true,
+      "price" : 100
+    },
+    {
+      "name" : "Gachi",
+      "description" : "Manliest man on earth, spam GachiBass for ANIKI",
+      "upvotes" : 2500,
+      "fileName" : "card_img_gachi.jpg",
+      "tag" : "IRL",
+      "locked" : true,
+      "price" : 100
+    },
+    {
+      "name" : "AYAYA",
+      "description" : "Represents all weebs",
+      "upvotes" : 3000,
+      "fileName" : "card_img_ayaya.jpg",
+      "tag" : "Anime",
       "locked" : true,
       "price" : 100
     }

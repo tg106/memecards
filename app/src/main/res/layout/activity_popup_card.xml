@@ -64,8 +64,7 @@
                 android:id="@+id/popupcard_img_0"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
-                android:background="@drawable/border_test"
-                android:scaleType="centerCrop"/>
+                android:background="@drawable/border_test" />
             <TextView
                 android:id="@+id/popupcard_description_0"
                 android:layout_width="match_parent"

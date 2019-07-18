@@ -1,11 +1,11 @@
 # Vision Statement
 
 ### What is MemeCards?
-MemeCards is a fun, interactive yet simple turn-based card game that everyone can enjoy. It is a fusion of the classic Rock-paper-scissor, Pokemon, Yu-gi-oh and Memes. Players will pick their best cards to construct a deck for the battle. Each card has its own power and attributes that can be a huge advantage if used in the right situation. Players will have to use their cards effectively to reduce opponent’s Life Points. The main aim of the game is to make the opponent’s Life Points reach zero. The game ends when a player has no Life Points or card to play. 
+MemeCards is a fun, interactive yet simple turn-based card game that everyone can enjoy. It is a fusion of the classic Rock-paper-scissor, Pokemon, Yu-gi-oh and Memes. Players will pick their best cards to construct a deck for the battle. Each card has its own power and attributes that can be a huge advantage if used in the right situation. Players will have to use their cards effectively to beat the opponent in a best of of 5 match. 
 
-When playing this game, players can earn in-game currency through battle. With each win, the player will be rewarded with money to spend in the In-game Shop. Players can buy new cards, items from the shop to add to their collection. With newly collected cards, players can also use them to construct their brand new decks. Cards can also be sorted into categories so that players can easily see which one is the best to pick when constructing their deck. There is also a scoreboard to keep track of the player’s activity. These statistics are saved so that the that is able to see how they have been progressing over time.
+While playing the game, players can earn in-game currency through battle. With each win, the player will be rewarded with money to unlock new cards in the library. Players can buy new cards from the library to add to their collection. With newly collected cards, players can also use them to construct their brand new deck. Cards can also be sorted into categories so that players can easily see which one is the best to pick when constructing their deck. Players can also see how many cards in total they've unlocked. These statistics are saved so that the that is able to see how they have been progressing over time. Players also have 3 game modes to choose from, namely personalized deck mode, random deck mode and time constraint mode.
 
-### Who can use MemeCards?
+### Who is MemeCards for?
 The gameplay is designed to be quick and simple so that everyone can have fun anywhere, anytime. The game is aimed to be a time killer, quick entertainment for people who have some free time, whether it is long or short. There is also a quick tutorial for the first time the game is started so that everyone could pick the game up, play and enjoy immediately.
 
 ### Why MemeCards?

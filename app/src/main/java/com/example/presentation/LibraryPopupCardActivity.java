@@ -1,16 +1,16 @@
 package com.example.presentation;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.memecards.R;
 
@@ -22,6 +22,8 @@ public class LibraryPopupCardActivity extends AppCompatActivity {
     private int position;
     private boolean locked;
     private Button unlockButton;
+    private String upv;
+    private String tag;
 
 
     @Override
@@ -45,6 +47,8 @@ public class LibraryPopupCardActivity extends AppCompatActivity {
         this.locked = getIntent().getExtras().getBoolean("Locked");
         this.name = getIntent().getExtras().getString("Name");
         this.position = getIntent().getExtras().getInt("Position");
+        this.upv = getIntent().getExtras().getString("Upv");
+        this.tag = getIntent().getExtras().getString("Tag");
 
         this.unlockButton = (Button) findViewById(R.id.libraryPopupCardUnlockButton);
         this.unlockButton.setText("Unlock for " + price);
@@ -64,6 +68,11 @@ public class LibraryPopupCardActivity extends AppCompatActivity {
         libraryPopupCardName.setText(this.name);
         libraryPopupCardDesc.setText(this.desc);
         libraryPopupCardImage.setImageResource(this.imageID);
+
+        libraryPopupCardName = findViewById(R.id.libraryPopupCardTag);
+        libraryPopupCardName.setText(this.tag);
+        libraryPopupCardName = findViewById(R.id.libraryPopupCardATK);
+        libraryPopupCardName.setText(this.upv);
     }
 
     public void unlockCard(View v) {

@@ -12,8 +12,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.memecards.R;
-import com.example.memedatabase.PlayerStats;
-import com.example.memedatabase.PlayerStatsInterface;
+import com.example.memedatabase.sqlite.implementations.PlayerStats;
+import com.example.memedatabase.dbinterface.PlayerStatsInterface;
 
 public class PopUpEndGameActivity extends AppCompatActivity {
 
@@ -54,8 +54,9 @@ public class PopUpEndGameActivity extends AppCompatActivity {
         this.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                Intent resultIntent = new Intent();
+                setResult(RESULT_OK, resultIntent);
+                finish();
             }
         });
     }
